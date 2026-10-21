@@ -1,0 +1,777 @@
+{
+  "sources": {
+    "ai": "https://aima.cs.berkeley.edu/contents.html",
+    "ml": "https://scikit-learn.org/stable/user_guide.html",
+    "owl": "https://www.w3.org/TR/owl2-primer/",
+    "rl": "https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html",
+    "transformer": "https://arxiv.org/abs/1706.03762",
+    "foundation": "https://arxiv.org/abs/2108.07258",
+    "rag": "https://arxiv.org/abs/2005.11401",
+    "react": "https://arxiv.org/abs/2210.03629",
+    "reflexion": "https://arxiv.org/abs/2303.11366",
+    "mamba": "https://arxiv.org/abs/2312.00752",
+    "vae": "https://arxiv.org/abs/1312.6114",
+    "gan": "https://arxiv.org/abs/1406.2661",
+    "diffusion": "https://arxiv.org/abs/2006.11239",
+    "flow": "https://arxiv.org/abs/2210.02747",
+    "llada": "https://arxiv.org/abs/2502.09992",
+    "r1": "https://arxiv.org/abs/2501.12948",
+    "dpo": "https://arxiv.org/abs/2305.18290",
+    "instruct": "https://arxiv.org/abs/2203.02155",
+    "vla": "https://arxiv.org/abs/2307.15818",
+    "geometry": "https://deepmind.google/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/",
+    "world": "https://arxiv.org/abs/2506.09985",
+    "titans": "https://arxiv.org/abs/2501.00663",
+    "nested": "https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/",
+    "reflection": "https://arxiv.org/abs/2602.21198",
+    "evolve": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/"
+  },
+  "tree": [
+    {
+      "name": "1 · Computational methods — what performs the computation?",
+      "children": [
+        {
+          "name": "Symbolic knowledge and reasoning",
+          "children": [
+            {
+              "name": "Rules and expert systems",
+              "detail": "Explicit rules plus a knowledge base and an inference procedure; forward or backward chaining.",
+              "source": null,
+              "id": "topic-001"
+            },
+            {
+              "name": "Logic, theorem proving and program synthesis",
+              "detail": "Deduction, proof search and construction of programs satisfying a specification.",
+              "source": null,
+              "id": "topic-002"
+            },
+            {
+              "name": "Ontologies and knowledge graphs",
+              "detail": "Structured entities, relations and axioms; reasoning requires suitable semantics and inference machinery.",
+              "source": "owl",
+              "id": "topic-003"
+            },
+            {
+              "name": "Fuzzy logic",
+              "detail": "Degrees of membership or truth for vague concepts; these are not the same as probabilities.",
+              "source": null,
+              "id": "topic-004"
+            },
+            {
+              "name": "Case-based reasoning",
+              "detail": "Retrieve and adapt solutions from similar previous cases.",
+              "source": null,
+              "id": "topic-005"
+            }
+          ],
+          "open": false,
+          "id": "group-1-computational-methods-what-performs-the-computation-symbolic-knowledge-and-reasoning"
+        },
+        {
+          "name": "Search, planning and optimization",
+          "children": [
+            {
+              "name": "State-space and heuristic search",
+              "detail": "Breadth/depth-first search, A*, beam search and related exploration strategies.",
+              "source": null,
+              "id": "topic-006"
+            },
+            {
+              "name": "Game-tree and Monte Carlo tree search",
+              "detail": "Minimax, alpha–beta pruning and MCTS; often combined with learned policies or value estimates.",
+              "source": null,
+              "id": "topic-007"
+            },
+            {
+              "name": "Constraint solving",
+              "detail": "Constraint satisfaction, SAT/SMT and mathematical optimization; also widely used outside AI.",
+              "source": null,
+              "id": "topic-008"
+            },
+            {
+              "name": "Automated and decision-theoretic planning",
+              "detail": "Classical/temporal planning, hierarchical task networks and planning under uncertainty.",
+              "source": null,
+              "id": "topic-009"
+            },
+            {
+              "name": "Evolutionary and population methods",
+              "detail": "Genetic algorithms/programming, evolution strategies and swarm methods; not inherently symbolic.",
+              "source": null,
+              "id": "topic-010"
+            },
+            {
+              "name": "Bayesian optimization",
+              "detail": "A probabilistic surrogate and acquisition rule guide expensive evaluations; overlaps probabilistic ML.",
+              "source": null,
+              "id": "topic-011"
+            },
+            {
+              "id": "topic-092",
+              "name": "Symbolic regression and equation discovery",
+              "detail": "Search for compact mathematical expressions or sparse governing equations that explain observed data."
+            }
+          ],
+          "open": false,
+          "id": "group-1-computational-methods-what-performs-the-computation-search-planning-and-optimization"
+        },
+        {
+          "name": "Machine learning — including neural methods",
+          "children": [
+            {
+              "name": "Classical statistical models",
+              "children": [
+                {
+                  "name": "Regression and generalized linear models",
+                  "detail": "Linear/logistic regression and related regularized predictive models.",
+                  "source": "ml",
+                  "id": "topic-012"
+                },
+                {
+                  "name": "Trees and ensembles",
+                  "detail": "Decision trees, random forests, gradient boosting, bagging and stacking.",
+                  "source": "ml",
+                  "id": "topic-013"
+                },
+                {
+                  "name": "Kernel and instance-based methods",
+                  "detail": "Support vector machines, kernel methods and nearest-neighbour models.",
+                  "source": "ml",
+                  "id": "topic-014"
+                },
+                {
+                  "name": "Clustering and dimensionality reduction",
+                  "detail": "k-means, density-based clustering, PCA, manifold methods and matrix factorization.",
+                  "source": "ml",
+                  "id": "topic-015"
+                }
+              ],
+              "open": false,
+              "id": "group-1-computational-methods-what-performs-the-computation-machine-learning-including-neural-methods-classical-statistical-models"
+            },
+            {
+              "name": "Probabilistic and causal models",
+              "children": [
+                {
+                  "name": "Bayesian and graphical models",
+                  "detail": "Bayesian networks, Markov models, hidden-state models and probabilistic inference.",
+                  "source": null,
+                  "id": "topic-016"
+                },
+                {
+                  "name": "Gaussian processes and probabilistic programming",
+                  "detail": "Distributions over functions or programs for inference with explicit uncertainty.",
+                  "source": null,
+                  "id": "topic-017"
+                },
+                {
+                  "name": "Structural causal models",
+                  "detail": "Represent interventions and causal assumptions; causal conclusions require identification conditions, not correlations alone.",
+                  "source": null,
+                  "id": "topic-018"
+                }
+              ],
+              "open": false,
+              "id": "group-1-computational-methods-what-performs-the-computation-machine-learning-including-neural-methods-probabilistic-and-causal-models"
+            },
+            {
+              "name": "Neural architectures and deep learning",
+              "children": [
+                {
+                  "name": "Feed-forward networks / MLPs",
+                  "detail": "Learned compositions of nonlinear transformations; a basic neural architecture.",
+                  "source": null,
+                  "id": "topic-019"
+                },
+                {
+                  "name": "Convolutional networks / CNNs",
+                  "detail": "Use shared local filters and spatial structure; also apply to time series and other grids.",
+                  "source": null,
+                  "id": "topic-020"
+                },
+                {
+                  "name": "Recurrent networks / LSTM / GRU",
+                  "detail": "Maintain sequential hidden state for time series, text and other ordered signals.",
+                  "source": null,
+                  "id": "topic-021"
+                },
+                {
+                  "name": "Transformers and attention",
+                  "detail": "Attention-based sequence/representation architectures; training can parallelize token processing.",
+                  "source": "transformer",
+                  "id": "topic-022"
+                },
+                {
+                  "name": "State-space and recurrent–attention hybrids",
+                  "detail": "Selective state-space models such as Mamba and mixtures of recurrence with attention.",
+                  "source": "mamba",
+                  "id": "topic-023"
+                },
+                {
+                  "name": "Graph neural networks / GNNs",
+                  "detail": "Learn from graph structure, often by propagating and aggregating node or edge information.",
+                  "source": null,
+                  "id": "topic-024"
+                },
+                {
+                  "name": "Mixture of experts / MoE",
+                  "detail": "A router selects expert subnetworks; this is distinct from a team of software agents.",
+                  "source": null,
+                  "id": "topic-025"
+                },
+                {
+                  "name": "Spiking and reservoir networks",
+                  "detail": "Event-based neurons or fixed recurrent dynamics with trained readouts; specialised and research uses.",
+                  "source": null,
+                  "id": "topic-026"
+                }
+              ],
+              "open": false,
+              "id": "group-1-computational-methods-what-performs-the-computation-machine-learning-including-neural-methods-neural-architectures-and-deep-learning"
+            },
+            {
+              "name": "Generative formulations — can share architectures",
+              "children": [
+                {
+                  "name": "Autoregressive models",
+                  "detail": "Generate by conditioning each element on earlier elements; not limited to text or transformers.",
+                  "source": null,
+                  "id": "topic-027"
+                },
+                {
+                  "name": "Variational autoencoders / VAEs",
+                  "detail": "Latent-variable generation trained with variational inference.",
+                  "source": "vae",
+                  "id": "topic-028"
+                },
+                {
+                  "name": "Generative adversarial networks / GANs",
+                  "detail": "Train a generator against a discriminator.",
+                  "source": "gan",
+                  "id": "topic-029"
+                },
+                {
+                  "name": "Diffusion and score-based models",
+                  "detail": "Generate through learned reversal of a corruption/noising process.",
+                  "source": "diffusion",
+                  "id": "topic-030"
+                },
+                {
+                  "name": "Normalizing flows and flow matching",
+                  "detail": "Learn transformations or vector fields transporting a base distribution towards data.",
+                  "source": "flow",
+                  "id": "topic-031"
+                },
+                {
+                  "name": "Energy-based models",
+                  "detail": "Assign an energy to configurations, with inference or sampling favouring lower-energy states.",
+                  "source": null,
+                  "id": "topic-032"
+                },
+                {
+                  "name": "Diffusion language models",
+                  "detail": "Iterative token denoising is an alternative to strictly left-to-right language generation.",
+                  "source": "llada",
+                  "id": "topic-033"
+                }
+              ],
+              "open": false,
+              "id": "group-1-computational-methods-what-performs-the-computation-machine-learning-including-neural-methods-generative-formulations-can-share-architectures"
+            }
+          ],
+          "open": true,
+          "id": "group-1-computational-methods-what-performs-the-computation-machine-learning-including-neural-methods"
+        },
+        {
+          "name": "State estimation and control — adjacent foundations",
+          "id": "group-087-state",
+          "children": [
+            {
+              "id": "topic-087",
+              "name": "State estimation: Kalman and particle filters",
+              "detail": "Infer a changing hidden state from noisy measurements and a dynamics model; a classical foundation adjacent to AI."
+            },
+            {
+              "id": "topic-088",
+              "name": "Optimal control and model predictive control",
+              "detail": "Optimize actions through a dynamics model and constraints; MPC repeatedly replans over a moving horizon."
+            }
+          ],
+          "open": false
+        }
+      ],
+      "open": true,
+      "id": "group-1-computational-methods-what-performs-the-computation-"
+    },
+    {
+      "name": "2 · Learning and adaptation — how does behaviour improve?",
+      "children": [
+        {
+          "name": "Learning signals",
+          "children": [
+            {
+              "name": "Supervised learning",
+              "detail": "Learn from externally supplied target labels or values.",
+              "source": "ml",
+              "id": "topic-034"
+            },
+            {
+              "name": "Unsupervised learning",
+              "detail": "Discover structure or model distributions without externally supplied task labels.",
+              "source": "ml",
+              "id": "topic-035"
+            },
+            {
+              "name": "Semi-supervised learning",
+              "detail": "Combine labelled and unlabelled examples; pseudo-labelling is one possible method.",
+              "source": "ml",
+              "id": "topic-036"
+            },
+            {
+              "name": "Self-supervised learning",
+              "detail": "Derive prediction targets from the data itself, such as masked content, next tokens or paired views.",
+              "source": "foundation",
+              "id": "topic-037"
+            },
+            {
+              "name": "Imitation learning",
+              "detail": "Learn behaviour from demonstrations; includes behavioural cloning and interactive variants.",
+              "source": "rl",
+              "id": "topic-038"
+            }
+          ],
+          "open": false,
+          "id": "group-2-learning-and-adaptation-how-does-behaviour-improve-learning-signals"
+        },
+        {
+          "name": "Reinforcement learning — several independent axes",
+          "children": [
+            {
+              "name": "Model-free ↔ model-based",
+              "detail": "Whether learning/planning uses an explicit environment dynamics model.",
+              "source": "rl",
+              "id": "topic-039"
+            },
+            {
+              "name": "Value-based ↔ policy-based ↔ actor–critic",
+              "detail": "How action values and/or the action-selection policy are represented and optimized.",
+              "source": "rl",
+              "id": "topic-040"
+            },
+            {
+              "name": "Online ↔ offline; on-policy ↔ off-policy",
+              "detail": "Data collection and policy relationships are separate choices, not one exclusive hierarchy.",
+              "source": "rl",
+              "id": "topic-041"
+            },
+            {
+              "name": "Deep RL, hierarchical RL and multi-agent RL",
+              "detail": "Neural function approximation, temporal abstraction and multiple interacting learners.",
+              "source": "rl",
+              "id": "topic-042"
+            }
+          ],
+          "open": false,
+          "id": "group-2-learning-and-adaptation-how-does-behaviour-improve-reinforcement-learning-several-independent-axes"
+        },
+        {
+          "name": "Post-training and preferences",
+          "children": [
+            {
+              "name": "Instruction / supervised fine-tuning",
+              "detail": "Adapt a pretrained model using task demonstrations and instruction–response examples.",
+              "source": "foundation",
+              "id": "topic-043"
+            },
+            {
+              "name": "RLHF / RLAIF",
+              "detail": "Reinforcement learning from human or AI feedback, often through a learned reward model.",
+              "source": "instruct",
+              "id": "topic-044"
+            },
+            {
+              "name": "Preference optimization / DPO",
+              "detail": "Optimize directly from preferences; DPO does not require a separate online RL loop.",
+              "source": "dpo",
+              "id": "topic-045"
+            },
+            {
+              "name": "RL with verifiable rewards / RLVR",
+              "detail": "Reward outputs using programmatic checks, such as test results or mathematical answers.",
+              "source": "r1",
+              "id": "topic-046"
+            }
+          ],
+          "open": false,
+          "id": "group-2-learning-and-adaptation-how-does-behaviour-improve-post-training-and-preferences"
+        },
+        {
+          "name": "Adaptation and data selection",
+          "children": [
+            {
+              "name": "Transfer learning / domain adaptation / multitask learning",
+              "detail": "Reuse or jointly learn representations across tasks or distributions.",
+              "source": "foundation",
+              "id": "topic-047"
+            },
+            {
+              "name": "Active learning",
+              "detail": "Select the examples whose labels are expected to be most useful.",
+              "source": "ml",
+              "id": "topic-048"
+            },
+            {
+              "name": "Meta-learning",
+              "detail": "Learn an initialization, update rule or representation that supports rapid adaptation.",
+              "source": null,
+              "id": "topic-049"
+            },
+            {
+              "name": "Online and continual learning",
+              "detail": "Update as data/tasks arrive while managing drift and interference with earlier learning.",
+              "source": "nested",
+              "id": "topic-050"
+            },
+            {
+              "name": "Test-time learning / learned memory",
+              "detail": "Update parameters or learned memory at inference time; distinct from simply spending more compute.",
+              "source": "titans",
+              "id": "topic-051"
+            },
+            {
+              "name": "In-context learning",
+              "detail": "Adapt outputs using examples/context without necessarily updating model weights.",
+              "source": "foundation",
+              "id": "topic-052"
+            }
+          ],
+          "open": false,
+          "id": "group-2-learning-and-adaptation-how-does-behaviour-improve-adaptation-and-data-selection"
+        }
+      ],
+      "open": false,
+      "id": "group-2-learning-and-adaptation-how-does-behaviour-improve-"
+    },
+    {
+      "name": "3 · Model roles — what does the model represent or produce?",
+      "children": [
+        {
+          "name": "Scope and reuse",
+          "children": [
+            {
+              "name": "Foundation models",
+              "detail": "Broad pretraining with reuse across tasks; can be generative or representation models.",
+              "source": "foundation",
+              "id": "topic-053"
+            },
+            {
+              "name": "Task-specific and domain-specialised models",
+              "detail": "Scope/specialisation choices that can overlap foundation-model adaptation.",
+              "source": "foundation",
+              "id": "topic-054"
+            },
+            {
+              "name": "Small / edge / compact models",
+              "detail": "Size and deployment properties; not a separate learning paradigm.",
+              "source": null,
+              "id": "topic-055"
+            }
+          ],
+          "open": false,
+          "id": "group-3-model-roles-what-does-the-model-represent-or-produce-scope-and-reuse"
+        },
+        {
+          "name": "Modalities and interfaces",
+          "children": [
+            {
+              "name": "Language models / LLMs",
+              "detail": "Models of language or token sequences; modern examples need not all be autoregressive.",
+              "source": "llada",
+              "id": "topic-056"
+            },
+            {
+              "name": "Vision, audio, video and multimodal models",
+              "detail": "Single-modal or cross-modal inputs/outputs; capabilities need not be symmetric.",
+              "source": "foundation",
+              "id": "topic-057"
+            },
+            {
+              "name": "Embedding, ranking and predictive models",
+              "detail": "Produce representations, relevance scores or forecasts rather than generated content.",
+              "source": "ml",
+              "id": "topic-058"
+            },
+            {
+              "name": "Vision–language–action / VLA models",
+              "detail": "Map visual and linguistic context into robot actions; embodied deployment remains task dependent.",
+              "source": "vla",
+              "id": "topic-059"
+            }
+          ],
+          "open": false,
+          "id": "group-3-model-roles-what-does-the-model-represent-or-produce-modalities-and-interfaces"
+        },
+        {
+          "name": "Dynamics and scientific structure",
+          "children": [
+            {
+              "name": "World models",
+              "detail": "Predict environment evolution, often conditioned on actions; can operate in latent, symbolic or observable space.",
+              "source": "world",
+              "id": "topic-060"
+            },
+            {
+              "name": "Physics-informed and scientific ML",
+              "detail": "Combine learned models with equations, symmetries, physical constraints or numerical solvers.",
+              "source": null,
+              "id": "topic-061"
+            },
+            {
+              "name": "Neural operators",
+              "detail": "Learn mappings between functions, for example solution operators for families of physical systems.",
+              "source": null,
+              "id": "topic-062"
+            }
+          ],
+          "open": false,
+          "id": "group-3-model-roles-what-does-the-model-represent-or-produce-dynamics-and-scientific-structure"
+        },
+        {
+          "name": "Detection and monitoring",
+          "id": "group-086-detection",
+          "children": [
+            {
+              "id": "topic-086",
+              "name": "Anomaly and novelty detection",
+              "detail": "Score unusual observations with isolation, density, distance, reconstruction or one-class methods."
+            }
+          ],
+          "open": false
+        }
+      ],
+      "open": false,
+      "id": "group-3-model-roles-what-does-the-model-represent-or-produce-"
+    },
+    {
+      "name": "4 · System patterns — how are components combined?",
+      "children": [
+        {
+          "name": "Retrieval and external knowledge",
+          "children": [
+            {
+              "name": "Retrieval-augmented generation / RAG",
+              "detail": "Retrieve external evidence and condition generation on it; retrieval need not use a vector database.",
+              "source": "rag",
+              "id": "topic-063"
+            },
+            {
+              "name": "Graph-augmented and structured retrieval",
+              "detail": "Retrieve over graphs, relations or structured queries; a graph alone does not establish logical reasoning.",
+              "source": null,
+              "id": "topic-064"
+            },
+            {
+              "name": "Hybrid retrieval and reranking",
+              "detail": "Combine lexical, vector or structured retrieval and relevance scoring.",
+              "source": null,
+              "id": "topic-065"
+            }
+          ],
+          "open": false,
+          "id": "group-4-system-patterns-how-are-components-combined-retrieval-and-external-knowledge"
+        },
+        {
+          "name": "Agents and orchestration",
+          "children": [
+            {
+              "name": "Tool-using agents",
+              "detail": "Select actions, call tools, observe results and continue towards a goal.",
+              "source": "react",
+              "id": "topic-066"
+            },
+            {
+              "name": "Planning and workflow controllers",
+              "detail": "Use plans, state machines, decomposition, checkpoints and replanning to coordinate work.",
+              "source": "react",
+              "id": "topic-067"
+            },
+            {
+              "name": "Multi-agent systems",
+              "detail": "Several agents coordinate, negotiate or compete; more agents do not inherently imply better results.",
+              "source": null,
+              "id": "topic-068"
+            },
+            {
+              "name": "External memory and episodic retrieval",
+              "detail": "Store/retrieve past events or lessons; no weight update is required.",
+              "source": "reflexion",
+              "id": "topic-069"
+            }
+          ],
+          "open": false,
+          "id": "group-4-system-patterns-how-are-components-combined-agents-and-orchestration"
+        },
+        {
+          "name": "Reasoning and computation at inference time",
+          "children": [
+            {
+              "name": "Deliberation and test-time compute",
+              "detail": "Allocate more generation, sampling, search or verification to a problem.",
+              "source": "r1",
+              "id": "topic-070"
+            },
+            {
+              "name": "Self-consistency and candidate search",
+              "detail": "Generate alternatives and use aggregation, search or ranking to select an answer.",
+              "source": null,
+              "id": "topic-071"
+            },
+            {
+              "name": "Verifier-guided reasoning",
+              "detail": "Use tests, solvers, proof checkers or other external feedback to evaluate candidates.",
+              "source": "geometry",
+              "id": "topic-072"
+            },
+            {
+              "name": "Metacognitive monitoring and control",
+              "detail": "Estimate uncertainty/failure, choose another strategy, gather evidence or abstain; self-critique alone is not verification.",
+              "source": "reflection",
+              "id": "topic-073"
+            }
+          ],
+          "open": false,
+          "id": "group-4-system-patterns-how-are-components-combined-reasoning-and-computation-at-inference-time"
+        },
+        {
+          "name": "Hybrid and neuro-symbolic integration",
+          "children": [
+            {
+              "name": "Neural proposals + symbolic reasoning",
+              "detail": "Neural models propose representations or steps; symbolic engines derive or check consequences.",
+              "source": "geometry",
+              "id": "topic-074"
+            },
+            {
+              "name": "Differentiable logic and constrained learning",
+              "detail": "Bring logical or domain constraints into learning objectives or differentiable inference.",
+              "source": null,
+              "id": "topic-075"
+            },
+            {
+              "name": "Learning + planning + simulation",
+              "detail": "Combine policies/value models with search and predictive environment models.",
+              "source": "world",
+              "id": "topic-076"
+            },
+            {
+              "name": "LLMs + evolutionary search + evaluators",
+              "detail": "Generate candidate algorithms, evaluate them and iteratively improve the candidate population.",
+              "source": "evolve",
+              "id": "topic-077"
+            }
+          ],
+          "open": false,
+          "id": "group-4-system-patterns-how-are-components-combined-hybrid-and-neuro-symbolic-integration"
+        }
+      ],
+      "open": false,
+      "id": "group-4-system-patterns-how-are-components-combined-"
+    },
+    {
+      "name": "5 · Cross-cutting engineering — how is it efficient and dependable?",
+      "children": [
+        {
+          "name": "Efficiency and deployment",
+          "children": [
+            {
+              "name": "Distillation / pruning / quantization",
+              "detail": "Transfer behaviour to smaller models, remove parameters or reduce numerical precision.",
+              "source": null,
+              "id": "topic-078"
+            },
+            {
+              "name": "Parameter-efficient tuning / LoRA / adapters",
+              "detail": "Adapt a subset or low-rank parameterization instead of updating every weight.",
+              "source": null,
+              "id": "topic-079"
+            },
+            {
+              "name": "Federated and privacy-preserving learning",
+              "detail": "Distribute training or protect data/updates; federated learning alone does not guarantee privacy.",
+              "source": null,
+              "id": "topic-080"
+            },
+            {
+              "name": "Speculative decoding / caching / routing",
+              "detail": "Improve serving efficiency; these do not constitute new model intelligence by themselves.",
+              "source": null,
+              "id": "topic-081"
+            },
+            {
+              "id": "topic-093",
+              "name": "Empirical scaling laws and compute allocation",
+              "detail": "Fit relationships between model size, data, compute and measured performance to guide training experiments."
+            }
+          ],
+          "open": false,
+          "id": "group-5-cross-cutting-engineering-how-is-it-efficient-and-dependable-efficiency-and-deployment"
+        },
+        {
+          "name": "Uncertainty, checking and oversight",
+          "children": [
+            {
+              "name": "Calibration and uncertainty estimation",
+              "detail": "Assess how predictive uncertainty corresponds to observed errors; requires evaluation data.",
+              "source": null,
+              "id": "topic-082"
+            },
+            {
+              "name": "Conformal prediction and selective prediction",
+              "detail": "Construct prediction sets under stated assumptions, or abstain on uncertain cases.",
+              "source": null,
+              "id": "topic-083"
+            },
+            {
+              "name": "Constraints, validation and formal verification",
+              "detail": "Check specified properties; a proof or validation result is limited by its specification and assumptions.",
+              "source": "geometry",
+              "id": "topic-084"
+            },
+            {
+              "name": "Interpretability, provenance and human review",
+              "detail": "Make evidence, behaviour and decision responsibilities inspectable; not proof of correctness.",
+              "source": null,
+              "id": "topic-085"
+            }
+          ],
+          "open": false,
+          "id": "group-5-cross-cutting-engineering-how-is-it-efficient-and-dependable-uncertainty-checking-and-oversight"
+        },
+        {
+          "name": "Evaluation, security and governance",
+          "id": "group-089-evaluation,",
+          "children": [
+            {
+              "id": "topic-089",
+              "name": "Adversarial robustness and AI security",
+              "detail": "Assess deliberate input manipulation and protect model, data and tool trust boundaries, including prompt injection."
+            },
+            {
+              "id": "topic-090",
+              "name": "Evaluation, benchmarking and data leakage",
+              "detail": "Design representative tests, separate fitting from assessment, and measure quality, uncertainty, cost and failure modes."
+            },
+            {
+              "id": "topic-091",
+              "name": "Fairness, bias assessment and data governance",
+              "detail": "Examine who benefits or bears errors, choose explicit fairness criteria, and document how data is collected and used."
+            }
+          ],
+          "open": false
+        }
+      ],
+      "open": false,
+      "id": "group-5-cross-cutting-engineering-how-is-it-efficient-and-dependable-"
+    }
+  ]
+}

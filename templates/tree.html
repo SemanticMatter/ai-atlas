@@ -1,0 +1,87 @@
+<div id="ai-classification-tree">
+  <h2>AI techniques: a faceted classification tree</h2>
+  <div class="text-small text-muted">Research snapshot · <!--__SNAPSHOT_DATE__--> · Branches are complementary, not mutually exclusive</div>
+  <div id="ai-tree" aria-label="Expandable classification of artificial intelligence techniques"></div>
+  <div class="card" id="ai-tree-detail" aria-live="polite">Selected: Artificial intelligence · A system can combine techniques from several branches.</div>
+  <section id="ai-tree-glossary" aria-labelledby="ai-tree-glossary-title" hidden><button type="button" class="btn" id="ai-tree-glossary-close" aria-label="Close glossary">Close</button><h2 id="ai-tree-glossary-title" tabindex="-1">Six words to start with</h2><dl></dl></section>
+  <style>
+    #ai-classification-tree{overflow-anchor:none}
+    #ai-tree-glossary{margin-top:18px;border:1px solid #dce4d3;border-radius:12px;padding:18px;background:#fbfcf9;color:#263b2c}
+    #ai-tree-glossary-close{float:right;margin:0 0 10px 10px}
+    #ai-tree-glossary h2{font-size:26px;line-height:1.25}#ai-tree-glossary dl{margin-top:24px}
+    #ai-tree-glossary dt{font-weight:600;margin-top:17px}#ai-tree-glossary dd{margin:6px 0 0;font-size:14px;line-height:1.7}
+    #ai-classification-tree #ai-tree-detail .plain-intro h3{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;align-items:baseline}
+    #ai-classification-tree #ai-tree-detail .plain-intro h3 a{font-size:12px;font-weight:400;margin:0;text-decoration:underline;text-underline-offset:3px}
+    #ai-classification-tree .plain-intro p{white-space:pre-line}
+    #ai-classification-tree #ai-tree {margin: 20px 0;}
+    #ai-classification-tree .tree-children {margin-left: 12px; padding-left: 16px; border-left: 1px solid var(--border);}
+    #ai-classification-tree details {margin: 8px 0;}
+    #ai-classification-tree summary {padding: 8px 0; font-weight: 500; overflow-wrap: anywhere;}
+    #ai-classification-tree .tree-leaf {margin: 5px 0;}
+    #ai-classification-tree .tree-label {display: inline;}
+    #ai-classification-tree #ai-tree-detail a {margin-left: 8px;}
+    @media (max-width: 480px) {
+      #ai-classification-tree .tree-children {margin-left: 5px; padding-left: 9px;}
+      #ai-tree-glossary{padding:12px}
+    }
+      #ai-classification-tree .learning-note{margin-top:20px}
+    #ai-classification-tree .learning-note h3{font-size:13px;margin:0 0 7px}
+    #ai-classification-tree .learning-note p{font-size:14px;line-height:1.65;margin:0}
+    #ai-classification-tree .plain-intro{padding:15px 17px;border-left:3px solid #9cb586;border-radius:0 8px 8px 0;background:#f0f5e9;color:#405538}
+    #ai-classification-tree .learning-note p{overflow-wrap:break-word}
+    #ai-classification-tree .learning-note .technical-lead{margin-bottom:12px}
+    #ai-classification-tree #ai-tree-detail .learning-note a{display:block;margin:7px 0}
+  </style>
+  <script>
+  (() => {
+    const root = document.getElementById('ai-classification-tree');
+    const atlas = /*__ATLAS_DATA__*/;
+    const tree=atlas.tree;
+    const learningNotes=new Map(atlas.topics.map(t=>[t.id,t]));
+    const container = root.querySelector('#ai-tree');
+    const detail = root.querySelector('#ai-tree-detail');
+    const glossary=root.querySelector('#ai-tree-glossary');
+    const glossaryList=glossary.querySelector('dl');
+    atlas.glossary.forEach(g=>{const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=g.term;dd.textContent=g.definition;glossaryList.append(dt,dd);});
+    let glossaryTrigger;
+    function closeGlossary(){glossary.hidden=true;if(glossaryTrigger){glossaryTrigger.setAttribute('aria-expanded','false');glossaryTrigger.focus();}}
+    root.querySelector('#ai-tree-glossary-close').addEventListener('click',closeGlossary);
+    glossary.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();closeGlossary();}});
+    function addNode(node, parent) {
+      if (node.children) {
+        const d=document.createElement('details'); d.open=!!node.open;
+        const s=document.createElement('summary'); s.className='cursor-interaction'; s.textContent=node.name;
+        const c=document.createElement('div'); c.className='tree-children';
+        d.append(s,c); parent.append(d); node.children.forEach(n=>addNode(n,c));
+      } else {
+        const row=document.createElement('div'); row.className='tree-leaf';
+        const b=document.createElement('button'); b.type='button'; b.className='btn viz-tile'; b.textContent=node.name; b.setAttribute('aria-pressed','false');
+        b.addEventListener('click',()=>{
+          container.querySelectorAll('button[aria-pressed="true"]').forEach(el=>el.setAttribute('aria-pressed','false'));
+          b.setAttribute('aria-pressed','true');glossary.hidden=true;root.append(glossary);detail.replaceChildren();row.append(detail);
+          const label=document.createElement('span'); label.textContent=node.name; detail.append(label);
+          const note=learningNotes.get(node.id);
+          if(note){
+            for(const [heading,key] of [['In plain words','plain'],['The idea','context'],['In practice · illustrative example','example'],['What to keep in mind','limitation']]){
+              const section=document.createElement('section');section.className='learning-note';
+              const h=document.createElement('h3');h.textContent=heading;section.append(h);
+              if(key==='plain'){
+                section.classList.add('plain-intro');
+                const help=document.createElement('a');help.href='#ai-tree-glossary';help.textContent='Six key words';help.setAttribute('aria-controls','ai-tree-glossary');help.setAttribute('aria-expanded','false');
+                help.addEventListener('click',e=>{e.preventDefault();if(!glossary.hidden){closeGlossary();return;}glossaryTrigger=help;section.after(glossary);glossary.hidden=false;help.setAttribute('aria-expanded','true');requestAnimationFrame(()=>requestAnimationFrame(()=>help.scrollIntoView({block:'start',behavior:'instant'})));});h.append(help);
+              }
+              if(key==='context'){const lead=document.createElement('p');lead.className='technical-lead';lead.textContent=node.detail;section.append(lead);}
+              const p=document.createElement('p');p.textContent=note[key];section.append(p);detail.append(section);
+            }
+            const refs=document.createElement('section');refs.className='learning-note';
+            const h=document.createElement('h3');h.textContent='Go to the source';refs.append(h);
+            note.refs.forEach(ref=>{const a=document.createElement('a');a.href=ref.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=ref.title+' ↗';refs.append(a);const audit=atlas.linkChecks[ref.url];if(audit){const status=document.createElement('small');status.style.display='block';status.className='text-muted';status.textContent='HTTP availability: '+audit.state.replaceAll('_',' ')+(audit.http_status?' ('+audit.http_status+')':'')+' · '+audit.checked_at.slice(0,10)+' · not a content verification';refs.append(status);}});detail.append(refs);
+          }
+        });
+        row.append(b); parent.append(row);
+      }
+    }
+    tree.forEach(n=>addNode(n,container));
+  })();
+  </script>
+</div>

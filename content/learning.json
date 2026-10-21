@@ -1,0 +1,229 @@
+{
+  "journeys": [
+    {
+      "id": "foundations",
+      "title": "First steps: understanding AI",
+      "description": "Start with rules and search. See how examples teach a model, then explore text, tools and checks. Begin with six key words, then follow the steps. Read each plain-language introduction before choosing whether to go deeper.",
+      "topics": [
+        "topic-001",
+        "topic-006",
+        "topic-034",
+        "topic-035",
+        "topic-019",
+        "topic-037",
+        "topic-056",
+        "topic-063",
+        "topic-066",
+        "topic-082",
+        "topic-089",
+        "topic-090",
+        "topic-085"
+      ]
+    },
+    {
+      "id": "language-systems",
+      "title": "How modern language systems work",
+      "description": "Follow a language application from its architecture and training to external knowledge, tool use and the checks that make its results more useful.",
+      "topics": [
+        "topic-027",
+        "topic-022",
+        "topic-052",
+        "topic-043",
+        "topic-063",
+        "topic-066",
+        "topic-070",
+        "topic-072"
+      ]
+    },
+    {
+      "id": "industrial-trust",
+      "title": "Building trustworthy industrial AI",
+      "description": "Connect explicit knowledge, evidence retrieval, constraints and uncertainty. Explore what makes an answer inspectable and when the system should defer.",
+      "topics": [
+        "topic-003",
+        "topic-018",
+        "topic-064",
+        "topic-074",
+        "topic-082",
+        "topic-083",
+        "topic-084",
+        "topic-073",
+        "topic-085",
+        "topic-089",
+        "topic-091"
+      ]
+    },
+    {
+      "id": "prediction-action",
+      "title": "From prediction to action",
+      "description": "Learn how models, policies, planning and simulation work together when an AI system has to choose actions in an environment.",
+      "topics": [
+        "topic-009",
+        "topic-087",
+        "topic-088",
+        "topic-038",
+        "topic-039",
+        "topic-040",
+        "topic-041",
+        "topic-059",
+        "topic-060",
+        "topic-076"
+      ]
+    },
+    {
+      "id": "monitoring",
+      "title": "From sensor data to useful alerts",
+      "description": "Build a monitoring workflow: estimate hidden states, detect unusual behavior, evaluate rare-event alerts, and decide when to investigate. Connect model quality to operational decisions.",
+      "topics": [
+        "topic-021",
+        "topic-026",
+        "topic-017",
+        "topic-087",
+        "topic-086",
+        "topic-090",
+        "topic-082",
+        "topic-083",
+        "topic-050",
+        "topic-080"
+      ]
+    }
+  ],
+  "frontiers": [
+    {
+      "title": "Reasoning that knows when to check",
+      "status": "Active research · task-specific evidence",
+      "demonstrated": "Reasoning-oriented reinforcement learning and reflective planning have shown gains on selected tasks. External feedback can help a system select, revise or reject proposed actions.",
+      "direction": "More selective controllers could spend extra computation on difficult cases, call a verifier, gather evidence or defer when the available checks are insufficient.",
+      "caution": "A model describing its own uncertainty is not the same as a calibrated error estimate. Dependable general self-correction has not been established.",
+      "topics": [
+        "topic-046",
+        "topic-070",
+        "topic-073"
+      ],
+      "refs": [
+        {
+          "title": "Learning from Trials and Errors: Reflective Test-Time Planning for Embodied LLMs",
+          "url": "https://arxiv.org/abs/2602.21198",
+          "kind": "paper"
+        }
+      ]
+    },
+    {
+      "title": "Memory beyond the prompt",
+      "status": "Research architectures",
+      "demonstrated": "Titans investigates learned memory at inference time. Nested Learning explores interacting learning processes and memory at different update frequencies.",
+      "direction": "Future systems may combine temporary context, external records and controlled learned updates, choosing a memory mechanism to suit the information and task.",
+      "caution": "Persistent adaptation also creates persistent mistakes. Forgetting, interference, rollback and the authority to update a model remain important constraints.",
+      "topics": [
+        "topic-050",
+        "topic-051",
+        "topic-069"
+      ],
+      "refs": [
+        {
+          "title": "Nested Learning: The Illusion of Deep Learning Architectures",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/4309616aaed8e848009bc4a7ef73b493-Abstract-Conference.html",
+          "kind": "paper",
+          "doi": "10.52202/085713-1565"
+        },
+        {
+          "title": "Titans: Learning to Memorize at Test Time",
+          "url": "https://arxiv.org/abs/2501.00663",
+          "kind": "paper"
+        },
+        {
+          "title": "Introducing Nested Learning",
+          "url": "https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/",
+          "kind": "research article"
+        }
+      ]
+    },
+    {
+      "title": "Language beyond left-to-right",
+      "status": "Demonstrated alternative · evolving evaluations",
+      "demonstrated": "Diffusion language models generate through iterative denoising rather than exclusively choosing the next token. A 2026 experimental study compares generation quality and computational efficiency across several models and tasks.",
+      "direction": "Parallel refinement and flexible editing could create useful alternatives for some generation workloads, alongside autoregressive and hybrid approaches.",
+      "caution": "Fewer sequential generation steps do not automatically mean a faster or cheaper system. Compare actual latency, throughput and quality under matching conditions.",
+      "topics": [
+        "topic-027",
+        "topic-030",
+        "topic-033"
+      ],
+      "refs": [
+        {
+          "title": "Diffusion Language Models: An Experimental Analysis",
+          "url": "https://arxiv.org/abs/2606.19475",
+          "kind": "paper"
+        }
+      ]
+    },
+    {
+      "title": "Learning to anticipate the world",
+      "status": "World-model and embodied-AI research",
+      "demonstrated": "V-JEPA 2 studies self-supervised video representations and action-conditioned prediction for planning. This is one route to world modelling, alongside generative simulation and other dynamics models.",
+      "direction": "Stronger links between learned dynamics, action policies and feedback may allow systems to evaluate possible actions before carrying them out.",
+      "caution": "A plausible predicted future can still be physically wrong. Planning performance depends on model error, coverage of the operating conditions and transfer to reality.",
+      "topics": [
+        "topic-059",
+        "topic-060",
+        "topic-076"
+      ],
+      "refs": [
+        {
+          "title": "V-JEPA 2: Understanding, Prediction and Planning",
+          "url": "https://arxiv.org/abs/2506.09985",
+          "kind": "paper"
+        }
+      ]
+    },
+    {
+      "title": "Neural proposals. Symbolic checks.",
+      "status": "Demonstrated in bounded formal domains",
+      "demonstrated": "AlphaGeometry combines a neural language model with symbolic deduction to find geometry proofs. It illustrates a division of work between proposing useful steps and checking formal consequences.",
+      "direction": "Similar combinations may be useful wherever a task can be expressed precisely enough for a solver, checker or trusted rule system to assess candidate outputs.",
+      "caution": "The formal result applies to the encoded problem. Correctly translating messy real-world requirements into that formal representation is a separate challenge.",
+      "topics": [
+        "topic-002",
+        "topic-074",
+        "topic-084"
+      ],
+      "refs": [
+        {
+          "title": "Solving olympiad geometry without human demonstrations",
+          "url": "https://research.google/pubs/solving-olympiad-geometry-without-human-demonstrations/",
+          "kind": "paper",
+          "doi": "10.1038/s41586-023-06747-5"
+        },
+        {
+          "title": "AlphaGeometry: An Olympiad-level AI system for geometry",
+          "url": "https://deepmind.google/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/",
+          "kind": "research article"
+        }
+      ]
+    },
+    {
+      "title": "Algorithms that evolve",
+      "status": "Evaluator-guided discovery",
+      "demonstrated": "AlphaEvolve combines language-model proposals, automated evaluation and evolutionary search to improve candidate programs. The evaluator gives the search a concrete signal about which candidates are worth retaining.",
+      "direction": "More engineering and scientific tasks could use this pattern where candidate outputs can be executed, measured or checked affordably.",
+      "caution": "The system optimizes what its evaluator measures. Weak tests or incomplete objectives can reward brittle solutions, and evaluation itself may be expensive.",
+      "topics": [
+        "topic-010",
+        "topic-072",
+        "topic-077"
+      ],
+      "refs": [
+        {
+          "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+          "url": "https://arxiv.org/abs/2506.13131",
+          "kind": "technical white paper"
+        },
+        {
+          "title": "AlphaEvolve: A coding agent for designing advanced algorithms",
+          "url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+          "kind": "research article"
+        }
+      ]
+    }
+  ]
+}

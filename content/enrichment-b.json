@@ -1,0 +1,984 @@
+[
+  {
+    "id": "topic-043",
+    "context": "Supervised fine-tuning teaches an existing model how a task should be performed by training it on representative inputs and desired outputs. For an assistant, examples can demonstrate response structure, tool-call formats, or how to handle insufficient information. The model's parameters change, unlike ordinary prompting. Good demonstrations can improve consistency without requiring a new model to be trained from scratch. The important design decision is what behaviour the examples reward: polished wording, correct extraction, disciplined abstention, or something else. Evaluation should measure that intended behaviour on held-out cases.",
+    "example": "A maintenance team collects reviewed examples that turn free-text work orders into an equipment identifier, symptom category, and evidence quotation. Fine-tuning teaches the extraction format, while a separate validation step checks identifiers against the equipment register before accepting a result.",
+    "limitation": "Training on demonstrations can reproduce their mistakes and omissions. Fine-tuning is not a dependable mechanism for keeping changing operational facts current, and improved formatting should not be mistaken for improved factual accuracy.",
+    "refs": [
+      {
+        "title": "Training language models to follow instructions with human feedback",
+        "url": "https://arxiv.org/abs/2203.02155",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-034",
+      "topic-044",
+      "topic-079"
+    ],
+    "plain": "Training shows an existing model examples of how to answer a particular kind of request. This can teach it to turn repair notes into a consistent checklist. It can also copy mistakes in those examples."
+  },
+  {
+    "id": "topic-044",
+    "context": "Reinforcement learning from human feedback uses people's evaluations to shape model behaviour, often by first learning a reward model from comparisons between candidate responses. Reinforcement learning from AI feedback substitutes an AI evaluator for some of those judgements. Both approaches turn a judgement process into an optimization signal. They can teach preferences that are difficult to specify as a simple target answer, such as helpfulness or adherence to a set of principles. The resulting behaviour depends strongly on the evaluators, their instructions, and the examples on which they judge.",
+    "example": "Reviewers compare two draft explanations of a machinery alarm and prefer the one that separates observations from hypotheses. A reward model learns those preferences, then guides training. Periodic expert audits check that the assistant has not learned to sound cautious while making unsupported claims.",
+    "limitation": "A preference signal is an imperfect proxy for the real objective. Human and AI evaluators can share biases, and maximizing their scores can reward convincing presentation or exploit weaknesses in the evaluation process.",
+    "refs": [
+      {
+        "title": "Constitutional AI: Harmlessness from AI Feedback",
+        "url": "https://arxiv.org/abs/2212.08073",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-043",
+      "topic-045",
+      "topic-082"
+    ],
+    "plain": "People or another AI rate answers, and training encourages the model to produce answers they prefer. This helps teach qualities such as clear explanations. The ratings can reward convincing errors."
+  },
+  {
+    "id": "topic-045",
+    "context": "Direct preference optimization learns from pairs of preferred and dispreferred responses without running the conventional reward-model-plus-online-RL training loop. It adjusts a model's relative preference for those responses while referencing an initial policy. This makes preference adaptation conceptually and operationally simpler in some settings. DPO is one member of a larger family of preference-learning methods, not a synonym for alignment in general. It is useful when a team can collect meaningful comparisons more easily than it can write perfect target answers or construct an interactive environment.",
+    "example": "A support team labels pairs of troubleshooting answers, favouring answers that ask for the missing sensor reading before recommending an action. DPO can adapt a base assistant to those preferences using the comparison dataset, followed by evaluation on new fault scenarios.",
+    "limitation": "Preferences can be inconsistent, narrow, or contaminated by style. A simpler training procedure does not remove the need to check factual correctness, distribution shift, and behaviour outside the comparison dataset.",
+    "refs": [
+      {
+        "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+        "url": "https://arxiv.org/abs/2305.18290",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-044",
+      "topic-043",
+      "topic-046"
+    ],
+    "plain": "A model learns from pairs of answers, such as a helpful reply and an unhelpful one. DPO learns directly from these comparisons, simplifying part of training. Preferences may favour style over accuracy."
+  },
+  {
+    "id": "topic-046",
+    "context": "Reinforcement learning with verifiable rewards trains a model against outcomes that a program can check. Examples include a correct numerical answer, passing tests, or a proof accepted by a checker. These signals reduce reliance on subjective ratings and can support large amounts of practice. They work especially well when tasks have inexpensive, reliable evaluation and useful variation. The verifier is part of the learning environment: its accepted inputs, tolerances, and hidden assumptions shape what the model learns. Verifiable reward therefore describes the feedback mechanism, not a guarantee about every learned behaviour.",
+    "example": "A code-generation model proposes parsers for a family of message formats. Rewards depend on compilation, a hidden test set, and resource limits. Training encourages working solutions, while independent tests cover malformed messages and cases the training verifier did not represent.",
+    "limitation": "A model can exploit incomplete tests or learn shortcuts that satisfy a checker without meeting the real requirement. Success transfers most convincingly when deployment tasks admit similarly trustworthy verification.",
+    "refs": [
+      {
+        "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+        "url": "https://arxiv.org/abs/2501.12948",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-039",
+      "topic-070",
+      "topic-072"
+    ],
+    "plain": "A model practises tasks and gets training rewards when automatic checks accept its answers. For coding, the reward might come from passing tests. Incomplete tests can reward faulty code."
+  },
+  {
+    "id": "topic-047",
+    "context": "Transfer learning reuses knowledge learned on one task or dataset for another. Domain adaptation focuses on changes in the input distribution, such as a new camera or operating environment. Multitask learning trains related tasks together so that they can share useful representations. These approaches can reduce the amount of new labelled data required, but they solve different problems and can be combined. A practical starting point is to identify what should transfer and what must change. Shared vocabulary alone does not establish that the underlying measurements or labels mean the same thing.",
+    "example": "An image model trained on one inspection camera is adapted to another vessel's camera and lighting. A shared backbone supports corrosion detection and coating classification, while separate evaluation sets reveal whether the new sensor or task changes the learned decision boundary.",
+    "limitation": "Transfer can be negative when source and target tasks rely on different features. Adaptation should be assessed against a target-domain baseline, especially when labels, operating regimes, or sensor characteristics have changed.",
+    "refs": [
+      {
+        "title": "Domain-Adversarial Training of Neural Networks",
+        "url": "https://arxiv.org/abs/1505.07818",
+        "kind": "paper"
+      },
+      {
+        "title": "An Overview of Multi-Task Learning in Deep Neural Networks",
+        "url": "https://arxiv.org/abs/1706.05098",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-043",
+      "topic-054",
+      "topic-049"
+    ],
+    "plain": "Transfer: reuse earlier learning for a new task.\nAdaptation: adjust to changed conditions, such as a different camera.\nMultitask learning: practise related tasks together.\nThese approaches help share useful learning rather than starting over.\nPoorly matched tasks can interfere with one another."
+  },
+  {
+    "id": "topic-048",
+    "context": "Active learning decides which examples should receive expensive labels. Rather than labelling a random batch, a learner can request cases that would most reduce uncertainty, cover poorly represented regions, or resolve disagreement between models. The loop alternates selection, annotation, retraining, and evaluation. This is particularly useful when expert time is the bottleneck and an unlabelled pool is available. Selection rules need to account for annotation cost and sample diversity; repeatedly asking about nearly identical ambiguous cases can consume the budget without meaningfully expanding the model's competence.",
+    "example": "An inspection team has thousands of unlabelled sonar images but limited specialist time. The system proposes a diverse set of uncertain examples for review. Experts label those images, and a fixed, separately sampled test set measures whether the next model improves.",
+    "limitation": "Uncertainty estimates can be poor, and unusual examples may be uninformative or impossible to label. A deliberately selected training set also cannot replace a representative evaluation set for estimating real-world performance.",
+    "refs": [
+      {
+        "title": "Bayesian Active Learning for Classification and Preference Learning",
+        "url": "https://arxiv.org/abs/1112.5745",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-034",
+      "topic-082",
+      "topic-036"
+    ],
+    "plain": "A model picks examples for an expert to label, such as photographs it struggles to sort. The aim is to use expert time where it helps most. Confusing examples are not always useful ones."
+  },
+  {
+    "id": "topic-049",
+    "context": "Meta-learning aims to learn something about the learning process itself. Across a collection of tasks, a system may learn an initialization, an update rule, a distance metric, or a representation that makes adaptation to a new task easier. The training unit is therefore often a small learning problem rather than an isolated example. This can be useful when many related tasks each have little data. The choice of training tasks defines the kind of rapid adaptation being encouraged, so evaluation must use genuinely held-out tasks rather than just new samples of familiar ones.",
+    "example": "Suppose many pumps have small sets of labelled vibration faults. A meta-learning experiment treats each pump family as a task and learns an initialization that can adapt using a few examples from a new family. Entire families are held out for evaluation.",
+    "limitation": "Rapid adaptation within a carefully chosen task family does not imply general learning ability. Performance may collapse when new tasks violate the structure shared by the tasks used during meta-training.",
+    "refs": [
+      {
+        "title": "Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks",
+        "url": "https://arxiv.org/abs/1703.03400",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-047",
+      "topic-051",
+      "topic-052"
+    ],
+    "plain": "A model practises learning related tasks, such as different sorting jobs. The aim is to learn a new task from just a few examples. Very different tasks may still defeat it."
+  },
+  {
+    "id": "topic-050",
+    "context": "Online learning updates a model as observations arrive. Continual learning adds the challenge of retaining useful earlier capabilities as tasks or distributions change. Approaches include replaying selected old examples, protecting important parameters, and allocating separate capacity to new tasks. The goal is to balance plasticity with stability, not simply to keep training indefinitely. For deployed systems, a complete design also needs versioning, evaluation windows, rollback, and a clear policy for what data may trigger updates. A model's changing parameters are a new source of operational state that must be managed.",
+    "example": "A demand forecaster is updated as new seasonal data arrives. Before promotion, each candidate is evaluated on recent demand and a retained set of earlier operating regimes. If improvement on the latest period damages older regimes, the update is investigated or rejected.",
+    "limitation": "New training can overwrite earlier capabilities, reinforce contaminated data, or follow temporary noise. Continual learning requires explicit retention and drift criteria; automatic updates alone do not demonstrate successful adaptation.",
+    "refs": [
+      {
+        "title": "Nested Learning: The Illusion of Deep Learning Architectures",
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/4309616aaed8e848009bc4a7ef73b493-Abstract-Conference.html",
+        "kind": "paper",
+        "doi": "10.52202/085713-1565"
+      },
+      {
+        "title": "Overcoming catastrophic forgetting in neural networks",
+        "url": "https://arxiv.org/abs/1612.00796",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-047",
+      "topic-051",
+      "topic-082"
+    ],
+    "plain": "Online learning: update a model as new examples arrive.\nContinual learning: also try to keep useful earlier skills.\nA demand forecast can then adapt as buying habits change.\nNew learning can overwrite older skills."
+  },
+  {
+    "id": "topic-051",
+    "context": "Test-time learning changes learned state while processing deployment inputs. In some designs, a small model serves as the sequence memory and is updated using a self-supervised objective; other designs adapt selected parameters to the current input distribution. This differs from generating a longer answer or retrieving a stored note, neither of which requires parameter updates. Such methods can potentially capture information beyond a fixed context window or adapt to changing signals. Their usefulness depends on what is updated, how long changes persist, and how unstable or malicious input is handled.",
+    "example": "A research prototype reads a long stream of machine observations and updates a learned memory module as new patterns arrive. Its predictions are compared with a frozen model and an external-memory baseline, while corrupted sensor intervals test whether adaptation makes the system worse.",
+    "limitation": "An update objective available at inference time may not track task correctness. Persistent changes introduce interference, poisoning, and reproducibility questions, so successful research benchmarks should not be read as general deployment assurance.",
+    "refs": [
+      {
+        "title": "Nested Learning: The Illusion of Deep Learning Architectures",
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/4309616aaed8e848009bc4a7ef73b493-Abstract-Conference.html",
+        "kind": "paper",
+        "doi": "10.52202/085713-1565"
+      },
+      {
+        "title": "Learning to (Learn at Test Time): RNNs with Expressive Hidden States",
+        "url": "https://arxiv.org/abs/2407.04620",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-050",
+      "topic-069",
+      "topic-070"
+    ],
+    "plain": "Some models change their parameters or learned memory while handling new inputs. This can help them use a long stream of observations or adjust to changing conditions. Misleading inputs can steer those updates in the wrong direction."
+  },
+  {
+    "id": "topic-052",
+    "context": "In-context learning changes a model's responses by supplying examples or instructions inside its input context. The model's deployed weights normally remain unchanged. Examples can demonstrate a label convention, an output schema, or how to solve a new kind of problem. The behaviour is recreated when the relevant context is provided, rather than necessarily being retained as a permanent skill. This makes the technique convenient for experimenting with tasks before committing to training. Example selection, ordering, formatting, and similarity to the actual query can all influence results, so a single successful prompt is weak evidence.",
+    "example": "A user provides three reviewed examples of equipment descriptions mapped to an ontology, then asks the model to map another description using the same convention. The examples guide the current request; they do not automatically update the model's behaviour in later sessions.",
+    "limitation": "Demonstrations can anchor the model to misleading patterns or leak answers into evaluation. In-context success does not show that the model has acquired a stable skill or a verified understanding of the underlying rule.",
+    "refs": [
+      {
+        "title": "Language Models are Few-Shot Learners",
+        "url": "https://arxiv.org/abs/2005.14165",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-037",
+      "topic-043",
+      "topic-069"
+    ],
+    "plain": "You give a model a few examples alongside your request, such as three correctly completed forms. It uses those examples to follow your format, usually without changing its parameters. The effect may disappear when the examples are removed."
+  },
+  {
+    "id": "topic-053",
+    "context": "A foundation model is pretrained on broad data and designed to support adaptation to many downstream tasks. The term describes a role in an ecosystem, not one architecture, modality, or parameter count. A reusable visual encoder can be a foundation model without generating text, while a language model can become one component of a larger application. Reuse reduces the need to build every task model from the beginning, but also concentrates dependencies: training choices, representation gaps, and failure patterns can propagate into many applications built on the same base.",
+    "example": "A general visual encoder is reused for sorting inspection images, finding similar defects, and supporting a specialist classifier. Each application supplies its own labelled evaluation set and decision rules, even though all three rely on the same pretrained representation underneath.",
+    "limitation": "Broad capability does not establish suitability for a particular industrial setting. Downstream evaluations must test relevant populations, operating conditions, and failure costs rather than assuming that general benchmarks transfer.",
+    "refs": [
+      {
+        "title": "On the Opportunities and Risks of Foundation Models",
+        "url": "https://arxiv.org/abs/2108.07258",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-047",
+      "topic-054",
+      "topic-057",
+      "topic-093"
+    ],
+    "plain": "A foundation model is a reusable starting point trained on a broad collection of data. Different teams can adapt it for jobs such as searching images or drafting text. Broad training can miss a specialist task's needs."
+  },
+  {
+    "id": "topic-054",
+    "context": "A task-specific model is optimized for a defined job, while a domain-specialised model focuses on a particular body of language, data, or practice. Specialisation can come from training from scratch, continued pretraining, supervised adaptation, or a deliberately narrow architecture. It can improve terminology handling and reduce unnecessary complexity. The central question is which information belongs in the model and which should remain in a maintained external source. Stable patterns may suit training; frequently changing procedures, asset records, or limits often require explicit retrieval and version control instead.",
+    "example": "A model is adapted to identify equipment, failure modes, and maintenance actions in engineering reports. The model learns the domain's language, while current asset identifiers and approved procedures are retrieved from maintained systems and checked separately before any operational use.",
+    "limitation": "Specialisation can reduce performance outside the target domain and overfit local conventions. Domain fluency is not evidence that a model knows the current approved procedure or can make an operational decision safely.",
+    "refs": [
+      {
+        "title": "BioBERT: a pre-trained biomedical language representation model for biomedical text mining",
+        "url": "https://arxiv.org/abs/1901.08746",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-043",
+      "topic-053",
+      "topic-063"
+    ],
+    "plain": "A model can specialise in one job or field, like a tool designed for a particular trade. This helps it handle tasks such as sorting repair reports or interpreting specialist vocabulary. Its knowledge can still be outdated."
+  },
+  {
+    "id": "topic-055",
+    "context": "Small and edge models are described by their resource footprint and deployment setting, not by a separate learning paradigm. A compact model may be trained directly, distilled from a larger one, or compressed for a particular device. Local execution can reduce network dependence and keep some processing close to the data. The useful size is determined by the task, available memory, latency budget, energy use, and required quality. A narrow, well-evaluated local model can be more appropriate than a broadly capable remote model, but compactness alone does not make either choice better.",
+    "example": "A vessel runs a compact speech-command classifier locally so that basic functions remain available without reliable connectivity. The evaluation includes engine noise, accents, power consumption, and failure handling; uncertain commands require confirmation rather than being inferred from a weak match.",
+    "limitation": "A small model can still produce confident errors or leak sensitive information through its outputs. Hardware compatibility, context length, and real device measurements matter more than parameter count alone.",
+    "refs": [
+      {
+        "title": "Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone",
+        "url": "https://arxiv.org/abs/2404.14219",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-054",
+      "topic-078",
+      "topic-081"
+    ],
+    "plain": "A compact model is built to use less memory or computing work, sometimes running on a phone. It can help a device work without sending each request over a network. Small models can still make confident mistakes."
+  },
+  {
+    "id": "topic-056",
+    "context": "A language model learns patterns over language represented as tokens and uses them for prediction or generation. Many modern LLMs generate one token after another, but language modelling also includes masked prediction and diffusion-based generation. The model's architecture, training objective, scale, and adaptation are separate choices. Language models are useful as flexible interfaces for summarization, extraction, translation, and code, especially when tasks resist a fixed set of rules. They model regularities in their training experience; connecting a fluent output to reliable evidence or an executable action requires additional system design.",
+    "example": "An engineer asks for a plain-language summary of an incident report. A language model drafts the summary, while the interface links each key statement to the source passage and preserves uncertainty where the report describes a suspected cause rather than a confirmed finding.",
+    "limitation": "Fluent continuation can include invented details, and token likelihood is not a calibrated probability that a claim is true. LLM performance should be measured for the actual task and input conditions.",
+    "refs": [
+      {
+        "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+        "authors": "Jacob Devlin, Ming-Wei Chang, Kenton Lee and Kristina Toutanova",
+        "year": 2019,
+        "kind": "paper",
+        "url": "https://aclanthology.org/N19-1423/"
+      },
+      {
+        "title": "Language Models are Few-Shot Learners",
+        "authors": "Tom B. Brown and colleagues",
+        "year": 2020,
+        "kind": "paper",
+        "url": "https://arxiv.org/abs/2005.14165"
+      },
+      {
+        "title": "Attention Is All You Need",
+        "url": "https://arxiv.org/abs/1706.03762",
+        "kind": "paper"
+      },
+      {
+        "title": "Large Language Diffusion Models",
+        "url": "https://arxiv.org/abs/2502.09992",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-022",
+      "topic-027",
+      "topic-033"
+    ],
+    "plain": "A language model learns patterns in words and how they fit together. It can use these patterns to draft emails, translate text or summarise a report. Fluent answers can contain invented details."
+  },
+  {
+    "id": "topic-057",
+    "context": "Multimodal models connect information across modalities such as text, images, audio, and video. Some align separate encoders in a shared representation space; others integrate several input streams into a generative model. The available input and output combinations are often asymmetric: understanding an image does not imply being able to generate one, and transcribing speech does not imply understanding every acoustic event. Useful applications combine complementary evidence, such as an image showing a defect and a report explaining its context. Evaluation must preserve timing, provenance, and differences in quality between the input sources.",
+    "example": "An inspection assistant receives a photograph, a spoken observation, and an equipment identifier. It extracts visible evidence and transcribes the observation, then presents both alongside the asset record. The reviewer can distinguish what was seen in the image from what someone reported verbally.",
+    "limitation": "Models can over-rely on one modality, misalign timestamps, or invent details in poor-quality inputs. Strong performance on image–text benchmarks does not establish competence with industrial audio, video, or sensor combinations.",
+    "refs": [
+      {
+        "title": "Learning Transferable Visual Models From Natural Language Supervision",
+        "url": "https://arxiv.org/abs/2103.00020",
+        "kind": "paper"
+      },
+      {
+        "title": "Robust Speech Recognition via Large-Scale Weak Supervision",
+        "url": "https://arxiv.org/abs/2212.04356",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-053",
+      "topic-058",
+      "topic-059"
+    ],
+    "plain": "Models can work with pictures, sound or video, sometimes combining them with text. For example, a photograph and written report can jointly help describe a damaged part. Reading pictures does not imply being able to create them."
+  },
+  {
+    "id": "topic-058",
+    "context": "Embedding models map inputs into vectors that make useful relationships easier to compute. Ranking models score candidates for a query or context, while predictive models estimate a target such as demand or failure probability. These roles often appear in the same system but have different objectives and evaluation measures. A retriever needs relevant items in its candidate set; a reranker needs to order them well; a forecaster needs accurate predictions at the required horizon. None requires a conversational response, and their outputs can support deterministic workflows as well as generative applications.",
+    "example": "An equipment-search tool embeds maintenance descriptions to retrieve candidate assets, then reranks them using the query and candidate text together. A separate failure model estimates risk from time-series measurements. The interface keeps relevance scores and failure probabilities distinct because they measure different things.",
+    "limitation": "Embedding similarity is not equivalence, causality, or a truth score. Rankings and forecasts need task-specific evaluation, and changing the model or preprocessing can alter the meaning of previously stored vectors.",
+    "refs": [
+      {
+        "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+        "url": "https://arxiv.org/abs/1908.10084",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-015",
+      "topic-063",
+      "topic-065"
+    ],
+    "plain": "Embeddings: turn items into lists of numbers that help compare them.\nRanking: put promising search results first.\nPrediction: estimate something, such as tomorrow's demand.\nThese support search and decisions without needing a conversation.\nSimilarity is not proof that two items mean the same."
+  },
+  {
+    "id": "topic-059",
+    "context": "Vision–language–action models connect visual observations and language instructions to actions, often through training on robot demonstrations. Instead of stopping at a verbal plan, the system produces an action representation that can be passed into a control pipeline. Some approaches express actions as tokens, making it possible to reuse modelling machinery developed for language. The promise is a more flexible mapping from instructions and scenes to behaviour. In a real robot, this model is only one layer: sensing, timing, collision constraints, low-level control, and recovery still determine whether the overall system works.",
+    "example": "A laboratory robot is instructed to place a specified component into a tray. A VLA policy interprets the image and instruction, while a controller constrains motion and monitors execution. Evaluation varies lighting, object placement, and distractors rather than repeating only familiar demonstration scenes.",
+    "limitation": "Robotic generalization is limited by training coverage, embodiment, and the control interface. A correct verbal description of an action is not proof that the model can execute it reliably in the physical world.",
+    "refs": [
+      {
+        "title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
+        "url": "https://arxiv.org/abs/2307.15818",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-057",
+      "topic-060",
+      "topic-076"
+    ],
+    "plain": "A model links what a robot sees with instructions such as 'pick up the cup'. It proposes actions for the robot's movement controls to carry out. Unfamiliar objects or situations can still cause failures."
+  },
+  {
+    "id": "topic-060",
+    "context": "A world model predicts how an environment changes, often in response to actions. It may predict observable frames, compact latent states, rewards, or other quantities needed for planning. Generating realistic video is one possible approach, not the definition of a world model. A useful model lets a controller compare possible futures before acting. Its quality therefore depends on the decisions it supports: visual realism, short-term prediction accuracy, and long-horizon planning accuracy are different goals. Current research combines learned representations, video data, and interaction data in several distinct ways.",
+    "example": "A planning system evaluates alternative paths for a mobile inspection robot by predicting likely observations and progress along each path. It selects a candidate action, observes the real outcome, and replans. The experiment measures decision quality as well as prediction error over time.",
+    "limitation": "Prediction errors can compound during imagined rollouts. A plausible simulated future may miss rare events, causal effects, or contact dynamics, so planning must account for model uncertainty and real-world feedback.",
+    "refs": [
+      {
+        "title": "Genie 3 — Google DeepMind",
+        "url": "https://deepmind.google/models/genie/",
+        "kind": "documentation"
+      },
+      {
+        "title": "World Models",
+        "authors": "David Ha and Jürgen Schmidhuber",
+        "year": 2018,
+        "kind": "paper",
+        "url": "https://arxiv.org/abs/1803.10122"
+      },
+      {
+        "title": "Dream to Control: Learning Behaviors by Latent Imagination",
+        "authors": "Danijar Hafner, Timothy Lillicrap, Jimmy Ba and Mohammad Norouzi",
+        "year": 2020,
+        "kind": "paper",
+        "url": "https://arxiv.org/abs/1912.01603"
+      },
+      {
+        "title": "Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming",
+        "authors": "Richard S. Sutton",
+        "year": 1990,
+        "kind": "paper",
+        "url": "https://papers.neurips.cc/paper_files/paper/1990/hash/d9fc5b73a8d78fad3d6dffe419384e70-Abstract.html"
+      },
+      {
+        "title": "V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning",
+        "url": "https://arxiv.org/abs/2506.09985",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-039",
+      "topic-059",
+      "topic-076"
+    ],
+    "plain": "A world model predicts what might happen next, including what an action could change. A robot could compare predicted outcomes before choosing where to move. Predictions can drift further from reality over time."
+  },
+  {
+    "id": "topic-061",
+    "context": "Physics-informed learning incorporates scientific structure into a model rather than relying entirely on observed examples. A neural model may be penalized for violating a differential equation, constrained to respect a symmetry, or coupled to a numerical simulator. These are different integration choices with different guarantees. The approach can be helpful when measurements are sparse but governing relationships are known. The physics itself must be assessed: idealized equations, uncertain boundary conditions, and unmodelled processes can produce a neat but misleading result. Scientific validation still requires comparison with relevant experiments or trusted numerical solutions.",
+    "example": "A researcher estimates a temperature field from a small number of sensors while penalizing departures from a heat-transfer equation. Separate measurements test the inferred field, and alternative boundary assumptions are explored to show how much the result depends on conditions that were not directly observed.",
+    "limitation": "A soft physics penalty does not guarantee exact conservation or numerical accuracy. Incorrect equations or boundary assumptions can impose systematic error, and optimization may struggle with stiff or multiscale systems.",
+    "refs": [
+      {
+        "title": "Physics Informed Deep Learning (Part I): Data-driven Solutions of Nonlinear Partial Differential Equations",
+        "url": "https://arxiv.org/abs/1711.10561",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-018",
+      "topic-062",
+      "topic-075",
+      "topic-092"
+    ],
+    "plain": "Known physical laws can guide a model, such as rules describing how heat moves. This can help estimate temperatures between sensors while drawing on established scientific knowledge. Predictions can still conflict with those physical laws."
+  },
+  {
+    "id": "topic-062",
+    "context": "Neural operators learn mappings between functions, such as a mapping from a spatial coefficient field and boundary conditions to a solution field. Training across many simulated or observed cases can produce a surrogate that evaluates new cases quickly. This differs from fitting one solution at a set of coordinates. Operator-learning architectures aim to represent relationships that are less tied to a particular discretization, although practical generalization still needs testing. They are useful for repeated analyses, inverse problems, or optimization where running a full numerical solver for every candidate would be expensive.",
+    "example": "A surrogate is trained on many flow simulations with varying inlet conditions. Engineers use it to screen candidate configurations, then rerun shortlisted designs with a trusted solver. Tests vary both the operating regime and mesh resolution to check which improvements actually generalize.",
+    "limitation": "Fast evaluation does not establish accuracy outside the training distribution or at every resolution. Error, conservation behaviour, and performance on difficult regimes must be assessed before replacing a trusted numerical workflow.",
+    "refs": [
+      {
+        "title": "Fourier Neural Operator for Parametric Partial Differential Equations",
+        "url": "https://arxiv.org/abs/2010.08895",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-061",
+      "topic-060",
+      "topic-047"
+    ],
+    "plain": "A neural operator learns to turn one whole pattern into another, such as pressure across a pipe network. Use it to estimate many similar cases without running a full physics calculation each time. New conditions still need checks."
+  },
+  {
+    "id": "topic-063",
+    "context": "Retrieval-augmented generation supplies a generator with information obtained from an external source for the current request. The workflow usually includes preparing and indexing sources, retrieving candidates, selecting context, and generating an answer with evidence. Retrieval can use lexical matching, vectors, structured queries, or combinations of these. RAG makes it easier to use changing or private information without retraining for every update. The crucial learning point is that retrieval and generation are separate failure points: finding an authoritative document does not ensure the model uses the relevant passage or represents it correctly.",
+    "example": "An engineer asks which inspection procedure applies to a pump. The system retrieves the current approved procedure and the equipment classification, then drafts a cited answer. The interface exposes the document revision and relevant passage so that superseded guidance can be detected.",
+    "limitation": "RAG can retrieve irrelevant, outdated, incomplete, or unauthorized material, and a generator can still misstate good evidence. Retrieval coverage, access control, citation accuracy, and answer correctness require separate checks.",
+    "refs": [
+      {
+        "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+        "url": "https://arxiv.org/abs/2005.11401",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-058",
+      "topic-064",
+      "topic-065"
+    ],
+    "plain": "The system looks up useful material before writing an answer. For example, it can check a repair manual while explaining how to fix a fault. It may retrieve the wrong passage or misread it."
+  },
+  {
+    "id": "topic-064",
+    "context": "Graph-augmented retrieval uses relationships between entities to locate or organize evidence. A structured query might follow an asset-to-system-to-requirement path, while a graph-summary approach can collect themes across a large document corpus. These methods solve different retrieval problems and should not be treated as a single universal GraphRAG algorithm. Graph structure can support joins, navigation, and aggregation that a nearest-neighbour search does not express directly. Formal inference is an additional capability that depends on the graph's semantics and reasoning engine; the presence of nodes and edges alone is not enough.",
+    "example": "A user asks which maintenance requirements affect equipment in a particular subsystem. A structured query follows approved relationships from the subsystem to assets and applicable requirements, then retrieves source passages. Missing relationships are reported as coverage gaps rather than silently interpreted as absence of a requirement.",
+    "limitation": "Graphs can contain extraction errors, stale relationships, or missing links. A coherent path through a graph is not automatically a valid inference, and corpus summaries can obscure exceptions or minority evidence.",
+    "refs": [
+      {
+        "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+        "url": "https://arxiv.org/abs/2404.16130",
+        "kind": "paper"
+      },
+      {
+        "title": "SPARQL 1.1 Query Language — W3C Recommendation",
+        "url": "https://www.w3.org/TR/sparql11-query/",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-003",
+      "topic-063",
+      "topic-074"
+    ],
+    "plain": "The system follows stored links, such as those between a machine, its parts and their repair notes. Use those links to find related facts or summarise a group of documents. Missing or wrong links can mislead the search."
+  },
+  {
+    "id": "topic-065",
+    "context": "Hybrid retrieval combines complementary ways of finding candidate evidence, commonly lexical matching and vector similarity. A fusion method combines their results, and a reranker can examine a smaller candidate set more closely. Lexical retrieval is often useful for exact identifiers and uncommon terminology; semantic retrieval can find paraphrases. Reranking adds another relevance judgement after retrieval. The stages should be evaluated separately: a reranker cannot recover a document that never entered its candidate set. This pattern is useful when users mix natural-language questions with product codes, equipment names, or precise technical phrases. A common pipeline retrieves separate lexical and semantic candidate lists, merges their ranks with a method such as reciprocal rank fusion, then scores query–passage pairs with a reranker. Retrieval recall, fusion quality and reranking precision are separate things to evaluate.",
+    "example": "A search for a particular pump alarm includes both an exact fault code and a natural-language symptom. Lexical matching preserves the code, vector search finds relevant paraphrases, and a reranker orders the combined candidates before the user or a generator reads them.",
+    "limitation": "Fusion can magnify noisy candidates or hide weaknesses behind a good average score. Evaluate exact identifiers, rare terminology, permissions, and answer-bearing passage recall, not only general semantic relevance.",
+    "refs": [
+      {
+        "title": "Reciprocal Rank Fusion outperforms Condorcet and individual Rank Learning Methods",
+        "url": "https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf",
+        "kind": "paper"
+      },
+      {
+        "title": "Passage Re-ranking with BERT",
+        "url": "https://arxiv.org/abs/1901.04085",
+        "kind": "paper"
+      },
+      {
+        "title": "Hybrid search — Elastic documentation",
+        "url": "https://www.elastic.co/docs/solutions/search/hybrid-search",
+        "kind": "documentation"
+      },
+      {
+        "title": "Retrieve & Re-Rank — Sentence Transformers documentation",
+        "url": "https://www.sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-058",
+      "topic-063",
+      "topic-064"
+    ],
+    "plain": "Search combines exact words with meaning, then reorders the results to put promising matches first. That helps when a question mixes a product code with an everyday description. Reordering cannot recover documents the search missed."
+  },
+  {
+    "id": "topic-066",
+    "context": "A tool-using agent places a model inside an action-and-observation loop. The model selects a tool or action, receives its result, and uses that observation to decide what to do next. Tools can expose search, calculation, code execution, or application operations. The surrounding controller defines available tools, permissions, budgets, and stopping conditions. This pattern is useful when a task requires information or actions beyond a model's own parameters. Agentic behaviour is therefore a property of the assembled system; a capable language model alone does not establish reliable execution of a multistep task.",
+    "example": "An engineering assistant receives a question about an asset, retrieves its record, runs a calculation, and presents the result with the inputs used. If a required measurement is missing, the controller requires clarification instead of allowing the agent to invent a value.",
+    "limitation": "A plausible plan can still call the wrong tool, misread a result, or compound errors across steps. Tool permissions, observable outcomes, bounded retries, and clear completion criteria matter as much as model fluency.",
+    "refs": [
+      {
+        "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+        "url": "https://arxiv.org/abs/2210.03629",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-063",
+      "topic-067",
+      "topic-073",
+      "topic-089"
+    ],
+    "plain": "An agent can choose a tool, read its result and decide what to try next. It might look up a machine's record, run a calculation and explain the result. A wrong tool choice can send later steps off course."
+  },
+  {
+    "id": "topic-067",
+    "context": "A workflow controller coordinates which operations happen, in what order, and under which conditions. It may execute a fixed state machine, a dependency graph, or a plan proposed by a model. Separating planning from execution can make responsibilities clearer: a planner proposes the steps, tools perform them, and the controller records progress and handles failures. Useful designs specify what can be retried, what needs a fresh observation, and what constitutes completion. This is particularly valuable for repeatable business processes, where an unconstrained conversation loop would make recovery and auditing unnecessarily difficult.",
+    "example": "A document-review workflow first inventories files, then extracts fields, validates them, and prepares a report. Failed extraction steps can be retried independently. The controller records which document revision each result came from and requires review before an approved record is changed.",
+    "limitation": "A fixed plan can become invalid when conditions change, while unrestricted replanning can create loops. The workflow needs explicit state, idempotent operations where possible, and rules for when execution should stop or escalate.",
+    "refs": [
+      {
+        "title": "ReWOO: Decoupling Reasoning from Observations for Efficient Augmented Language Models",
+        "url": "https://arxiv.org/abs/2305.18323",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-009",
+      "topic-066",
+      "topic-084"
+    ],
+    "plain": "A workflow arranges the steps of a job, like receiving, checking and approving a form. The steps can follow a fixed plan or one proposed by a model. Changing circumstances can make the plan unsuitable."
+  },
+  {
+    "id": "topic-068",
+    "context": "A multi-agent system contains several interacting decision-making components. They may divide work by expertise, work in parallel, negotiate, or critique one another. In LLM applications, agents often differ in their instructions, tools, or access to evidence even when they share the same underlying model. Coordination is itself an engineering problem: messages consume time, dependencies need resolution, and someone must decide when disagreement is settled. Multi-agent designs are useful when a task decomposes into meaningfully distinct responsibilities. They should be compared with a simpler single-controller baseline using the same overall resource budget.",
+    "example": "A report-building system assigns independent components to retrieve engineering evidence, check numerical calculations, and assemble the narrative. A controller reconciles their outputs and preserves disagreements for review. Each component's contribution is evaluated so that extra conversations do not become mistaken for useful work.",
+    "limitation": "Agents can repeat the same error, reinforce one another, or lose context in handoffs. Several model-generated opinions are not independent evidence, and orchestration overhead can outweigh any benefit from specialization.",
+    "refs": [
+      {
+        "title": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
+        "url": "https://arxiv.org/abs/2308.08155",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-042",
+      "topic-066",
+      "topic-072"
+    ],
+    "plain": "Several AI components can split a job, like a team dividing research, calculations and writing. Each handles a part and shares its results with the others. They can repeat the same mistake rather than catch it."
+  },
+  {
+    "id": "topic-069",
+    "context": "External memory stores information outside a model's parameters so that later tasks can retrieve it. Entries might contain observations, past decisions, user preferences, or lessons from earlier attempts. Episodic retrieval selects relevant experiences rather than simply appending the entire history to a prompt. This makes memory inspectable and easier to update or remove than learned weights, but requires a policy for what deserves to be stored. A robust design distinguishes observed facts from generated interpretations and records scope, source, time, and revision so that an old lesson does not silently become a universal rule.",
+    "example": "After a failed maintenance-query attempt, an assistant stores the actual error, the corrected query, and the database revision. A later attempt can retrieve this episode as guidance. The stored lesson remains scoped to that schema version and can be inspected or retired when the system changes.",
+    "limitation": "Stored memories can be wrong, obsolete, or irrelevant to the new situation. Retrieving a previous success does not prove that its assumptions still hold, and access controls must apply to memory as well as source data.",
+    "refs": [
+      {
+        "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+        "url": "https://arxiv.org/abs/2303.11366",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-051",
+      "topic-052",
+      "topic-063"
+    ],
+    "plain": "A system keeps notes about earlier events and retrieves relevant ones later, like consulting a work log. This can help it reuse a past decision without retraining the model. Old notes may no longer fit the situation."
+  },
+  {
+    "id": "topic-070",
+    "context": "Test-time compute is the computation spent solving a request after training has finished. A system can generate alternatives, search over intermediate states, revise a candidate, or consult a verifier before returning an answer. These choices can improve performance on some tasks without changing model weights. The useful question is how to allocate a limited budget, not whether longer reasoning is always better. Easy requests may need little extra work; difficult requests may benefit from targeted search only when the system has a meaningful way to judge progress or select among candidates. Chain-of-thought prompting supplies examples of intermediate steps or requests a stepwise solution. It is one approach within inference-time deliberation. A plausible explanation is not a proof, and its text need not faithfully describe the model's internal computation.",
+    "example": "A coding assistant quickly answers a routine syntax question but spends a larger budget on an algorithm task, generating candidates and running tests. The evaluation measures correctness alongside latency and compute cost, including cases where extra attempts make the answer worse.",
+    "limitation": "More computation can repeat or elaborate the same mistake. Gains depend on the task, candidate diversity, and selection signal, so longer responses or more internal steps should not be used as quality measures.",
+    "refs": [
+      {
+        "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+        "url": "https://arxiv.org/abs/2201.11903",
+        "kind": "paper"
+      },
+      {
+        "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+        "url": "https://arxiv.org/abs/2408.03314",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-046",
+      "topic-071",
+      "topic-072"
+    ],
+    "plain": "A system spends extra computation on a request by working through steps, trying alternatives or checking answers. This can help with a difficult calculation or programming problem. More effort can still repeat the same mistake."
+  },
+  {
+    "id": "topic-071",
+    "context": "Self-consistency samples several candidate solutions and chooses an answer supported by multiple reasoning paths. Related methods search through candidate steps or rank complete answers with another scoring mechanism. The motivation is that one greedy generation may miss a good solution that another sample finds. These methods are most straightforward when answers can be normalized and compared, such as numerical results. Diversity and aggregation rules are central: many superficially different explanations can still share the same flawed assumption. Candidate generation and candidate selection should therefore be evaluated as separate parts of the system. Tree of Thoughts explores alternative intermediate steps and uses a scoring process to decide which branches to expand or abandon. Its value depends on whether the scoring process recognizes useful progress; the original bounded-task results are not a guarantee for arbitrary planning.",
+    "example": "A model solves a bounded arithmetic task several times using different sampled paths. Equivalent final answers are grouped and the dominant answer is selected. The experiment compares this strategy with one attempt and with an external arithmetic checker at matched cost.",
+    "limitation": "Agreement is not truth, especially when all candidates share training biases or misleading input. Voting is harder for open-ended answers, where distinct valid responses and subtly incompatible claims may be difficult to compare.",
+    "refs": [
+      {
+        "title": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models",
+        "url": "https://arxiv.org/abs/2305.10601",
+        "kind": "paper"
+      },
+      {
+        "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+        "url": "https://arxiv.org/abs/2203.11171",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-007",
+      "topic-070",
+      "topic-072"
+    ],
+    "plain": "A system tries several solutions, then compares answers or explores promising steps further. Like trying different routes through a puzzle, this can find options one attempt misses. Several attempts can share the same wrong assumption."
+  },
+  {
+    "id": "topic-072",
+    "context": "Verifier-guided reasoning introduces an explicit judgement mechanism into candidate generation or selection. A verifier can score intermediate steps, run tests, check constraints, or validate a formal proof. These mechanisms offer very different strengths: a learned process scorer estimates plausibility, while a sound proof checker establishes a specified formal property. The common design idea is to use feedback to steer search away from unsupported candidates. It is useful when mistakes can be detected more reliably or cheaply than a correct solution can be generated directly, and when the meaning of a successful check is clearly stated.",
+    "example": "A model proposes a data transformation and accompanying tests. An independent evaluator runs additional tests and checks schema invariants before the transformation is accepted. A failed check returns concrete feedback for another attempt, while an unavailable checker is recorded as unverified.",
+    "limitation": "A verifier can be incomplete, biased, or incorrectly specified. Passing tests establishes only the tested behaviour, and a learned score must not be presented as the same kind of assurance as a formal proof.",
+    "refs": [
+      {
+        "title": "Let's Verify Step by Step",
+        "url": "https://arxiv.org/abs/2305.20050",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-046",
+      "topic-074",
+      "topic-084"
+    ],
+    "plain": "A system checks proposed answers to help choose a better one.\nModel scores: estimate which answer looks promising.\nTests: try selected cases, such as running proposed code.\nProof checkers: verify a precise mathematical claim from stated assumptions.\nPassing tests can still leave untested mistakes."
+  },
+  {
+    "id": "topic-073",
+    "context": "Metacognitive monitoring and control concerns how a system evaluates and manages its own task performance. Monitoring can use uncertainty estimates, contradictory evidence, tool failures, or external feedback. Control can then request more information, switch strategies, allocate more computation, or abstain. This is an engineering description of a feedback loop, not a claim about consciousness or privileged access to a model's internal reasoning. A useful implementation connects measurable signals to explicit decisions and evaluates whether those decisions reduce actual errors. Generating a reflective paragraph is only one possible component and may add little on its own. Separate monitoring from control: confidence estimation supplies a signal, while a policy decides whether to gather evidence, switch methods or abstain. Measure both calibration and the downstream effect of that policy. Self-description, confidence language and reflection do not establish consciousness or reliable access to internal reasoning.",
+    "example": "An ontology-mapping assistant detects that two candidate concepts fit equally well and that required context is missing. It asks for the equipment's function instead of choosing confidently. Evaluation checks whether these requests resolve ambiguity and whether clear cases still proceed without unnecessary interruption.",
+    "limitation": "Self-reported confidence and self-critique can be unreliable or correlated with the original error. Monitoring needs validation against observable outcomes, and extra reflection should earn its cost through measurable improvement.",
+    "refs": [
+      {
+        "title": "Language Models (Mostly) Know What They Know",
+        "url": "https://arxiv.org/abs/2207.05221",
+        "kind": "paper"
+      },
+      {
+        "title": "Selective Classification for Deep Neural Networks",
+        "url": "https://arxiv.org/abs/1705.08500",
+        "kind": "paper"
+      },
+      {
+        "title": "Learning from Trials and Errors: Reflective Test-Time Planning for Embodied LLMs",
+        "url": "https://arxiv.org/abs/2602.21198",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-069",
+      "topic-070",
+      "topic-082"
+    ],
+    "plain": "A system watches for warning signs, such as missing information or a failed calculation. This helps it decide when to ask, try another approach or decline to answer. Self-criticism can still miss the original mistake."
+  },
+  {
+    "id": "topic-074",
+    "context": "Neural–symbolic proposal systems divide work between a learned model and a symbolic engine. The model suggests a candidate representation, construction, rule, or proof step; the symbolic component derives consequences or checks whether the proposal satisfies defined requirements. This division can use neural pattern recognition where search is broad while preserving explicit semantics for parts that can be checked. It is useful in domains with formal structure, such as mathematics, typed programs, or well-specified knowledge systems. The bridge between an informal request and its formal representation remains a separate source of error.",
+    "example": "A model proposes a mapping from an equipment description into an ontology. A reasoner checks whether the proposed class assignment conflicts with existing axioms, and a validation engine checks required fields. The user can inspect both the linguistic evidence and the resulting formal statements.",
+    "limitation": "A symbolic checker can validate the wrong formalization perfectly. Guarantees apply to the represented problem and its assumptions; ambiguity in language, missing axioms, and incorrect source facts still require attention.",
+    "refs": [
+      {
+        "title": "Solving olympiad geometry without human demonstrations",
+        "url": "https://research.google/pubs/solving-olympiad-geometry-without-human-demonstrations/",
+        "kind": "paper",
+        "doi": "10.1038/s41586-023-06747-5"
+      },
+      {
+        "title": "AlphaGeometry: An Olympiad-level AI system for geometry — Google DeepMind",
+        "url": "https://deepmind.google/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-002",
+      "topic-003",
+      "topic-075"
+    ],
+    "plain": "A model suggests a step toward a solution, such as adding a line to a geometry diagram. Another program can prove precisely written claims, or work out consequences, using stated rules and assumptions. This pairs flexible suggestions with checkable reasoning. The written claim may still misdescribe the real problem."
+  },
+  {
+    "id": "topic-075",
+    "context": "Differentiable logic represents aspects of logical reasoning using quantities that can participate in gradient-based optimization. Related constrained-learning approaches penalize violations of rules or restrict the space of permissible outputs. This lets training use structured domain knowledge alongside examples, potentially improving consistency or learning from limited labels. The precise semantics matter: a soft truth value or training penalty is not necessarily the same as satisfaction of a classical logical formula. Useful designs state which constraints are hard, which are preferences, and how conflicts between data and rules will be handled.",
+    "example": "A classifier learns equipment categories while receiving a penalty for assignments that contradict known category relationships. During evaluation, engineers separately measure predictive accuracy and rule violations, including cases where the training rules were incomplete or where the source records themselves were inconsistent.",
+    "limitation": "Optimizing a soft constraint does not prove that every deployment output satisfies it. Inconsistent rules, poor weighting, or approximate semantics can produce compromises that appear numerically good while violating the intended meaning.",
+    "refs": [
+      {
+        "title": "Logic Tensor Networks",
+        "url": "https://arxiv.org/abs/2012.13635",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-004",
+      "topic-061",
+      "topic-074"
+    ],
+    "plain": "Training can penalise rule-breaking, like losing points for leaving required fields blank. Some systems also block outputs that break a rule. Use these methods to guide answers, but a training penalty is not an enforced rule."
+  },
+  {
+    "id": "topic-076",
+    "context": "Learning, planning, and simulation can cooperate in one control loop. A learned policy proposes actions, a value model estimates longer-term usefulness, and a predictive model or simulator evaluates possible futures. Search then compares alternatives before committing to an action. Sometimes the learned model predicts only decision-relevant quantities rather than a detailed reconstruction of the world. This combination is useful when immediate rewards are misleading or actions have delayed consequences. The quality of planning depends on both the search procedure and the fidelity of the model in the states that search chooses to explore.",
+    "example": "An inspection robot evaluates several next viewpoints using a model of travel cost and expected information gain. It chooses a viewpoint, compares the actual observation with the prediction, and replans. Tests include unfamiliar layouts and deliberate inaccuracies in the model used for planning.",
+    "limitation": "A planner may exploit simulator errors and select actions that work only in its imagined environment. Longer rollouts can compound model error, so real observations and uncertainty estimates remain important.",
+    "refs": [
+      {
+        "title": "Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model",
+        "url": "https://arxiv.org/abs/1911.08265",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-007",
+      "topic-039",
+      "topic-060"
+    ],
+    "plain": "A model suggests actions, while software tries out their predicted consequences before choosing one. Like rehearsing a move, this helps compare choices whose effects appear later. The rehearsal can miss what happens in reality."
+  },
+  {
+    "id": "topic-077",
+    "context": "An LLM can propose candidate programs while an evolutionary process maintains and improves a population of candidates. Automated evaluators measure correctness and performance, and their results guide which candidates survive or become starting points for later changes. This combines generative flexibility with explicit search over executable artefacts. It is particularly useful when solutions are easy to test but hard to design, such as algorithm implementations with measurable runtime. The evaluator defines the effective objective, so separate checks are needed for correctness, resource use, and generalization beyond the examples used during search.",
+    "example": "A research tool generates alternative scheduling heuristics and evaluates each on a set of simulated workloads. Promising candidates are retained and modified. Final selection uses unseen workloads and hard feasibility checks, ensuring that a fast heuristic has not simply learned to exploit the benchmark.",
+    "limitation": "Optimization can overfit the evaluator or exploit its bugs. Improvements on a bounded search problem do not establish autonomous scientific discovery, unrestricted self-improvement, or correctness outside the evaluated conditions.",
+    "refs": [
+      {
+        "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+        "url": "https://arxiv.org/abs/2506.13131",
+        "kind": "technical white paper"
+      },
+      {
+        "title": "AlphaEvolve: A Gemini-powered coding agent for designing advanced algorithms — Google DeepMind",
+        "url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-010",
+      "topic-066",
+      "topic-072"
+    ],
+    "plain": "A language model proposes programs, and automated checks measure how well they work. The system keeps promising versions and builds on them, aiming for improvements such as faster calculations. Faulty checks can reward faulty programs."
+  },
+  {
+    "id": "topic-078",
+    "context": "Model compression includes several distinct operations. Distillation trains a smaller model to reproduce useful behaviour from a teacher. Pruning removes parameters or structures judged unnecessary. Quantization uses lower-precision representations for weights or computation. These methods can be combined, but each changes different parts of the deployment trade-off. The practical goal is to meet a task's quality requirements within a memory, latency, or energy budget. Evaluation should use the actual target hardware and representative inputs, because a smaller stored model does not automatically translate into faster execution with the available kernels.",
+    "example": "An image classifier for an inspection device is distilled into a smaller network and quantized for its processor. Engineers compare detection quality, latency, peak memory, and power use on the device, including rare defects that may be disproportionately affected by compression.",
+    "limitation": "Compression can damage rare capabilities or calibration before average accuracy moves noticeably. Some pruning patterns do not accelerate ordinary hardware, and quantization benefits depend on supported operations and numerical sensitivity.",
+    "refs": [
+      {
+        "title": "Distilling the Knowledge in a Neural Network",
+        "url": "https://arxiv.org/abs/1503.02531",
+        "kind": "paper"
+      },
+      {
+        "title": "Learning both Weights and Connections for Efficient Neural Networks",
+        "url": "https://arxiv.org/abs/1506.02626",
+        "kind": "paper"
+      },
+      {
+        "title": "Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference",
+        "url": "https://arxiv.org/abs/1712.05877",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-055",
+      "topic-079",
+      "topic-081"
+    ],
+    "plain": "Distillation: train a smaller model to copy useful behaviour from a larger one.\nPruning: remove parts of a model.\nQuantization: use less precise numbers.\nThese methods can help a model fit on smaller devices.\nCompression can damage abilities that matter."
+  },
+  {
+    "id": "topic-079",
+    "context": "Parameter-efficient fine-tuning adapts a pretrained model while updating a relatively small set of trainable parameters. LoRA represents certain weight updates through low-rank matrices; adapters add small trainable modules to a largely frozen network. This can reduce training memory and make it practical to maintain several specialized adaptations of one base model. It is a method of adaptation, not an alternative source of supervision: the training examples and objectives still determine what is learned. The base model, adapted modules, and their compatibility must all be tracked as part of the resulting system.",
+    "example": "A company maintains separate adaptations for extracting fields from procurement documents and from maintenance reports. Both use the same base model but different LoRA weights and evaluation sets. Deployment records the exact base revision and adapter revision so results can be reproduced.",
+    "limitation": "Updating fewer parameters does not eliminate overfitting, data leakage, or behavioural regressions. An adapter can still substantially change outputs, and combining adaptations requires evaluation rather than assuming their effects remain independent.",
+    "refs": [
+      {
+        "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "url": "https://arxiv.org/abs/2106.09685",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-043",
+      "topic-054",
+      "topic-078"
+    ],
+    "plain": "Training changes a few parameters or adds small components, leaving most of the model fixed. This can make it cheaper to adapt one model for several specialist jobs. Small changes can still cause unexpected behaviour."
+  },
+  {
+    "id": "topic-080",
+    "context": "Federated learning coordinates training across data holders while keeping raw training records at their respective locations. Participants compute updates locally, and an aggregation process builds a shared model. Privacy-preserving learning adds mechanisms such as differential privacy or secure aggregation, depending on the threat model. These are related but distinct ideas: avoiding raw-data centralization does not by itself prevent information leakage through updates or final models. Such designs can be useful when collaboration is desirable but data movement is constrained. They also introduce challenges from heterogeneous datasets, unreliable participants, and the governance of shared updates.",
+    "example": "Several organizations collaborate on an equipment-fault model while retaining their raw sensor records locally. The project specifies what the coordinator can observe, how updates are protected, and how quality is measured at each site rather than only on an aggregated benchmark.",
+    "limitation": "Federated learning alone is not a privacy guarantee. Protection depends on explicit assumptions and mechanisms, while differential privacy involves a measurable privacy–utility trade-off that must be understood for the deployment.",
+    "refs": [
+      {
+        "title": "Communication-Efficient Learning of Deep Networks from Decentralized Data",
+        "url": "https://arxiv.org/abs/1602.05629",
+        "kind": "paper"
+      },
+      {
+        "title": "Deep Learning with Differential Privacy",
+        "url": "https://arxiv.org/abs/1607.00133",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-034",
+      "topic-050",
+      "topic-085",
+      "topic-091"
+    ],
+    "plain": "Federated learning: teams train a shared model while keeping their records on their own computers.\nThey can work together without pooling the original data.\nPrivacy methods: protect shared updates, for example by adding carefully chosen noise.\nUpdates can still leak if protections are weak."
+  },
+  {
+    "id": "topic-081",
+    "context": "Serving optimizations reduce the work or delay needed to produce outputs. Speculative decoding uses a cheaper draft model and lets a target model accept or correct proposed tokens; suitably designed sampling can preserve the target distribution. Caching reuses valid intermediate computation, while routing chooses among models or execution paths. These mechanisms address different bottlenecks and should be measured under realistic concurrency and request patterns. They can make an application cheaper or faster without creating a new reasoning capability. Routing, in particular, can change output quality if requests are assigned to a less capable model.",
+    "example": "An assistant uses a draft model to propose tokens and a larger model to validate them, while reusing cached prompt prefixes for repeated document contexts. Load tests measure end-to-end latency, throughput, and memory under a realistic mix of short and long requests.",
+    "limitation": "Speedups depend on workload, hardware, acceptance rates, and memory pressure. Incorrect cache keys can reuse the wrong context, and model routing introduces quality trade-offs even when decoding optimizations preserve a target distribution.",
+    "refs": [
+      {
+        "title": "Fast Inference from Transformers via Speculative Decoding",
+        "url": "https://arxiv.org/abs/2211.17192",
+        "kind": "paper"
+      },
+      {
+        "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+        "url": "https://arxiv.org/abs/2309.06180",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-055",
+      "topic-070",
+      "topic-078"
+    ],
+    "plain": "Draft-and-check: a cheaper model drafts words for another model to check.\nCaching: reuse calculations already done for the same context.\nChoosing models: pick which model handles each request.\nThese approaches aim to cut response time or computing cost.\nChoosing a different model can change answer quality."
+  },
+  {
+    "id": "topic-082",
+    "context": "Calibration examines whether predicted confidence corresponds to observed correctness. If a classifier assigns roughly 80 percent confidence to many cases, about 80 percent of comparable cases should be correct for that group to be well calibrated. Uncertainty estimation more broadly considers ambiguity in data and uncertainty caused by limited knowledge or model fit. These signals can support abstention, active learning, and review allocation. They need an explicit target and an evaluation distribution: the probability of a class, confidence in an extracted field, and confidence in a long generated answer are not interchangeable quantities.",
+    "example": "A defect classifier's predictions are grouped by confidence and compared with expert-labelled outcomes. A calibration method is fitted on separate data, and review thresholds are chosen based on measured error rates. Later testing checks whether calibration survives a change in camera or lighting.",
+    "limitation": "Calibration can deteriorate under distribution shift, and a good overall score can hide poor behaviour for a subgroup. A model's verbal statement that it is confident is not automatically a calibrated estimate.",
+    "refs": [
+      {
+        "title": "On Calibration of Modern Neural Networks",
+        "url": "https://arxiv.org/abs/1706.04599",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-048",
+      "topic-073",
+      "topic-083"
+    ],
+    "plain": "Calibration checks whether confidence scores match results, like checking a weather forecast against the rain that followed. An 80% score should mean about eight correct answers in ten comparable cases. Use this to guide review, but changed conditions can mislead."
+  },
+  {
+    "id": "topic-083",
+    "context": "Conformal prediction turns a model's outputs and calibration data into prediction sets or intervals with a stated coverage target under specified assumptions. Standard split conformal methods rely on exchangeability between calibration and future examples and provide marginal coverage, not a guarantee for each individual case. Selective prediction takes a different but complementary approach: the system can decline to answer when a decision rule indicates excessive uncertainty. Both make uncertainty operational by changing what the system returns. Their usefulness depends on how informative the resulting sets are and how costly abstentions become.",
+    "example": "A regression system returns an interval for predicted energy demand instead of a single number. Operators evaluate the proportion of future observations inside those intervals and their width. If operating conditions shift, they reassess the calibration assumptions before relying on the previous coverage target.",
+    "limitation": "A nominal coverage level does not guarantee useful precision or correctness for every case or subgroup. Distribution shift can invalidate standard assumptions, and overly broad sets may be technically valid but operationally unhelpful.",
+    "refs": [
+      {
+        "title": "A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification",
+        "url": "https://arxiv.org/abs/2107.07511",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-082",
+      "topic-073",
+      "topic-084"
+    ],
+    "plain": "Conformal prediction: give a set of possible answers, such as a range of delivery times.\nUnder stated data conditions, these sets include the correct answer at a promised rate across many cases.\nThat helps people plan around uncertainty.\nSelective prediction: choose not to answer when a rule signals too much uncertainty.\nIndividual cases can fail, and changing conditions can invalidate the promise."
+  },
+  {
+    "id": "topic-084",
+    "context": "Validation and formal verification evaluate claims against explicit requirements. Schema or shape validation checks whether data follows a defined structure. Tests exercise selected cases. Formal methods can prove a property for all cases covered by a model and its assumptions, or produce a counterexample. These forms of evidence answer different questions and should retain distinct outcomes. A useful system states what was checked, against which version of the specification, and with what result. Passing a structural check does not establish factual truth, just as an unexecuted check does not establish that a requirement was satisfied.",
+    "example": "A knowledge-graph update is checked against SHACL shapes for required identifiers and valid relationships. Separately, a bounded controller model is checked for a prohibited transition. The report distinguishes valid structure, proven properties, failed checks, and properties for which no checker was available.",
+    "limitation": "Assurance is limited by the specification, abstraction, assumptions, and trusted checker. A proof about an incorrect formal model can be valid while saying little about the intended real-world behaviour.",
+    "refs": [
+      {
+        "title": "Reluplex: An Efficient SMT Solver for Verifying Deep Neural Networks",
+        "url": "https://arxiv.org/abs/1702.01135",
+        "kind": "paper"
+      },
+      {
+        "title": "Shapes Constraint Language (SHACL) — W3C Recommendation",
+        "url": "https://www.w3.org/TR/shacl/",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-008",
+      "topic-072",
+      "topic-074",
+      "topic-089"
+    ],
+    "plain": "Format checks: confirm that required information is present and arranged correctly.\nTests: try selected cases to see whether an answer or program works.\nMathematical proofs: establish a precisely stated property under stated assumptions.\nThese checks help catch different kinds of mistakes before use.\nA correct proof can concern the wrong problem."
+  },
+  {
+    "id": "topic-085",
+    "context": "Interpretability, provenance, and human review make different aspects of a system inspectable. Interpretability methods investigate which features or internal mechanisms influence behaviour. Provenance records where information came from and which transformations produced an output. Human review adds accountable judgement where automated evidence is insufficient. These functions can reinforce one another, but none should be treated as a universal explanation of correctness. A useful interface lets a reviewer trace a claim to its source, understand the relevant model or rule, inspect uncertainty, and record a decision without confusing generated explanations with direct evidence. Feature attribution asks which input features contributed to a prediction; mechanistic interpretability investigates internal representations and circuits. Provenance tracks the origin and transformation of information. These are distinct forms of evidence, and none substitutes for task-level validation or accountable human decisions.",
+    "example": "An incident-summary screen links each assertion to a document passage and its revision, shows which extraction model produced it, and flags unresolved uncertainty. A reviewer corrects one assertion and records the reason, preserving both the original output and the approved change for later inspection.",
+    "limitation": "An attractive explanation can be incomplete or unstable, provenance can trace an incorrect source, and reviewers can become over-reliant on automation. Evaluate whether these mechanisms actually help people detect and resolve errors.",
+    "refs": [
+      {
+        "title": "A Unified Approach to Interpreting Model Predictions",
+        "url": "https://arxiv.org/abs/1705.07874",
+        "kind": "paper"
+      },
+      {
+        "title": "Scaling and evaluating sparse autoencoders",
+        "url": "https://arxiv.org/abs/2406.04093",
+        "kind": "paper"
+      },
+      {
+        "title": "Why Should I Trust You?: Explaining the Predictions of Any Classifier",
+        "url": "https://arxiv.org/abs/1602.04938",
+        "kind": "paper"
+      },
+      {
+        "title": "PROV-Overview — W3C",
+        "url": "https://www.w3.org/TR/prov-overview/",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-003",
+      "topic-072",
+      "topic-082",
+      "topic-090",
+      "topic-091"
+    ],
+    "plain": "Interpretability: investigate how a model reaches its outputs.\nProvenance: record where information came from and how it changed.\nHuman review: let someone inspect and judge the result.\nTogether, these can help a reviewer trace a claim in a report back to its source.\nAn appealing explanation or trusted source can still mislead."
+  }
+]

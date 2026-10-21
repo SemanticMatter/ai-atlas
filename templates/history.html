@@ -1,0 +1,99 @@
+<div id="ai-evolution-timeline">
+  <h2>AI evolution: parallel traditions, growing combinations</h2>
+  <div class="text-small text-muted">Selected milestones · Period bands, not a linear time scale · Arrows show selected influences or combinations</div>
+  <div id="ai-evolution-plot" role="group" aria-label="Chronological influence graph from early AI to current research and possible future directions">
+    <svg class="evolution-connectors" aria-hidden="true"></svg>
+    <div id="ai-evolution-grid"></div>
+  </div>
+  <div class="text-small text-muted">Core + selected connections · Solid: historical · Dashed: possible future · Earlier methods remain in use</div>
+  <div class="card" id="ai-evolution-detail" aria-live="polite"></div>
+  <style>
+    #ai-evolution-timeline #ai-evolution-plot {position:relative; margin:20px 0 12px;}
+    #ai-evolution-timeline .evolution-connectors {position:absolute; inset:0; width:100%; height:100%; pointer-events:none; overflow:visible;}
+    #ai-evolution-timeline #ai-evolution-grid {position:relative; display:grid; grid-template-columns:72px repeat(3,minmax(0,1fr)); gap:36px 14px; align-items:center;}
+    #ai-evolution-timeline .era {color:var(--muted-foreground); align-self:center;}
+    #ai-evolution-timeline .milestone {position:relative; min-width:0; text-align:center; overflow-wrap:anywhere;}
+    #ai-evolution-timeline .milestone-date {margin-top:5px; color:var(--muted-foreground);}
+    #ai-evolution-timeline #ai-evolution-detail {margin-top:14px;}
+    #ai-evolution-timeline .detail-row {margin:5px 0;}
+    #ai-evolution-timeline .horizon-label {font-weight:500;}
+  </style>
+  <script>
+  (() => {
+    const root=document.getElementById('ai-evolution-timeline');
+    const plot=root.querySelector('#ai-evolution-plot');
+    const grid=root.querySelector('#ai-evolution-grid');
+    const svg=root.querySelector('.evolution-connectors');
+    const detail=root.querySelector('#ai-evolution-detail');
+    const {sources:S,eras,nodes,edges}=/*__HISTORY_DATA__*/;
+    const map=new Map(nodes.map(n=>[n.id,n]));
+    let selected='agents';
+    const buttons=new Map();
+    const eraElements=[];
+    eras.forEach((era,i)=>{
+      const el=document.createElement('div'); el.className='era text-small'+(i===eras.length-1?' horizon-label':''); el.textContent=era; grid.append(el); eraElements.push(el);
+      nodes.filter(n=>n.row===i).forEach(n=>{
+        const el=document.createElement('div'); el.className='milestone'; el.dataset.node=n.id;
+        const b=document.createElement('button'); b.type='button'; b.className='btn viz-tile'; b.textContent=n.label; b.setAttribute('aria-pressed',n.id===selected?'true':'false');
+        b.addEventListener('click',()=>{selected=n.id;showDetail();draw();});
+        const date=document.createElement('div'); date.className='milestone-date text-small'; date.textContent=n.date;
+        el.append(b,date); grid.append(el); buttons.set(n.id,b);
+      });
+    });
+    function showDetail(){
+      detail.replaceChildren();
+      const n=map.get(selected);
+      const line=document.createElement('div'); line.className='detail-row'; line.textContent=n.label+' · '+n.note; detail.append(line);
+      const inputs=edges.filter(e=>e[1]===selected).map(e=>map.get(e[0]).label);
+      const outputs=edges.filter(e=>e[0]===selected).map(e=>map.get(e[1]).label);
+      if(inputs.length){const x=document.createElement('div'); x.className='detail-row text-small';x.textContent='Connections in: '+inputs.join(' · ');detail.append(x);}
+      if(outputs.length){const x=document.createElement('div'); x.className='detail-row text-small';x.textContent='Connections out: '+outputs.join(' · ');detail.append(x);}
+      const links=document.createElement('div');links.className='viz-row detail-row';
+      n.refs.forEach((ref,i)=>{const a=document.createElement('a');a.href=S[ref];a.target='_blank';a.rel='noopener noreferrer';a.textContent='Source '+(i+1)+' ↗';links.append(a);});detail.append(links);
+      buttons.forEach((b,id)=>b.setAttribute('aria-pressed',id===selected?'true':'false'));
+    }
+    const ns='http://www.w3.org/2000/svg';
+    function make(tag,attrs){const e=document.createElementNS(ns,tag);for(const [k,v]of Object.entries(attrs))e.setAttribute(k,v);return e;}
+    function draw(){
+      const narrow=plot.clientWidth<560;
+      grid.style.gridTemplateColumns=narrow?'64px minmax(0,1fr)':'72px repeat(3,minmax(0,1fr))';
+      grid.style.gap=narrow?'22px 24px':'36px 14px';
+      let firstRow=1;
+      eras.forEach((era,i)=>{
+        const group=nodes.filter(n=>n.row===i).sort((a,b)=>a.col-b.col);
+        const rows=narrow?group.length:Math.ceil(group.length/3);
+        const label=eraElements[i];label.style.gridColumn='1';label.style.gridRow=firstRow+' / span '+rows;
+        group.forEach((n,j)=>{const el=buttons.get(n.id).parentElement;el.style.gridColumn=narrow?'2':String(j%3+2);el.style.gridRow=String(firstRow+(narrow?j:Math.floor(j/3)));el.style.textAlign=narrow?'left':'center';});
+        firstRow+=rows;
+      });
+      const r=plot.getBoundingClientRect();
+      svg.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);svg.replaceChildren();
+      const defs=make('defs',{});
+      ['neutral','active'].forEach(kind=>{
+        const marker=make('marker',{id:'ai-arrow-'+kind,viewBox:'0 0 8 8',refX:'7',refY:'4',markerWidth:'6',markerHeight:'6',orient:'auto-start-reverse'});
+        marker.append(make('path',{d:'M 0 1 L 7 4 L 0 7 Z',fill:kind==='active'?'var(--viz-series-1)':'var(--border)'}));defs.append(marker);
+      });svg.append(defs);
+      edges.sort((a,b)=>Number(a.includes(selected))-Number(b.includes(selected))).forEach(([from,to])=>{
+        const a=map.get(from),b=map.get(to); const active=from===selected||to===selected;
+        const core=b.row-a.row===1;
+        if(!active&&!core)return;
+        const ar=buttons.get(from).getBoundingClientRect(),br=buttons.get(to).getBoundingClientRect();
+        let d;
+        if(narrow){
+          const ax=ar.left-r.left,ay=ar.top-r.top+ar.height/2,bx=br.left-r.left,by=br.top-r.top+br.height/2;
+          const channel=ax-12-(a.col%2)*5;d=`M ${ax} ${ay} C ${channel} ${ay}, ${channel} ${by}, ${bx-3} ${by}`;
+        }else if(Math.abs(ar.top-br.top)<20){
+          const ax=ar.left-r.left,ay=ar.top-r.top+ar.height/2,bx=br.right-r.left,by=br.top-r.top+br.height/2;
+          d=`M ${ax} ${ay} C ${ax-7} ${ay-20}, ${bx+7} ${by-20}, ${bx+3} ${by}`;
+        }else{
+          const ax=ar.left-r.left+ar.width/2,ay=ar.bottom-r.top+20,bx=br.left-r.left+br.width/2,by=br.top-r.top-5;
+          const gap=(by-ay)/2;
+          d=`M ${ax} ${ay} C ${ax} ${ay+gap}, ${bx} ${by-gap}, ${bx} ${by}`;
+        }
+        svg.append(make('path',{d,fill:'none',stroke:active?'var(--viz-series-1)':'var(--border)','stroke-width':active?'1.6':'1','stroke-dasharray':b.future?'5 4':'none','marker-end':active?'url(#ai-arrow-active)':'url(#ai-arrow-neutral)'}));
+      });
+    }
+    showDetail();new ResizeObserver(draw).observe(plot);requestAnimationFrame(draw);
+  })();
+  </script>
+</div>

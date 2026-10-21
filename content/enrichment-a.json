@@ -1,0 +1,969 @@
+[
+  {
+    "id": "topic-001",
+    "context": "An expert system separates domain knowledge from the procedure that applies it. Facts describe the current situation, rules encode implications, and an inference engine decides which rules can fire. Forward chaining starts with available facts and derives consequences; backward chaining starts with a question and works back to the facts needed to answer it. This makes rule systems useful when requirements are explicit, decisions must be repeatable, and an expert can describe the relevant conditions. Rules may be maintained manually or combined with learned components that supply uncertain observations.",
+    "example": "An illustrative maintenance assistant checks whether an inspection is overdue, whether a component is safety critical, and whether an approved replacement exists. It applies documented rules to identify the required next step and shows the rules and facts that led there.",
+    "limitation": "Rules do not automatically adapt when operating conditions change. Large rule bases can become inconsistent or hard to maintain, and an apparently precise result can still rely on incomplete or incorrect input facts.",
+    "refs": [
+      {
+        "title": "Rules and inference: definite clauses",
+        "url": "https://artint.info/3e/html/ArtInt3e.Ch5.S3.html",
+        "kind": "textbook"
+      }
+    ],
+    "related": [
+      "topic-002",
+      "topic-003",
+      "topic-084"
+    ],
+    "plain": "These systems follow written rules, like checking whether a machine is due for an inspection. They help apply the same requirements consistently and show which rules led to a decision. Outdated rules can give wrong answers."
+  },
+  {
+    "id": "topic-002",
+    "context": "Logical reasoning operates on statements with formally defined meanings. A theorem prover searches for a derivation from assumptions, while a satisfiability solver asks whether constraints can all hold at once. Program synthesis adds a construction problem: find a program that meets a specification or matches examples. These methods are useful when correctness can be stated precisely, such as checking access rules, finding a schedule, or verifying a small software component. A neural model can propose candidate steps, while a symbolic checker determines whether those steps follow the specified rules.",
+    "example": "An illustrative access-control checker represents users, roles and permissions as logical conditions. It searches for a configuration in which an unapproved user could reach a restricted dataset, returning either a counterexample or a result scoped to the encoded policy.",
+    "limitation": "Formal guarantees apply to the formal specification and assumptions. They do not establish that the specification captures every real requirement, and expressive reasoning problems can demand substantial time or memory.",
+    "refs": [
+      {
+        "title": "Propositions and inference",
+        "url": "https://artint.info/3e/html/ArtInt3e.Ch5.html",
+        "kind": "textbook"
+      },
+      {
+        "title": "Introduction to the Z3 theorem prover",
+        "url": "https://microsoft.github.io/z3guide/docs/logic/intro/",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-008",
+      "topic-074",
+      "topic-084"
+    ],
+    "plain": "Logic: checks what follows from stated assumptions.\nProof search: looks for a chain of valid steps.\nProgram synthesis: builds code to meet stated requirements.\nThese methods can help check software or access rules.\nMissing requirements can leave real problems unnoticed."
+  },
+  {
+    "id": "topic-003",
+    "context": "A knowledge graph connects identifiable entities through named relationships. An ontology adds a shared conceptual model: classes, properties and sometimes axioms that define what those relationships mean. This helps information from different systems refer to the same equipment, process or organisation consistently. With a suitable reasoner, explicit assertions can support additional logical conclusions. The graph itself is a representation rather than a complete reasoning system. It becomes useful through queries, validation, inference and applications that preserve the distinction between stated facts, derived claims and missing knowledge.",
+    "example": "An illustrative offshore information model links a pump to its vessel, maintenance procedure, inspection records and responsible team. A query can follow these relationships across source systems instead of relying on matching document names or isolated search keywords alone.",
+    "limitation": "A graph does not guarantee correct facts or common meaning. Entity identity, modelling choices, provenance and update policy require care; an absent assertion may mean unknown rather than false.",
+    "refs": [
+      {
+        "title": "OWL 2 Web Ontology Language Primer",
+        "url": "https://www.w3.org/TR/owl2-primer/",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-001",
+      "topic-024",
+      "topic-064"
+    ],
+    "plain": "Knowledge graphs connect things and facts, like machines, parts and their suppliers. Ontologies define shared names and meanings, helping different records fit together. The connections can contain mistakes."
+  },
+  {
+    "id": "topic-004",
+    "context": "Fuzzy logic represents vague categories using degrees of membership. A temperature can belong partly to a category such as warm, rather than crossing one abrupt threshold between false and true. Rules combine these memberships and, in many controllers, a defuzzification step converts the result into a concrete output. This is useful when experts describe behaviour in qualitative terms and smooth transitions matter. Fuzzy membership describes how well a value fits a concept; probability instead describes uncertainty about events or states. The two can be combined, but answer different questions.",
+    "example": "An illustrative ventilation controller combines rules such as increasing airflow when a room is fairly warm and heavily occupied. Gradual membership functions allow the fan setting to change smoothly as sensor readings move between the configured categories over time.",
+    "limitation": "Membership functions and rule interactions must be designed and validated. A membership of 0.8 does not mean an 80 percent chance that a statement is true, and smooth control is not automatically safe control.",
+    "refs": [
+      {
+        "title": "Fuzzy Sets",
+        "authors": "Lotfi A. Zadeh",
+        "year": 1965,
+        "kind": "paper",
+        "url": "https://liphy-annuaire.univ-grenoble-alpes.fr/pages_personnelles/bahram_houchmandzadeh/biblio/Zadeh_FuzzySetTheory_1965.pdf",
+        "canonical_url": "https://doi.org/10.1016/S0019-9958(65)90241-X",
+        "access_note": "Original article retrieved through an academic mirror and first page visually inspected (turn35view3). Publisher/DOI returned 403 to the tool. Author's Berkeley bibliography independently verifies title, author, June 1965 and pages 338–353 (turn32view8)."
+      },
+      {
+        "title": "Foundations of fuzzy logic",
+        "url": "https://www.mathworks.com/help/fuzzy/foundations-of-fuzzy-logic.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-001",
+      "topic-016",
+      "topic-082"
+    ],
+    "plain": "Fuzzy logic handles gradual categories, such as 'slightly warm' and 'very warm'. It can turn these descriptions into rules for adjusting a heater. These degrees describe fit, not chances of being true."
+  },
+  {
+    "id": "topic-005",
+    "context": "Case-based reasoning approaches a new problem by retrieving similar previous cases, adapting their solutions, and retaining useful experience. A case may include the context, symptoms, action taken and observed outcome. The key design choices are how similarity is measured, which differences matter, and how a past solution should be adjusted. This is useful when experienced practitioners recognise recurring situations but cannot easily express a complete rule set. It differs from simply retrieving a document because the system also needs a reasoned adaptation and an outcome-aware learning process.",
+    "example": "An illustrative service assistant finds earlier bearing failures with similar vibration patterns, operating loads and temperatures. It presents the repairs used in those cases, highlights differences from the current machine, and records which proposed intervention actually resolved the new issue.",
+    "limitation": "A superficially similar case may have a different cause. Biased or poorly documented histories can repeat past mistakes, so adaptation and outcome verification matter as much as retrieval quality.",
+    "refs": [
+      {
+        "title": "Case-Based Reasoning: Foundational Issues, Methodological Variations, and System Approaches",
+        "url": "https://doi.org/10.3233/AIC-1994-7104",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-006",
+      "topic-063",
+      "topic-069"
+    ],
+    "plain": "It reuses past cases, like finding how a similar machine fault was fixed. The old solution is adjusted to help solve the new problem. Similar symptoms can have different causes."
+  },
+  {
+    "id": "topic-006",
+    "context": "Search represents a problem as states and possible transitions, then explores ways to reach a goal. A search strategy determines which candidate state is considered next. Breadth-first and depth-first search use simple ordering, while heuristic methods estimate which states are promising. A* combines accumulated path cost with an estimate of remaining cost; its guarantees depend on the heuristic and search conditions. Search is useful when actions and goals are well defined, including routing, planning and configuration. Learned models can supply heuristics without changing the underlying need to evaluate valid transitions.",
+    "example": "An illustrative inspection planner treats each visited location and remaining task list as a state. It explores possible visit orders and uses estimated travel time to prioritise candidates, producing a route subject to the modelled access and equipment constraints.",
+    "limitation": "State spaces can grow exponentially. A fast heuristic may be misleading, and methods such as beam search can discard the best solution; guarantees must be tied to the specific algorithm and assumptions.",
+    "refs": [
+      {
+        "title": "Searching for solutions",
+        "url": "https://artint.info/3e/html/ArtInt3e.Ch3.html",
+        "kind": "textbook"
+      }
+    ],
+    "related": [
+      "topic-007",
+      "topic-008",
+      "topic-009"
+    ],
+    "plain": "Search explores possible steps, like trying routes through a maze. Some methods try promising routes first to find a workable path sooner. Shortcuts can skip the best path."
+  },
+  {
+    "id": "topic-007",
+    "context": "Game-tree search evaluates sequences of actions and responses. Minimax models an adversary choosing against the agent, and alpha–beta pruning avoids branches that cannot change the decision under that model. Monte Carlo tree search instead allocates simulations to promising branches, balancing exploration with exploitation. It is useful when exhaustive search is impossible but candidate outcomes can be simulated or evaluated. Neural policy and value models can guide the search and estimate unfinished positions. The result is a combination of learned judgement and explicit exploration, not just a larger predictive model.",
+    "example": "An illustrative simulator compares several manoeuvres for an autonomous vehicle. Tree search explores possible subsequent conditions, repeatedly sampling outcomes and concentrating effort on promising actions before choosing the next move under the simulator's assumptions and a limited computation budget.",
+    "limitation": "Search quality depends on the simulator, evaluation function and available computation. A method designed for adversarial games may be inappropriate for cooperative or uncertain environments without modifying its decision model.",
+    "refs": [
+      {
+        "title": "Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm",
+        "url": "https://arxiv.org/abs/1712.01815",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-006",
+      "topic-039",
+      "topic-076"
+    ],
+    "plain": "Game-tree search looks ahead at moves and replies, like thinking through a chess opponent's next move. Monte Carlo tree search tries many possible continuations, spending more effort on promising moves. Both help choose what to do next, but poor forecasts can mislead them."
+  },
+  {
+    "id": "topic-008",
+    "context": "Constraint solving expresses a problem through variables, their possible values and conditions that must be satisfied. A solver searches for a consistent assignment, or reports that none exists within the encoded problem. SAT handles Boolean formulas; SMT adds theories such as arithmetic, arrays or bit vectors. Constraint programming and mathematical optimisation offer further formulations, including objectives that rank feasible solutions. These tools are valuable when admissible outcomes are easier to describe than a procedure for finding one. They commonly complement predictive models by enforcing hard operational requirements.",
+    "example": "An illustrative workforce scheduler assigns qualified staff to shifts while enforcing rest periods, certification requirements and minimum coverage. A predictive model may estimate workload, but the solver determines whether the resulting roster respects the explicitly modelled staffing constraints.",
+    "limitation": "A solver can only enforce supplied constraints. Missing requirements produce feasible but unsuitable answers, and inconsistent input may make a problem unsatisfiable without indicating which real-world policy should be revised.",
+    "refs": [
+      {
+        "title": "Introduction to the Z3 theorem prover",
+        "url": "https://microsoft.github.io/z3guide/docs/logic/intro/",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-002",
+      "topic-009",
+      "topic-084"
+    ],
+    "plain": "A solver fits choices to a set of rules, like making a rota with no clashing shifts. Some solvers also seek the cheapest or best allowed choice. A rule you forgot can spoil the result."
+  },
+  {
+    "id": "topic-009",
+    "context": "Automated planning constructs actions that move a system from an initial situation towards a goal. Classical planning usually assumes known action effects; temporal planning adds duration and scheduling interactions. Hierarchical planning decomposes larger activities into smaller tasks. Decision-theoretic planning accounts for uncertain transitions, partial observations or competing costs. Planning is useful when a sequence must satisfy dependencies rather than merely predict the next item. A practical system needs explicit action descriptions, state estimation and a way to check execution, because the real environment may diverge from the original plan.",
+    "example": "An illustrative maintenance planner orders isolation, inspection, parts replacement and recommissioning steps. It considers which tasks can run concurrently, which specialists are available, and which observations should trigger replanning before the work can proceed to the next stage.",
+    "limitation": "A valid plan in a simplified model may fail during execution. Unmodelled effects, uncertain observations and changing resources require monitoring and replanning; language-generated action lists alone do not establish feasibility.",
+    "refs": [
+      {
+        "title": "Deterministic planning",
+        "url": "https://artint.info/3e/html/ArtInt3e.Ch6.html",
+        "kind": "textbook"
+      }
+    ],
+    "related": [
+      "topic-006",
+      "topic-039",
+      "topic-067"
+    ],
+    "plain": "Planning builds a sequence of actions, like arranging repair tasks in the right order. Some methods also consider timing or uncertain outcomes to help choose a workable plan. Unexpected changes can disrupt the plan."
+  },
+  {
+    "id": "topic-010",
+    "context": "Evolutionary methods maintain a population of candidate solutions and repeatedly generate, evaluate and select variations. Genetic algorithms often recombine encoded solutions; evolution strategies commonly adjust continuous parameters; genetic programming can evolve executable structures. Population and swarm methods explore through several interacting candidates. These approaches are useful when gradients are unavailable, objectives are irregular, or solutions mix discrete and continuous choices. Their common foundation is search guided by evaluated performance. A language model can propose variations, but the quality of selection still depends on the fitness function and evaluation process.",
+    "example": "An illustrative engineering optimiser proposes different hull parameters, evaluates each in a simulator, and retains promising designs while generating variations. Several objectives, such as resistance and manufacturability, can be compared instead of reducing every design consideration to one initial guess.",
+    "limitation": "Evaluation can be expensive, and convergence does not prove global optimality. An incomplete fitness function may reward undesirable shortcuts; diversity, constraints and independent validation remain important throughout the search process.",
+    "refs": [
+      {
+        "title": "The CMA Evolution Strategy: A Tutorial",
+        "authors": "Nikolaus Hansen",
+        "year": 2016,
+        "kind": "paper",
+        "url": "https://arxiv.org/abs/1604.00772"
+      },
+      {
+        "title": "Adaptation in Natural and Artificial Systems: An Introductory Analysis with Applications to Biology, Control, and Artificial Intelligence",
+        "authors": "John H. Holland",
+        "year": 1992,
+        "kind": "textbook",
+        "url": "https://mitpress.mit.edu/9780262581110/adaptation-in-natural-and-artificial-systems/"
+      },
+      {
+        "title": "DEAP evolutionary computation framework overview",
+        "url": "https://deap.readthedocs.io/en/master/overview.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-011",
+      "topic-077",
+      "topic-084"
+    ],
+    "plain": "These methods test groups of possible solutions, then change or combine them using their measured results. Think of trying many designs and improving them over rounds when no simple calculation gives the answer. Poor scoring rules can reward the wrong designs."
+  },
+  {
+    "id": "topic-011",
+    "context": "Bayesian optimisation chooses informative evaluations of an expensive objective. It builds a surrogate model from past observations, estimates uncertainty, and uses an acquisition rule to choose the next experiment. The rule balances investigating uncertain regions with improving the best result found so far. This is particularly useful when each evaluation costs substantial laboratory time, simulation time or computing resources. The optimiser does not need access to the objective's derivatives. Its assumptions about smoothness, noise, constraints and dimensionality nevertheless strongly affect whether it uses the evaluation budget effectively.",
+    "example": "An illustrative materials experiment tunes temperature and mixture proportions. Rather than testing a dense grid, the optimiser recommends the next settings using previous measurements and uncertainty, allowing researchers to spend a limited experimental budget on more informative candidate conditions.",
+    "limitation": "Surrogate uncertainty can be miscalibrated, and performance often degrades in very high-dimensional or rapidly changing spaces. Constraints and measurement noise need explicit treatment; exploration should respect operational limits before an experiment runs.",
+    "refs": [
+      {
+        "title": "A Tutorial on Bayesian Optimization",
+        "authors": "Peter I. Frazier",
+        "year": 2018,
+        "kind": "paper",
+        "url": "https://arxiv.org/abs/1807.02811"
+      },
+      {
+        "title": "Bayesian optimization overview",
+        "url": "https://botorch.org/docs/overview",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-010",
+      "topic-017",
+      "topic-082"
+    ],
+    "plain": "When tests cost a lot, this method picks which one to try next. It balances promising settings against unexplored ones, like improving a cake recipe over a few trials. Poor guesses can waste trials."
+  },
+  {
+    "id": "topic-012",
+    "context": "Regression relates input features to an outcome using a specified functional form. Linear models are linear in their coefficients, even when the features include transformations or interactions. Generalized linear models connect the predictor to a suitable outcome distribution through a link function; logistic regression is a familiar classification example. Regularisation constrains fitting to reduce overfitting or encourage simpler representations. These models are useful baselines for structured data and can be easier to inspect than highly flexible alternatives. Feature design, validation splits and interpretation of coefficients remain central parts of the work.",
+    "example": "An illustrative energy model estimates a vessel's consumption from speed, displacement and weather features. The team compares predictions with held-out voyages and inspects which variables contribute to the estimate, using the model as a baseline before considering more complex methods.",
+    "limitation": "Simple functional assumptions can miss important interactions. Coefficients are not automatically causal effects, and correlated features, leakage or a changing operating regime can make an apparently interpretable model misleading.",
+    "refs": [
+      {
+        "title": "Linear models",
+        "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-013",
+      "topic-018",
+      "topic-034"
+    ],
+    "plain": "These models fit an equation linking inputs to a result, such as house size to price. Use them as a starting point for predicting a number or a category. A good fit does not prove cause and effect."
+  },
+  {
+    "id": "topic-013",
+    "context": "Decision trees divide the feature space through a sequence of tests, producing a prediction at each terminal region. Ensembles combine multiple models to improve generalisation. Random forests diversify trees through sampling and feature selection; boosting builds models sequentially to address remaining errors. Bagging, voting and stacking provide additional ways to combine predictions. These approaches are strong candidates for many structured-data tasks because they can capture nonlinear relationships and interactions without a manually specified equation. Their value should be assessed against simpler baselines using splits that reflect the real deployment setting.",
+    "example": "An illustrative failure-risk model combines operating hours, maintenance intervals and sensor summaries to prioritise equipment for review. A gradient-boosted ensemble is compared with logistic regression on later time periods, with operational thresholds chosen using the costs of missed failures and false alarms.",
+    "limitation": "Large ensembles are harder to interpret than a single tree. Feature importance is not causal explanation, and these models can struggle with extrapolation beyond training conditions or with poorly controlled data leakage.",
+    "refs": [
+      {
+        "title": "Random Forests",
+        "authors": "Leo Breiman",
+        "year": 2001,
+        "kind": "paper",
+        "url": "https://link.springer.com/article/10.1023/A:1010933404324",
+        "access_note": "Publisher abstract and bibliographic metadata accessible; full article requires access."
+      },
+      {
+        "title": "Greedy Function Approximation: A Gradient Boosting Machine",
+        "authors": "Jerome H. Friedman",
+        "year": 1999,
+        "kind": "paper",
+        "url": "https://www.cse.iitb.ac.in/~soumen/readings/papers/Friedman1999GreedyFuncApprox.pdf",
+        "canonical_url": "https://doi.org/10.1214/aos/1013203451",
+        "access_note": "Academic mirror of the author's primary manuscript; do not label this PDF as the final 2001 typeset article."
+      },
+      {
+        "title": "Ensembles: boosting, random forests, bagging and stacking",
+        "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-012",
+      "topic-034",
+      "topic-085"
+    ],
+    "plain": "Trees: ask a series of questions, like checking heat and pressure before predicting a fault.\nEnsembles: combine several models, like asking a panel instead of one person.\nUse them to predict results from recorded measurements.\nUnfamiliar conditions can still mislead them."
+  },
+  {
+    "id": "topic-014",
+    "context": "Kernel methods compare examples using a similarity function that corresponds to an implicit feature representation. Support vector machines use this representation to find a separating boundary or regression function. Instance-based methods such as nearest neighbours retain training examples and predict from nearby cases. Both make the notion of similarity a crucial modelling decision. They are useful for moderate datasets, structured features and tasks with an informative distance measure. Scaling features, selecting the kernel or metric, and tuning regularisation or neighbourhood size can matter more than choosing a more elaborate model name.",
+    "example": "An illustrative classifier compares acoustic feature vectors from machinery. A kernel model learns a boundary between operating states, while a nearest-neighbour baseline returns the most similar labelled recordings so an engineer can inspect the examples behind a suggested classification.",
+    "limitation": "Similarity can become uninformative in high-dimensional spaces. Kernel training or nearest-neighbour retrieval may be expensive at scale, and an inappropriate metric can produce confident predictions from irrelevant examples despite good training performance.",
+    "refs": [
+      {
+        "title": "Support-vector networks",
+        "authors": "Corinna Cortes and Vladimir Vapnik",
+        "year": 1995,
+        "kind": "paper",
+        "url": "https://link.springer.com/article/10.1007/BF00994018",
+        "access_note": "Publisher abstract and metadata accessible; full article requires access."
+      },
+      {
+        "title": "Support vector machines",
+        "url": "https://scikit-learn.org/stable/modules/svm.html",
+        "kind": "documentation"
+      },
+      {
+        "title": "Nearest neighbors",
+        "url": "https://scikit-learn.org/stable/modules/neighbors.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-005",
+      "topic-015",
+      "topic-058"
+    ],
+    "plain": "Kernels: compare examples using a chosen measure of similarity to build predictions.\nNearest neighbours: predict from stored examples that look similar.\nBoth can help classify parts from their size and shape.\nA poor similarity measure can match the wrong examples."
+  },
+  {
+    "id": "topic-015",
+    "context": "Clustering groups observations according to a chosen notion of similarity or density. Dimensionality reduction instead finds a lower-dimensional representation that preserves selected aspects of the data. PCA captures directions of variance, while manifold methods try to preserve other geometric relationships. These techniques support exploration, compression, visualisation and feature construction. They do not automatically discover the categories a domain expert cares about: the result depends on scaling, distance, model assumptions and parameters. A useful analysis therefore connects the discovered structure to external observations rather than treating an attractive plot as an explanation.",
+    "example": "An illustrative analyst groups daily vessel operating profiles and plots a reduced representation of sensor features. They compare the resulting groups with logged activities to see whether they reflect transit, station keeping or data-quality problems, rather than assigning meaning from the plot alone.",
+    "limitation": "A cluster is not necessarily a real category, and a two-dimensional embedding can distort relationships. Results may change with scaling or parameter choices; validate interpretations using independent domain information.",
+    "refs": [
+      {
+        "title": "Clustering algorithms",
+        "url": "https://scikit-learn.org/stable/modules/clustering.html",
+        "kind": "documentation"
+      },
+      {
+        "title": "Decomposing signals into components",
+        "url": "https://scikit-learn.org/stable/modules/decomposition.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-014",
+      "topic-035",
+      "topic-058"
+    ],
+    "plain": "Clustering: groups things that look alike, like sorting a drawer of mixed screws.\nReducing dimensions: keeps fewer numbers to describe each item.\nBoth help you explore patterns or draw a plot.\nThe groups and plots can hide important differences."
+  },
+  {
+    "id": "topic-016",
+    "context": "Probabilistic models describe uncertainty through distributions over variables. Graphical models express dependency structure: Bayesian networks use directed graphs, while other models represent undirected or temporal relationships. Inference updates beliefs when new evidence becomes available, and learning estimates model parameters or structure from data. These methods are useful when observations are noisy, information is incomplete, and uncertainty should remain explicit throughout a decision process. Hidden Markov models are one familiar example for sequences with unobserved state. A graphical structure encodes modelling assumptions; it does not automatically establish a causal interpretation.",
+    "example": "An illustrative fault-diagnosis model relates possible component failures to several imperfect sensors. When an alarm arrives, it updates the relative plausibility of different failures and suggests which additional measurement would most help distinguish between the remaining explanations for the observed behaviour.",
+    "limitation": "Inference can become computationally difficult, and probabilities depend on the chosen model and data. Independence assumptions may be wrong; uncertainty estimates should be assessed rather than treated as trustworthy merely because they are numeric.",
+    "refs": [
+      {
+        "title": "Reasoning with uncertainty",
+        "url": "https://artint.info/3e/html/ArtInt3e.Ch9.html",
+        "kind": "textbook"
+      }
+    ],
+    "related": [
+      "topic-017",
+      "topic-018",
+      "topic-082"
+    ],
+    "plain": "These models work with chances and update their estimates when new clues arrive. Some use a graph to link clues, such as heat and noise from a faulty pump. Use them when facts are incomplete, but poor assumptions can mislead."
+  },
+  {
+    "id": "topic-017",
+    "context": "A Gaussian process specifies a distribution over functions, using a covariance kernel to express assumptions about how inputs relate. Observations update the distribution, giving predictions with model-dependent uncertainty. Probabilistic programming addresses a broader task: expressing a generative process as a program with random variables, then applying inference to its unknown quantities. These approaches are useful for small-data prediction, scientific modelling and combining domain assumptions with observations. They make uncertainty part of the model, but do not remove the need to check assumptions, computational approximations or agreement with observed data.",
+    "example": "An illustrative calibration model estimates a sensor response from a small number of laboratory measurements. A Gaussian process supplies an interpolated curve and uncertainty, while a probabilistic program can additionally represent shared calibration offsets and differences between individual devices in the experiment.",
+    "limitation": "Standard Gaussian-process inference can be costly for large datasets, and kernel choices strongly shape predictions. Probabilistic-program inference may be approximate or poorly converged; neither approach guarantees that its uncertainty reflects all sources of error.",
+    "refs": [
+      {
+        "title": "Gaussian Processes for Machine Learning",
+        "authors": "Carl Edward Rasmussen and Christopher K. I. Williams",
+        "year": 2006,
+        "kind": "textbook",
+        "url": "https://gaussianprocess.org/gpml/",
+        "access_note": "Author-maintained book page links free electronic chapters."
+      },
+      {
+        "title": "Gaussian processes",
+        "url": "https://scikit-learn.org/stable/modules/gaussian_process.html",
+        "kind": "documentation"
+      },
+      {
+        "title": "Introduction to Pyro probabilistic programming",
+        "url": "https://pyro.ai/examples/intro_long.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-011",
+      "topic-016",
+      "topic-082"
+    ],
+    "plain": "Gaussian processes: use measurements to predict values and show how unsure those predictions are.\nFor example, estimate heat where a sensor is missing.\nProbabilistic programming: describe a process with unknown parts and use data to estimate them.\nBoth help reason about unknowns, but poor assumptions can mislead."
+  },
+  {
+    "id": "topic-018",
+    "context": "Structural causal models represent variables together with assumptions about how they are generated. They distinguish observing a value from intervening to set it, allowing questions about what might happen if a process were changed. Counterfactual reasoning adds questions about alternative outcomes for a particular situation. These models are useful for policy, experimentation and diagnosis when prediction alone is insufficient. Causal identification depends on assumptions such as which variables are confounders and what interventions or data are available. A graph can help make those assumptions explicit without proving that they are correct.",
+    "example": "An illustrative operations team asks whether a revised maintenance schedule reduces downtime. A causal model distinguishes equipment age and operating load from the scheduling decision, helping design an experiment or assess whether observational records can support the effect they want to estimate.",
+    "limitation": "Correlation and predictive accuracy do not establish causality. Hidden confounding, selection effects and incorrect assumptions can invalidate an estimate; some causal questions cannot be answered from the available observational data alone.",
+    "refs": [
+      {
+        "title": "Causality",
+        "url": "https://artint.info/3e/html/ArtInt3e.Ch11.html",
+        "kind": "textbook"
+      }
+    ],
+    "related": [
+      "topic-003",
+      "topic-012",
+      "topic-016"
+    ],
+    "plain": "Causal models describe assumptions about what changes what, like how adjusting heat might affect a process. They help ask what could happen after a deliberate change to that process. Hidden influences can make their conclusions wrong."
+  },
+  {
+    "id": "topic-019",
+    "context": "A multilayer perceptron applies learned linear transformations and nonlinear activations in sequence. Training adjusts its weights to reduce a loss on examples, typically using gradients computed by backpropagation. Hidden layers learn intermediate representations rather than requiring every useful interaction to be specified manually. MLPs are versatile building blocks for prediction and are also embedded inside many larger neural architectures. They are useful when nonlinear relationships matter, but do not contain the explicit spatial, sequential or graph structure built into more specialised models. Their flexibility makes data quality and generalisation checks essential.",
+    "example": "An illustrative model estimates process quality from temperature, pressure and feed-rate measurements. Hidden layers can learn nonlinear interactions between these variables, while held-out production periods help determine whether the network improves on a simpler regression baseline under realistic operating conditions.",
+    "limitation": "More layers or parameters do not automatically improve a task. MLPs can overfit, learn spurious relationships and extrapolate poorly; training stability, feature scaling and validation design need attention.",
+    "refs": [
+      {
+        "title": "Neural network models: multilayer perceptrons",
+        "url": "https://scikit-learn.org/stable/modules/neural_networks_supervised.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-020",
+      "topic-021",
+      "topic-034"
+    ],
+    "plain": "These networks pass information through layers of calculations whose settings are learned from examples. They can connect several measurements, such as heat and pressure, to a predicted result. They may learn accidental patterns in the training examples."
+  },
+  {
+    "id": "topic-020",
+    "context": "Convolutional networks apply shared filters across a structured input, often an image or time series. Early layers can detect local patterns, while deeper layers combine information across larger regions. Sharing parameters makes use of the idea that similar features may occur in different locations. This makes CNNs useful for visual inspection, segmentation and signal analysis, among other tasks. Pooling, strides and architectural design determine how detail and context are retained. A CNN is an architecture: it can be trained with supervised, self-supervised or other objectives depending on the learning problem.",
+    "example": "An illustrative inspection system examines images of a welded joint and highlights candidate surface defects. Engineers evaluate performance on new equipment and lighting conditions, keeping the image regions and confidence information available for review instead of accepting an unexplained binary decision.",
+    "limitation": "Visual shortcuts such as backgrounds or camera settings can dominate learning. Good benchmark performance may not transfer to a new site, and small or unusual defects can be missed without representative evaluation data.",
+    "refs": [
+      {
+        "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+        "url": "https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-019",
+      "topic-022",
+      "topic-037"
+    ],
+    "plain": "These networks reuse pattern detectors across an image, like looking for the same crack shape in different places. They combine small patterns into larger ones for tasks such as visual inspection. New lighting can lead to missed defects."
+  },
+  {
+    "id": "topic-021",
+    "context": "Recurrent networks maintain a hidden state that is updated as each input arrives. This gives them a compact way to represent a sequence's history. LSTM and GRU variants use gates to control what information is retained, updated or exposed, helping with some training and memory difficulties of basic recurrence. They are useful for streaming signals, forecasting and sequence processing, especially when sequential operation fits the application. The hidden state is a learned summary rather than a complete record. Model capacity, sequence length and training design determine which past information remains accessible.",
+    "example": "An illustrative machine-monitoring model reads pressure and vibration measurements as a stream. Its recurrent state summarises recent behaviour to forecast the next interval, allowing deviations from the expected pattern to be investigated alongside the raw measurements and operating context.",
+    "limitation": "Long-range dependencies may still be lost, and sequential processing can limit parallelism. Forecast quality depends on regime stability and representative histories; a hidden state should not be confused with a reliable audit trail.",
+    "refs": [
+      {
+        "title": "Finding Structure in Time",
+        "authors": "Jeffrey L. Elman",
+        "year": 1990,
+        "kind": "paper",
+        "url": "https://onlinelibrary.wiley.com/doi/10.1207/s15516709cog1402_1"
+      },
+      {
+        "title": "Long Short-Term Memory",
+        "authors": "Sepp Hochreiter and Jürgen Schmidhuber",
+        "year": 1997,
+        "kind": "paper",
+        "url": "https://ml.jku.at/publications/older/2604.pdf",
+        "canonical_url": "https://doi.org/10.1162/neco.1997.9.8.1735",
+        "access_note": "Working author-institution PDF, reached from the JKU publication listing (turn35view2). Older bioinf.jku.at hostname timed out; publisher route returned 403."
+      },
+      {
+        "title": "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation",
+        "authors": "Kyunghyun Cho and colleagues",
+        "year": 2014,
+        "kind": "paper",
+        "url": "https://arxiv.org/abs/1406.1078"
+      },
+      {
+        "title": "Recurrent neural networks",
+        "url": "https://d2l.ai/chapter_recurrent-neural-networks/rnn.html",
+        "kind": "textbook"
+      }
+    ],
+    "related": [
+      "topic-022",
+      "topic-023",
+      "topic-051",
+      "topic-026",
+      "topic-087"
+    ],
+    "plain": "Recurrent networks update a running summary of a sequence, like keeping notes on changing machine readings. LSTM and GRU versions control what stays in that summary, helping with forecasts and other sequence tasks. Earlier details can still be lost."
+  },
+  {
+    "id": "topic-022",
+    "context": "Transformers use attention to let representations exchange information according to learned relevance. Positional information supplies sequence structure that attention alone does not specify. Encoder, decoder and encoder–decoder variants support different tasks, from embedding documents to generating language. Their architecture enables substantial parallelism during training, although autoregressive generation still proceeds through dependent output steps. Transformers are useful across language, vision, audio and multimodal modelling. They are an architectural family rather than a synonym for language models or reasoning systems: the training objective, data and surrounding tools determine much of what a particular system can do.",
+    "example": "An illustrative document model connects a technical term to relevant definitions elsewhere in its context, then produces a representation for retrieval or classification. A separate decoder-based model may generate an answer, showing that attention supports several roles within the same information workflow.",
+    "limitation": "Standard attention can become expensive for long inputs. Attention weights are not a complete explanation, and the ability to connect context does not guarantee factual accuracy, faithful reasoning or reliable handling of unfamiliar situations.",
+    "refs": [
+      {
+        "title": "Attention Is All You Need",
+        "url": "https://arxiv.org/abs/1706.03762",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-023",
+      "topic-025",
+      "topic-053"
+    ],
+    "plain": "A transformer learns which parts of its input can help interpret other parts. For example, it can link a word to a clue elsewhere in a text. This helps with tasks such as translation, but useful links do not ensure true answers."
+  },
+  {
+    "id": "topic-023",
+    "context": "State-space sequence models update a compact internal state as inputs arrive. Selective variants such as Mamba make aspects of that update depend on the current input, helping decide what information to retain or discard. Hybrid architectures combine recurrence or state-space blocks with attention. These approaches investigate different trade-offs between memory, computation and access to past information. They are useful candidates for long sequences and streaming applications, but should be compared on the actual task and hardware. Compressing history into state changes how information is represented; it is not equivalent to attending to every earlier token.",
+    "example": "An illustrative monitoring system processes long sensor streams with limited memory. A state-space model is evaluated against an LSTM and a transformer for forecast accuracy, inference cost and its ability to recognise an event whose relevant precursor occurred much earlier in the recording.",
+    "limitation": "Efficient sequence scaling does not guarantee better accuracy or lower end-to-end latency. Important information may be compressed away, and performance comparisons depend on workload, implementation, hardware and the size of the competing models.",
+    "refs": [
+      {
+        "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+        "url": "https://arxiv.org/abs/2312.00752",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-021",
+      "topic-022",
+      "topic-051"
+    ],
+    "plain": "These models update a running summary as a long stream arrives, like notes on sensor readings. Some versions also look back at earlier items to help process long sequences. The summary can lose important details."
+  },
+  {
+    "id": "topic-024",
+    "context": "Graph neural networks learn representations for data whose relationships form a graph. Many architectures pass messages along edges and aggregate information from neighbours, allowing node or edge predictions to depend on local structure. Repeated layers extend the receptive field across more of the graph. These models are useful for molecules, infrastructure networks, recommendation and relational prediction. Their graph input need not be a formal knowledge graph, and their learned predictions differ from logical entailment. Designing node features, edge meanings and the training objective is as important as selecting the message-passing mechanism.",
+    "example": "An illustrative electricity-network model combines equipment attributes with connection structure to identify components requiring investigation. The neighbourhood information can expose patterns that an isolated row of equipment measurements misses, while validation checks whether predictions transfer to previously unseen parts of the network.",
+    "limitation": "Graph structure can encode errors or leakage, and deeper message passing may blur distinct node representations. A plausible link prediction is not a proven fact; evaluate generalisation beyond the graph regions seen during training.",
+    "refs": [
+      {
+        "title": "Semi-Supervised Classification with Graph Convolutional Networks",
+        "url": "https://arxiv.org/abs/1609.02907",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-003",
+      "topic-019",
+      "topic-064"
+    ],
+    "plain": "These networks use both things and their links, such as homes and pipes in a water network. They pass information between linked neighbours to help predict what happens across the network. Wrong links can mislead the model."
+  },
+  {
+    "id": "topic-025",
+    "context": "A mixture-of-experts model contains several specialised subnetworks and a routing mechanism that selects which ones process an input. In sparse variants, only a subset of experts is activated for each token or example, allowing total parameter capacity to grow without activating every parameter on every step. This is useful for balancing model capacity and computation, especially at scale. The experts are learned components within a model, not independent software agents with goals and tools. Routing, load balancing, communication and memory placement are central engineering concerns alongside the model's predictive quality.",
+    "example": "An illustrative language model routes each token through selected feed-forward experts while keeping other parts of the architecture shared. A deployment team measures active computation, memory requirements and communication overhead to determine whether the sparse design fits its serving environment and expected workload.",
+    "limitation": "Sparse activation does not mean the whole model fits in little memory. Uneven routing and communication can erode efficiency, and expert names should not be interpreted as reliable human-readable specialisations without evidence.",
+    "refs": [
+      {
+        "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity",
+        "url": "https://arxiv.org/abs/2101.03961",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-022",
+      "topic-055",
+      "topic-081"
+    ],
+    "plain": "A mixture-of-experts model splits work among parts of a model, like a team sharing tasks. Some versions call on only a few parts for each input, which can cut computing work. All the parts may still need lots of memory."
+  },
+  {
+    "id": "topic-026",
+    "context": "Spiking networks represent activity through discrete events over time, often using neuron dynamics inspired by biological systems. Reservoir computing instead uses a recurrent dynamical system to transform an input stream, commonly training only a readout rather than the entire recurrent core. These are distinct ideas that can sometimes overlap. They are useful research and engineering approaches for temporal signals, specialised hardware and efficient adaptation. Their practical benefits depend on the data representation and implementation. A biologically inspired design is not automatically more intelligent, more interpretable or more energy efficient than a conventional neural network.",
+    "example": "An illustrative event-camera application evaluates a spiking network on sparse visual events, while a separate vibration study tests a reservoir with a trained linear readout. Both experiments compare accuracy and measured resource use against conventional sequence models on the same deployment conditions.",
+    "limitation": "Training methods, tooling and hardware support vary considerably. Energy advantages require measurement on the actual system, and a fixed reservoir may fail to represent the temporal dependencies that a task needs.",
+    "refs": [
+      {
+        "title": "Networks of Spiking Neurons: The Third Generation of Neural Network Models",
+        "authors": "Wolfgang Maass",
+        "year": 1997,
+        "kind": "paper",
+        "url": "https://igi-web.tugraz.at/PDF/85a.pdf",
+        "access_note": "Author-institution copy of the published article."
+      },
+      {
+        "title": "Harnessing Nonlinearity: Predicting Chaotic Systems and Saving Energy in Wireless Communication",
+        "authors": "Herbert Jaeger and Harald Haas",
+        "year": 2004,
+        "kind": "paper",
+        "url": "https://www.columbia.edu/cu/biology/courses/w4070/Reading_List_Yuste/haas_04.pdf",
+        "access_note": "Academic mirror of the published Science paper; explains echo-state networks and cites Jaeger's original 2001 technical report."
+      },
+      {
+        "title": "snnTorch: spiking neural network tutorials",
+        "url": "https://snntorch.readthedocs.io/en/latest/tutorials/index.html",
+        "kind": "documentation"
+      },
+      {
+        "title": "A quick start to ReservoirPy",
+        "url": "https://reservoirpy.readthedocs.io/en/latest/user_guide/quickstart.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-021",
+      "topic-023",
+      "topic-055"
+    ],
+    "plain": "Spiking networks: pass timed pulses, like simplified nerve signals.\nReservoir networks: feed changing signals through a mostly fixed network, then learn to read its response.\nThink of reading ripples after drops hit water.\nThese methods handle streams such as sound, but energy savings depend on the hardware."
+  },
+  {
+    "id": "topic-027",
+    "context": "An autoregressive model factorises a joint prediction into a sequence of conditional predictions. Each generated element depends on earlier elements in a chosen ordering. The elements can be words, audio samples, image pixels or other structured values. This provides a direct way to train on known sequences and generate new ones incrementally. Different architectures, including recurrent, convolutional and attention-based networks, can implement the same formulation. It is useful when ordered generation fits the task, but the ordering and generation strategy influence how errors accumulate and which constraints are easy to satisfy.",
+    "example": "An illustrative assistant generates a maintenance summary token by token, conditioning each step on the source context and text already produced. In another application, the same modelling principle generates successive signal values rather than language, demonstrating that autoregression is broader than an LLM architecture.",
+    "limitation": "Sequential dependencies can limit generation speed, and early mistakes can influence later outputs. Likely continuations need not be true, useful or globally consistent; generation requires task-specific evaluation and appropriate constraints.",
+    "refs": [
+      {
+        "title": "Pixel Recurrent Neural Networks",
+        "url": "https://arxiv.org/abs/1601.06759",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-022",
+      "topic-033",
+      "topic-056"
+    ],
+    "plain": "These models generate one item using earlier items, like continuing a sentence one piece at a time. This approach works for text, sound and other ordered data. Early mistakes can affect what comes next."
+  },
+  {
+    "id": "topic-028",
+    "context": "A variational autoencoder learns a probabilistic latent representation and a decoder that maps latent samples back to data. Training balances reconstruction with a regularisation term that relates the inferred latent distribution to a chosen prior. This makes it possible to generate new examples and inspect a compressed representation of the data. VAEs are useful for representation learning, generative modelling and building latent components within larger systems. The latent variables are learned statistical factors; without additional structure or supervision, they need not correspond to distinct concepts that a person can readily name.",
+    "example": "An illustrative process-monitoring model compresses normal operating traces into a latent space and reconstructs them. Engineers inspect unusual reconstruction patterns as one signal for investigation, comparing them with real faults rather than assuming that every poor reconstruction represents a dangerous event.",
+    "limitation": "Reconstruction quality and useful latent structure can trade off, and training may leave some latent dimensions unused. Reconstruction error alone is not a calibrated anomaly probability or a guarantee of meaningful underlying factors.",
+    "refs": [
+      {
+        "title": "Auto-Encoding Variational Bayes",
+        "url": "https://arxiv.org/abs/1312.6114",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-015",
+      "topic-030",
+      "topic-032",
+      "topic-029",
+      "topic-086"
+    ],
+    "plain": "A VAE learns short, flexible codes for examples, like compact descriptions of faces. It can use these codes to create new images or other data. The codes may not match ideas people recognise."
+  },
+  {
+    "id": "topic-029",
+    "context": "A generative adversarial network trains a generator and a discriminator in competition. The generator produces samples, while the discriminator learns to distinguish generated samples from training examples. Their interaction supplies a learning signal without requiring the generator to explicitly evaluate a normalized likelihood for every sample. GANs are useful for image synthesis, translation and other generative tasks where convincing samples matter. The adversarial training setup is the defining feature; many different neural architectures can be used inside it. Evaluation must consider diversity and task relevance as well as how realistic individual outputs appear.",
+    "example": "An illustrative vision team uses a GAN to create variations of surface textures for a controlled research experiment. They compare the generated variation with real data and measure whether using it helps a detector on an untouched test set from a different acquisition session.",
+    "limitation": "Training can be unstable, and a generator may collapse to a narrow set of outputs. Visually convincing samples can omit rare but important cases, so realism alone is an insufficient measure of usefulness.",
+    "refs": [
+      {
+        "title": "Generative Adversarial Networks",
+        "url": "https://arxiv.org/abs/1406.2661",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-028",
+      "topic-030",
+      "topic-037"
+    ],
+    "plain": "A GAN trains two models in competition: one creates examples, and the other tries to spot generated ones. This can produce new images that resemble the training examples. Convincing pictures can still lack variety."
+  },
+  {
+    "id": "topic-030",
+    "context": "Diffusion models learn to reverse a process that progressively corrupts data. Generation begins from noise or another corrupted state and applies learned refinement steps. Score-based formulations describe related methods through estimates of how probability density changes around a point. These approaches are useful for images, audio, video and other distributions where iterative refinement can represent complex variation. Conditioning can guide the output towards text, measurements or partial observations. The denoising objective is separate from the network architecture, so convolutional, transformer and other backbones can implement parts of a diffusion system.",
+    "example": "An illustrative reconstruction tool starts from an incomplete sensor image and generates plausible completions conditioned on the observed region. Researchers compare those completions with known targets and retain uncertainty across alternatives, rather than treating one realistic-looking reconstruction as a new measurement of reality.",
+    "limitation": "Sampling may require many refinement steps, and plausible output is not evidence that a reconstructed detail existed. Guidance, training coverage and evaluation conditions strongly affect reliability, diversity and computational cost.",
+    "refs": [
+      {
+        "title": "Deep Unsupervised Learning using Nonequilibrium Thermodynamics",
+        "authors": "Jascha Sohl-Dickstein, Eric Weiss, Niru Maheswaranathan and Surya Ganguli",
+        "year": 2015,
+        "kind": "paper",
+        "url": "https://proceedings.mlr.press/v37/sohl-dickstein15.html"
+      },
+      {
+        "title": "Generative Modeling by Estimating Gradients of the Data Distribution",
+        "authors": "Yang Song and Stefano Ermon",
+        "year": 2019,
+        "kind": "paper",
+        "url": "https://arxiv.org/abs/1907.05600"
+      },
+      {
+        "title": "Score-Based Generative Modeling through Stochastic Differential Equations",
+        "authors": "Yang Song, Jascha Sohl-Dickstein, Diederik P. Kingma, Abhishek Kumar, Stefano Ermon and Ben Poole",
+        "year": 2021,
+        "kind": "paper",
+        "url": "https://arxiv.org/abs/2011.13456"
+      },
+      {
+        "title": "Denoising Diffusion Probabilistic Models",
+        "url": "https://arxiv.org/abs/2006.11239",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-028",
+      "topic-031",
+      "topic-033",
+      "topic-029"
+    ],
+    "plain": "Diffusion models learn to remove added noise, like clearing static from a picture. Score-based models learn which way to push each noisy sample. Both can create pictures or sound, but plausible details may be invented."
+  },
+  {
+    "id": "topic-031",
+    "context": "Normalizing flows build transformations between a simple probability distribution and a data distribution, often using invertible mappings that support likelihood evaluation. Continuous flows describe the transformation through a differential equation. Flow matching trains an appropriate vector field along chosen probability paths, connecting this family to some diffusion formulations without making the terms interchangeable. These methods are useful for generative modelling, density estimation and constructing controllable sample transformations. The path, numerical solver and architecture affect the trade-off between training complexity, sampling cost and output quality in an implemented system.",
+    "example": "An illustrative generative model transforms samples from a simple distribution into structured engineering signals. The team varies the number of numerical integration steps and measures both fidelity and runtime, checking whether the generated traces preserve properties required by their downstream simulation study.",
+    "limitation": "Convenient probability paths or invertibility requirements can constrain modelling choices. Solver accuracy and sampling cost matter in practice, and a flow-matching objective does not by itself guarantee faster or more faithful generation for every task.",
+    "refs": [
+      {
+        "title": "Flow Matching for Generative Modeling",
+        "url": "https://arxiv.org/abs/2210.02747",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-028",
+      "topic-030",
+      "topic-032"
+    ],
+    "plain": "Normalizing flows: learn a reversible recipe that turns simple random data into more complex data.\nFlow matching: learns which way to move the data at each stage of a chosen path.\nBoth can create pictures, but may need many calculation steps."
+  },
+  {
+    "id": "topic-032",
+    "context": "An energy-based model assigns a scalar compatibility score to a configuration, with lower energy representing more compatible or preferred states under the model. Prediction can then require finding a low-energy configuration, and probabilistic variants relate energy to an unnormalised distribution. This framework is useful for structured prediction and learning relationships among variables without specifying a simple one-pass generator. It connects representation learning with an inference problem: learning a useful energy function and efficiently searching or sampling from it are separate challenges that must both be addressed for a working application.",
+    "example": "An illustrative structured predictor scores possible combinations of component states, favouring configurations that fit the observations and learned relationships. An inference procedure searches for a low-energy combination, which engineers compare with known cases and explicit physical constraints before using it in a decision.",
+    "limitation": "Low energy reflects the learned scoring rule, not necessarily physical energy or correctness. Inference and sampling can be difficult, and poorly chosen training negatives may leave undesirable configurations with deceptively favourable scores.",
+    "refs": [
+      {
+        "title": "A Tutorial on Energy-Based Learning",
+        "url": "https://cs.nyu.edu/~yann/2010f-G22-2565-001/diglib/lecun-06.pdf",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-008",
+      "topic-016",
+      "topic-030"
+    ],
+    "plain": "An energy-based model gives possible answers penalty scores, then looks for lower-scoring answers. Like comparing candidate puzzle solutions, this helps choose answers whose parts fit together. Low scores do not prove an answer is correct."
+  },
+  {
+    "id": "topic-033",
+    "context": "Diffusion language models generate text through iterative prediction and refinement of corrupted or masked tokens. Unlike a strictly left-to-right formulation, the procedure can consider and revise multiple positions within a sequence. A transformer may still provide the underlying network, so this is a change in generative formulation rather than a necessary rejection of attention. The approach is an active research direction for parallel generation, text editing and alternative inference strategies. Its value depends on the complete training and sampling procedure, including how many refinement steps are needed to reach the required quality.",
+    "example": "An illustrative editing task provides a paragraph with several missing spans. A diffusion language model repeatedly fills and refines the missing tokens using context on both sides, while evaluators compare factual consistency, constraint satisfaction and runtime against an autoregressive editing baseline on identical examples.",
+    "limitation": "Parallel refinement does not automatically reduce end-to-end latency. Quality, sequence length and number of denoising steps interact, and benchmark success does not establish reliable factual grounding or superiority across language tasks.",
+    "refs": [
+      {
+        "title": "Large Language Diffusion Models",
+        "url": "https://arxiv.org/abs/2502.09992",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-022",
+      "topic-027",
+      "topic-030"
+    ],
+    "plain": "These models build text by repeatedly filling gaps or revising several positions, like working through a sentence draft. They offer another way to generate or edit text. Repeated revisions can still take time."
+  },
+  {
+    "id": "topic-034",
+    "context": "Supervised learning fits a mapping from inputs to supplied targets. Classification predicts categories, while regression predicts numerical values, but both rely on examples of the desired relationship. The targets may come from annotation, measurements or operational records. This paradigm can train many architectures, including linear models, trees and neural networks. It is useful when representative labelled data exist and the desired output is reasonably well defined. Good practice separates model fitting from evaluation and chooses splits that reflect future use, such as new time periods, sites or machines rather than random near-duplicates.",
+    "example": "An illustrative inspection dataset pairs component images with reviewed defect labels. A model learns from one set of examples and is evaluated on later inspections from different assets, allowing the team to estimate how well the learned mapping transfers to its intended operating environment.",
+    "limitation": "Labels may be noisy, biased or inconsistently defined. A model can exploit data leakage or irrelevant shortcuts, so a high test score is meaningful only when the test design matches the actual deployment question.",
+    "refs": [
+      {
+        "title": "Supervised learning",
+        "url": "https://scikit-learn.org/stable/supervised_learning.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-012",
+      "topic-013",
+      "topic-037"
+    ],
+    "plain": "A model learns from examples with supplied answers, like photos labelled 'cat' or 'dog'. Use it to sort new photos or predict a number, such as a house price. Wrong labels can teach the wrong pattern."
+  },
+  {
+    "id": "topic-035",
+    "context": "Unsupervised learning seeks structure in data without externally supplied labels for a particular prediction task. It includes clustering, density estimation and representation-learning approaches. The objective still imposes a preference: compact clusters, good reconstruction or a suitable statistical model are different goals. These methods are useful for exploration, compression and building features when labelling is difficult. They can reveal patterns worth investigating, but interpreting a pattern requires domain context. The absence of labels does not make an analysis assumption-free, and the structure found may reflect measurement processes rather than meaningful behaviour.",
+    "example": "An illustrative team analyses unlabelled process logs to identify recurring operating patterns. They use clusters and visualisations to guide interviews with operators, then check whether the patterns correspond to known activities, sensor changes or preprocessing artefacts before assigning practical significance to them.",
+    "limitation": "Without task labels, it can be difficult to define success objectively. Attractive clusters or embeddings may be unstable or irrelevant, and downstream utility should be checked with independent evidence rather than visual intuition alone.",
+    "refs": [
+      {
+        "title": "Unsupervised learning",
+        "url": "https://scikit-learn.org/stable/unsupervised_learning.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-015",
+      "topic-028",
+      "topic-037",
+      "topic-086"
+    ],
+    "plain": "A model looks for patterns without supplied answers, like grouping similar shop orders. Use it to explore a large collection or describe it with fewer numbers. Interesting patterns may not be useful."
+  },
+  {
+    "id": "topic-036",
+    "context": "Semi-supervised learning combines a limited labelled dataset with additional unlabelled examples. Methods may propagate labels through similarity relationships, encourage consistent predictions under perturbations, or use confident predictions as provisional labels. This can help when annotation is expensive but unlabelled data are abundant. The expected benefit depends on the relationship between labelled and unlabelled distributions and on whether the method's assumptions fit the task. It is distinct from self-supervision: semi-supervised learning explicitly uses some externally supplied task labels, while self-supervised objectives derive their training targets from the data itself.",
+    "example": "An illustrative quality-control team has reviewed a small set of defect images and collected many unlabelled production images. A semi-supervised method uses both sources, while a separate manually reviewed test set checks whether the additional data improve detection of genuinely important defect types.",
+    "limitation": "Incorrect pseudo-labels can reinforce themselves, particularly for rare classes or shifted data. Extra unlabelled examples may hurt if they violate the method's assumptions, so compare with a supervised-only baseline and retain independent evaluation.",
+    "refs": [
+      {
+        "title": "Semi-supervised learning",
+        "url": "https://scikit-learn.org/stable/modules/semi_supervised.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-034",
+      "topic-035",
+      "topic-037"
+    ],
+    "plain": "Semi-supervised learning combines examples with known answers and examples without them. That can help when labelling a large image collection is costly. Some methods can reinforce their own mistaken labels."
+  },
+  {
+    "id": "topic-037",
+    "context": "Self-supervised learning creates training targets from the structure of the data. A model might predict masked content, the next token, a future representation, or whether two transformed observations correspond. This enables learning from large collections that lack manually annotated task labels. The resulting representation can then be adapted to a downstream task with fewer labels or different objectives. It is useful when raw data are plentiful, but its success depends on which information the pretraining task encourages the model to retain. The chosen augmentations and prediction targets are substantive modelling decisions.",
+    "example": "An illustrative sensor model learns to predict withheld segments of historical time series before being adapted to fault classification. A vision model might instead compare transformed views of the same image, learning representations that can later support inspection with a smaller reviewed dataset.",
+    "limitation": "A useful pretraining objective does not guarantee useful downstream features. Augmentations can remove task-critical information, and large unlabelled datasets can contain leakage, bias or distributions that differ substantially from the intended application.",
+    "refs": [
+      {
+        "title": "A Simple Framework for Contrastive Learning of Visual Representations",
+        "url": "https://arxiv.org/abs/2002.05709",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-034",
+      "topic-036",
+      "topic-053"
+    ],
+    "plain": "Self-supervised learning creates practice tasks from the data, such as guessing a hidden word. This uses large collections without people supplying an answer for every training example. The practice task may miss what later tasks need."
+  },
+  {
+    "id": "topic-038",
+    "context": "Imitation learning trains behaviour from demonstrations rather than relying only on trial-and-error rewards. Behavioural cloning treats demonstrated actions as supervised targets. Other approaches collect corrective demonstrations or infer what outcomes the demonstrator appears to prefer. This is useful when expert behaviour is available and exploratory interaction is expensive, slow or inappropriate. A central difficulty is distribution shift: small policy errors can lead to situations that the expert demonstrations never covered. Effective systems therefore consider how demonstrations are collected, what state information is visible, and how the learner can recover after mistakes.",
+    "example": "An illustrative manipulation policy learns from recorded demonstrations of placing parts in a fixture. During controlled evaluation, an expert labels additional situations where the learner drifts off course, so the training set includes recovery behaviour as well as ideal successful sequences.",
+    "limitation": "Demonstrations can encode suboptimal habits or omit rare failures. Copying observed actions does not reveal the expert's full reasoning, and a policy may fail when its own errors move it outside the demonstrated conditions.",
+    "refs": [
+      {
+        "title": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning",
+        "url": "https://arxiv.org/abs/1011.0686",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-034",
+      "topic-039",
+      "topic-059"
+    ],
+    "plain": "A model learns from demonstrations, like a robot copying steps shown by a person. Use it when examples are available and trying random actions would be costly. The examples may leave out unusual situations."
+  },
+  {
+    "id": "topic-039",
+    "context": "The model-free versus model-based distinction concerns the use of an environment dynamics model. Model-free methods learn action values or policies without explicitly planning through such a model. Model-based methods use known or learned transitions, rewards or decision-relevant latent dynamics to evaluate future possibilities. These are design choices rather than a ranking of intelligence. Planning can reduce the need for real interactions, while direct policy learning can avoid some modelling errors and inference overhead. Hybrid systems may use simulated experience during training and a fast learned policy during execution, combining elements of both approaches.",
+    "example": "An illustrative robot can learn a policy directly from interaction records, or learn a predictive model and use it to compare candidate action sequences. The team measures real-world task success and sample requirements, including whether errors in the learned dynamics mislead the planner.",
+    "limitation": "A planner can exploit inaccuracies in a learned model and choose actions that look good only in simulation. Model-free learning can instead require many interactions; neither label determines reliability without task-specific evidence.",
+    "refs": [
+      {
+        "title": "Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model",
+        "url": "https://arxiv.org/abs/1911.08265",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-007",
+      "topic-040",
+      "topic-060",
+      "topic-088"
+    ],
+    "plain": "Reinforcement learning uses rewards to guide choices.\nModel-free: learns choices without an explicit model of how the surroundings change.\nModel-based: uses such a model to consider possible outcomes.\nBoth can guide a robot toward a goal.\nFaulty world predictions can produce poor plans."
+  },
+  {
+    "id": "topic-040",
+    "context": "Value-based methods learn estimates of how good states or actions are under a reward objective, then use those estimates to choose actions. Policy-based methods optimise a parameterised action-selection rule directly. Actor–critic methods combine a policy, the actor, with an estimator that helps evaluate or improve it, the critic. These choices interact with whether the environment is modelled and how experience is collected. They are useful ways to organise RL algorithms, but real systems often mix components. The practical choice depends on action space, feedback quality, stability and interaction constraints.",
+    "example": "An illustrative controller with a few discrete actions can compare estimated action values. A controller with continuous actuator settings may optimise a continuous policy and use a critic to guide updates, with both approaches evaluated against the same reward definition and operational constraints.",
+    "limitation": "A critic can provide a biased learning signal, while policy optimisation may have high variance or unstable updates. Optimising a reward does not guarantee that the reward captures all operational requirements or failure modes.",
+    "refs": [
+      {
+        "title": "Kinds of reinforcement learning algorithms",
+        "url": "https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-039",
+      "topic-041",
+      "topic-046"
+    ],
+    "plain": "Reinforcement learning uses rewards to guide choices.\nValue-based: estimates rewards over time for each choice.\nPolicy-based: learns a choice rule directly.\nActor–critic: combines a choice rule with estimates of how well it works.\nAll can help choose a robot's next move.\nA misleading reward can teach the wrong behaviour."
+  },
+  {
+    "id": "topic-041",
+    "context": "Online and offline RL describe how experience is obtained. Online learning can collect new interactions as the policy changes; offline learning works from a fixed dataset. On-policy and off-policy describe a different relationship: whether updates use experience from the policy being optimised or can learn from other behaviour policies. These axes should not be collapsed into a single hierarchy. They are useful for understanding what evidence an algorithm needs and which deployment constraints it can respect. Reusing operational logs is attractive, but the recorded actions determine which alternatives the learner can evaluate credibly.",
+    "example": "An illustrative plant controller is first studied using a fixed archive of historical actions and outcomes. Researchers identify states and actions poorly represented in that archive, then decide whether carefully bounded new data collection is needed before evaluating a revised policy in practice.",
+    "limitation": "Offline data may not cover the actions a new policy would choose. Extrapolation errors and confounding can make estimated improvements unreliable; online exploration also introduces costs and constraints that a benchmark may not reflect.",
+    "refs": [
+      {
+        "title": "Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems",
+        "url": "https://arxiv.org/abs/2005.01643",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-038",
+      "topic-039",
+      "topic-040"
+    ],
+    "plain": "Reinforcement learning uses rewards to guide choices.\nOnline: keeps gathering fresh experience.\nOffline: uses a fixed logbook of past attempts.\nSeparately, on-policy: learns from choices made with its current rule.\nOff-policy: can also learn from choices made with other rules.\nThese distinctions help choose how to train, but gaps in experience can mislead."
+  },
+  {
+    "id": "topic-042",
+    "context": "Deep RL uses neural networks to represent policies, values or other components of reinforcement learning. Hierarchical RL introduces decisions at different temporal or conceptual levels, such as choosing a subgoal and then executing lower-level actions. Multi-agent RL studies learners whose decisions interact with those of other agents. These extensions address different challenges and can be combined in one system. They are useful for high-dimensional observations, long tasks and coordinated behaviour, but introduce additional representation and credit-assignment problems. A richer architecture needs evidence that its added complexity improves the intended decision process.",
+    "example": "An illustrative warehouse simulation combines a high-level task allocator with lower-level navigation policies for several robots. Researchers measure completion time, conflicts and robustness when workloads change, comparing the learned coordination scheme with simpler planning and scheduling baselines under the same simulated conditions.",
+    "limitation": "Other learning agents make the environment change during training, and delayed rewards complicate credit assignment. Neural capacity and hierarchical structure do not guarantee coordination, safe behaviour or transfer from simulation to real operations.",
+    "refs": [
+      {
+        "title": "Between MDPs and semi-MDPs: A framework for temporal abstraction in reinforcement learning",
+        "authors": "Richard S. Sutton, Doina Precup and Satinder Singh",
+        "year": 1999,
+        "kind": "paper",
+        "url": "https://people.cs.umass.edu/~barto/courses/cs687/Sutton-Precup-Singh-AIJ99.pdf",
+        "canonical_url": "https://doi.org/10.1016/S0004-3702(99)00052-1",
+        "access_note": "Working academic mirror of published paper. Publisher returned 403 and old Sutton-hosted routes failed."
+      },
+      {
+        "title": "Playing Atari with Deep Reinforcement Learning",
+        "url": "https://arxiv.org/abs/1312.5602",
+        "kind": "paper"
+      },
+      {
+        "title": "Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments",
+        "url": "https://arxiv.org/abs/1706.02275",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-009",
+      "topic-039",
+      "topic-068"
+    ],
+    "plain": "Reinforcement learning uses rewards to guide choices.\nDeep: uses a neural network, with layers of calculations that learn from examples.\nHierarchical: chooses goals and smaller steps, like 'make dinner' then 'chop onions'.\nMulti-agent: several learners act at once and affect each other, as players do in a game.\nTheir changing behaviour can make learning harder."
+  }
+]

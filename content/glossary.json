@@ -1,0 +1,8 @@
+[
+  {"id":"model","term":"Model","definition":"A model is a set of rules or calculations that produces an answer from given information. A house-price model might use size and location to estimate a price."},
+  {"id":"training","term":"Training","definition":"Training adjusts a model's settings using examples or feedback. For example, it can change how much house size affects a price estimate."},
+  {"id":"example-label","term":"Example and label","definition":"An example is one case used to build or test a model, such as a photo. A label is the supplied answer for that case, such as ‘cat’. Some kinds of learning use no labels."},
+  {"id":"prediction","term":"Prediction","definition":"A prediction is a model's estimate, such as a house price or what a photo shows. Predictions can concern current facts as well as future events."},
+  {"id":"parameters","term":"Parameters","definition":"Parameters are a model's internal settings, often numbers changed during training. Think of knobs that change how it responds."},
+  {"id":"evaluation","term":"Evaluation","definition":"Evaluation checks how well a system works for a chosen task. Use suitable test cases kept separate from those used to build and tune it."}
+]

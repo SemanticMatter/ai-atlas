@@ -1,0 +1,231 @@
+[
+  {
+    "id": "topic-086",
+    "name": "Anomaly and novelty detection",
+    "detail": "Score unusual observations with isolation, density, distance, reconstruction or one-class methods.",
+    "context": "Anomaly detection looks for observations that depart from an expected pattern, often when examples of every possible failure are unavailable. Methods include isolation forests, local density estimates, one-class classifiers and reconstruction models. An isolation forest repeatedly partitions data; observations separated after relatively few splits receive higher anomaly scores. Novelty detection usually learns a reference pattern from data assumed to be normal, whereas outlier detection may start with a contaminated dataset. The output is typically a score that must be converted into an operational alert. These methods are useful for equipment monitoring, unusual transactions and data-quality checks.",
+    "example": "A maintenance team models vibration and temperature during known operating modes of a pump. Unusual combinations enter an inspection queue, together with recent sensor history. Engineers distinguish a failing bearing from a new operating regime before using the event as future training evidence.",
+    "limitation": "Unusual does not necessarily mean harmful, and common failures can look statistically ordinary. Thresholds, changing operating conditions and rare-event base rates strongly affect false alarms; a high anomaly score does not diagnose a cause.",
+    "refs": [
+      {
+        "title": "Isolation Forest",
+        "url": "https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf",
+        "kind": "paper"
+      },
+      {
+        "title": "Novelty and Outlier Detection — scikit-learn",
+        "url": "https://scikit-learn.org/stable/modules/outlier_detection.html",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-013",
+      "topic-015",
+      "topic-035",
+      "topic-082",
+      "topic-090"
+    ],
+    "plain": "These methods flag things that look out of place, such as odd readings from a pump. Use them to decide what needs a closer look. Unusual does not always mean faulty."
+  },
+  {
+    "id": "topic-087",
+    "name": "State estimation: Kalman and particle filters",
+    "detail": "Infer a changing hidden state from noisy measurements and a dynamics model; a classical foundation adjacent to AI.",
+    "context": "State estimation infers quantities that sensors cannot measure perfectly, such as position, velocity or an internal process condition. A filter predicts the next state using a dynamics model, then updates that prediction using new observations. The Kalman filter tracks a mean and covariance; for a correctly specified linear Gaussian model, it gives the exact posterior. Particle filters approximate more general posterior distributions with weighted samples. These methods come from estimation and control, and do not inherently learn from training data. They are useful components of robotics and AI systems that must act despite noisy, incomplete or delayed observations.",
+    "example": "A warehouse robot combines wheel motion with intermittent position measurements. Its estimator predicts where the robot has moved, corrects that prediction when a measurement arrives, and reports uncertainty. A planner can then slow the robot when its location becomes insufficiently certain.",
+    "limitation": "A filter cannot recover information that the sensors and model do not make observable. Incorrect dynamics or noise assumptions can produce misleading confidence; particle filters can also need many samples in difficult, high-dimensional problems.",
+    "refs": [
+      {
+        "title": "A New Approach to Linear Filtering and Prediction Problems",
+        "url": "https://people.duke.edu/~hpgavin/SystemID/References/Kalman-JBE-1960.pdf",
+        "kind": "paper"
+      },
+      {
+        "title": "A Tutorial on Particle Filtering and Smoothing: Fifteen years later",
+        "url": "https://www.stats.ox.ac.uk/~doucet/doucet_johansen_tutorialPF2011.pdf",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-016",
+      "topic-059",
+      "topic-076",
+      "topic-088"
+    ],
+    "plain": "These methods blend a forecast with fresh readings, like checking a map against road signs. A robot can use them to track its position despite noisy sensors. A poor model can still misplace it."
+  },
+  {
+    "id": "topic-088",
+    "name": "Optimal control and model predictive control",
+    "detail": "Optimize actions through a dynamics model and constraints; MPC repeatedly replans over a moving horizon.",
+    "context": "Optimal control chooses actions to minimize a specified cost while respecting a system's dynamics and constraints. Model predictive control repeatedly solves a finite-horizon optimization problem, applies its first action, measures the new situation and plans again. This feedback makes it practical to respond to disturbances rather than execute an entire forecast blindly. Models can come from physics, identification or machine learning. These are established control methods adjacent to AI, not inherently neural or learning based. They are useful when actions have delayed effects and constraints matter, including process plants, building energy management and robot motion.",
+    "example": "A building controller forecasts indoor temperature under several heating schedules, electricity prices and weather conditions. It chooses a schedule that trades energy cost against comfort limits, applies the next setting, and recomputes after new measurements reveal occupancy or weather changes.",
+    "limitation": "An optimizer only optimizes the model and objective it receives. Model error, infeasible constraints and computation deadlines matter; stability or constraint guarantees require specific assumptions and design choices, not merely the use of MPC.",
+    "refs": [
+      {
+        "title": "Model Predictive Control: Theory, Computation, and Design, 2nd edition",
+        "url": "https://sites.engineering.ucsb.edu/~jbraw/mpc/",
+        "kind": "textbook"
+      }
+    ],
+    "related": [
+      "topic-008",
+      "topic-009",
+      "topic-076",
+      "topic-087",
+      "topic-039"
+    ],
+    "plain": "These methods plan actions with a model, such as choosing when to heat a building. Model predictive control measures what happened and plans again. Use it to balance goals and limits, but model errors can spoil the plan."
+  },
+  {
+    "id": "topic-089",
+    "name": "Adversarial robustness and AI security",
+    "detail": "Assess deliberate input manipulation and protect model, data and tool trust boundaries, including prompt injection.",
+    "context": "Adversarial robustness asks how a model behaves when inputs are deliberately chosen to cause errors, rather than sampled normally. Adversarial training includes challenging examples during learning, with protection evaluated against an explicit threat model. Data poisoning manipulates training examples or labels to influence learned behavior, so dataset provenance and controlled updates also matter. AI security concerns the surrounding system as well. In prompt injection, untrusted text can attempt to redirect an assistant; indirect injection arrives through material such as retrieved documents. These are distinct failure mechanisms. Useful defenses combine model evaluation with software controls: restrict tool permissions, separate trusted instructions from evidence, validate actions and protect sensitive data. Security testing should examine the complete workflow, not only the model's final answer.",
+    "example": "A document assistant retrieves a supplier manual containing untrusted instructions. A defensive test checks whether the assistant treats that text as evidence, preserves the user's task, and lacks authority to send files externally. The team evaluates both answer quality and attempted tool actions.",
+    "limitation": "Robustness to one perturbation set does not establish security against all attacks. A stronger system prompt, retrieval pipeline or fine-tuning step does not by itself eliminate prompt injection or enforce access control.",
+    "refs": [
+      {
+        "title": "Poisoning Attacks against Support Vector Machines",
+        "url": "https://arxiv.org/abs/1206.6389",
+        "kind": "paper"
+      },
+      {
+        "title": "Explaining and Harnessing Adversarial Examples",
+        "url": "https://arxiv.org/abs/1412.6572",
+        "kind": "paper"
+      },
+      {
+        "title": "Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection",
+        "url": "https://arxiv.org/abs/2302.12173",
+        "kind": "paper"
+      },
+      {
+        "title": "LLM01:2025 Prompt Injection — OWASP Gen AI Security Project",
+        "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "kind": "documentation"
+      }
+    ],
+    "related": [
+      "topic-063",
+      "topic-066",
+      "topic-084"
+    ],
+    "plain": "This work tests and protects AI against deliberate tricks, from fake training data to hidden instructions in documents. Use it to protect the whole service, including its data and tools. One passed attack test does not cover every threat."
+  },
+  {
+    "id": "topic-090",
+    "name": "Evaluation, benchmarking and data leakage",
+    "detail": "Design representative tests, separate fitting from assessment, and measure quality, uncertainty, cost and failure modes.",
+    "context": "Evaluation turns a claim about an AI system into a measurable question under specified conditions. Training data fits the model, validation data guides choices, and a held-out test set estimates performance after those choices are fixed. Splits should reflect deployment: related records may need grouping, and forecasting usually requires respecting time. Preprocessing and feature selection must be fitted inside the training split. Benchmarks provide shared comparisons, but useful assessment also measures relevant errors, calibration, robustness, latency and cost. For generative systems, include the retrieval, tools and reviewers used in practice, and investigate possible overlap between evaluation material and training data.",
+    "example": "A failure-prediction team separates entire machines and later time periods before fitting a model. It tunes preprocessing on training folds, then evaluates one frozen pipeline on held-out equipment. Alongside accuracy, the report shows missed failures, false alarms, uncertainty and the inspection workload created.",
+    "limitation": "A clean split cannot repair an irrelevant target or an unrepresentative benchmark. Repeatedly choosing models against the same test set can overfit evaluation itself, and strong benchmark scores do not guarantee performance after deployment changes.",
+    "refs": [
+      {
+        "title": "Leakage and the Reproducibility Crisis in ML-based Science",
+        "url": "https://arxiv.org/abs/2207.07048",
+        "kind": "paper"
+      },
+      {
+        "title": "Common pitfalls and recommended practices — scikit-learn",
+        "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+        "kind": "documentation"
+      },
+      {
+        "title": "Holistic Evaluation of Language Models",
+        "url": "https://arxiv.org/abs/2211.09110",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-034",
+      "topic-082",
+      "topic-085"
+    ],
+    "plain": "Evaluation checks a system on fresh cases, like an exam with questions it has not practised. Shared tests help compare systems and reveal weak spots. Leaked answers or unrealistic questions can inflate the score."
+  },
+  {
+    "id": "topic-091",
+    "name": "Fairness, bias assessment and data governance",
+    "detail": "Examine who benefits or bears errors, choose explicit fairness criteria, and document how data is collected and used.",
+    "context": "Fairness assessment examines how a system's outcomes and errors are distributed across relevant groups and situations. Statistical criteria include equal opportunity, which compares true-positive rates, and other measures of selection, error or calibration. These criteria answer different questions and can conflict. Data governance complements measurement by documenting collection, intended uses, provenance, limitations and responsibility for maintenance. Practical work begins with the decision context and people affected, then checks representation, label quality and subgroup performance. These are cross-cutting design and evaluation practices rather than a single model architecture. They help expose trade-offs that an overall accuracy score can conceal.",
+    "example": "A service team evaluates a speech system across voluntarily documented accents and recording conditions. It reports error rates with uncertainty, investigates missing training coverage, documents the dataset's intended uses, and offers a correction route when an automated transcript changes a customer's meaning.",
+    "limitation": "Passing one fairness metric does not certify an equitable system or legal compliance. Statistical parity depends on definitions, labels and samples; small groups need uncertainty analysis, and incompatible criteria require explicit contextual choices.",
+    "refs": [
+      {
+        "title": "Equality of Opportunity in Supervised Learning",
+        "url": "https://arxiv.org/abs/1610.02413",
+        "kind": "paper"
+      },
+      {
+        "title": "Fair prediction with disparate impact: A study of bias in recidivism prediction instruments",
+        "url": "https://arxiv.org/abs/1610.07524",
+        "kind": "paper"
+      },
+      {
+        "title": "Datasheets for Datasets",
+        "url": "https://arxiv.org/abs/1803.09010",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-018",
+      "topic-082",
+      "topic-085",
+      "topic-080"
+    ],
+    "plain": "Fairness checks ask who gains and who bears the mistakes, such as which accents a speech tool misses. Data governance records where the data came from and who may use it. These checks support better choices, but fairness measures can clash."
+  },
+  {
+    "id": "topic-092",
+    "name": "Symbolic regression and equation discovery",
+    "detail": "Search for compact mathematical expressions or sparse governing equations that explain observed data.",
+    "context": "Symbolic regression searches over mathematical expressions, choosing both a formula's structure and its numerical constants. It balances fit against complexity so that a compact equation can be inspected and tested. Evolutionary search is one approach. Sparse equation-discovery methods such as SINDy instead select a small set of terms from a supplied function library, often to describe changing physical systems. These approaches connect search, statistical learning and scientific modeling. They are useful when an explicit relationship is valuable for interpretation, simulation or engineering design, and when data, units and domain knowledge can constrain the possible expressions.",
+    "example": "Engineers measure how a component's pressure drop varies with flow and temperature. A symbolic-regression tool proposes several compact formulas. They reject expressions with inconsistent units, compare held-out predictions, and conduct new experiments before adopting an equation for operating conditions beyond the measurements.",
+    "limitation": "A simple equation can fit a limited dataset for the wrong reason. Missing variables, measurement noise, numerical derivatives and the chosen operator library affect discovery; a recovered expression is not automatically a causal law.",
+    "refs": [
+      {
+        "title": "Interpretable Machine Learning for Science with PySR and SymbolicRegression.jl",
+        "url": "https://arxiv.org/abs/2305.01582",
+        "kind": "paper"
+      },
+      {
+        "title": "Discovering governing equations from data: Sparse identification of nonlinear dynamical systems",
+        "url": "https://arxiv.org/abs/1509.03580",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-010",
+      "topic-012",
+      "topic-061"
+    ],
+    "plain": "These tools search for short formulas that fit measurements, like finding a rule behind a number puzzle. Use them to suggest equations for engineers or scientists to inspect. A good fit may still give the wrong explanation."
+  },
+  {
+    "id": "topic-093",
+    "name": "Empirical scaling laws and compute allocation",
+    "detail": "Fit relationships between model size, data, compute and measured performance to guide training experiments.",
+    "context": "Scaling laws are empirical relationships between resources and measured model performance, often fitted as power laws over a tested range. For language models, researchers have studied how predictive loss changes with parameter count, training tokens and computation. These fits help allocate an experiment budget and decide whether a model needs more capacity or more training data. The Chinchilla study emphasized balancing model size with training tokens under a fixed training-compute budget. Scaling laws are an experimental planning tool, not an architecture or a universal law of intelligence. Data quality, training choices and deployment costs remain part of the decision.",
+    "example": "A team trains several smaller language models with different token budgets, fits a resource–loss curve and checks its predictions on a larger pilot. It then selects a training plan while accounting for serving latency and repeated inference costs, rather than maximizing parameter count alone.",
+    "limitation": "Extrapolation can fail outside the measured regime or after data, architecture or optimization changes. Lower prediction loss does not guarantee a specific capability, reliable reasoning or a timeline for general intelligence.",
+    "refs": [
+      {
+        "title": "Scaling Laws for Neural Language Models",
+        "url": "https://arxiv.org/abs/2001.08361",
+        "kind": "paper"
+      },
+      {
+        "title": "Training Compute-Optimal Large Language Models",
+        "url": "https://arxiv.org/abs/2203.15556",
+        "kind": "paper"
+      }
+    ],
+    "related": [
+      "topic-053",
+      "topic-056",
+      "topic-078"
+    ],
+    "plain": "These studies measure what happens when models, data or computing budgets grow. Like testing small recipes before cooking a feast, they help plan a larger training run. Trends can fail beyond the cases measured."
+  }
+]

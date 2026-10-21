@@ -1,0 +1,1525 @@
+{
+  "method": "atlas-fk-estimate-v1",
+  "scope": "plain fields only; titles and glossary excluded",
+  "formula": "0.39 × lexical words / sentences + 11.8 × estimated syllables / lexical words − 15.59",
+  "caveat": "Approximate English syllable rules and Intl.Segmenter sentence boundaries. Technical names, acronyms and short passages can distort scores. These are drafting warnings, not reading levels certified with people.",
+  "nodeVersion": "v24.19.0",
+  "currentVersion": "1.3.0",
+  "current": {
+    "summary": {
+      "topics": 93,
+      "meanEstimatedGrade": 7.25,
+      "aboveGrade9": 9,
+      "words": 3510,
+      "sentences": 315,
+      "averageSentenceWords": 11.14,
+      "maxSentenceWords": 18,
+      "semicolons": 0
+    },
+    "topics": [
+      {
+        "id": "topic-001",
+        "words": 36,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 12,
+        "estimatedGrade": 7.45
+      },
+      {
+        "id": "topic-002",
+        "words": 40,
+        "sentences": 5,
+        "maxSentenceWords": 9,
+        "averageSentenceWords": 8,
+        "estimatedGrade": 6.12
+      },
+      {
+        "id": "topic-003",
+        "words": 28,
+        "sentences": 3,
+        "maxSentenceWords": 12,
+        "averageSentenceWords": 9.33,
+        "estimatedGrade": 7.44
+      },
+      {
+        "id": "topic-004",
+        "words": 32,
+        "sentences": 3,
+        "maxSentenceWords": 12,
+        "averageSentenceWords": 10.67,
+        "estimatedGrade": 5.9
+      },
+      {
+        "id": "topic-005",
+        "words": 30,
+        "sentences": 3,
+        "maxSentenceWords": 13,
+        "averageSentenceWords": 10,
+        "estimatedGrade": 6.8
+      },
+      {
+        "id": "topic-006",
+        "words": 28,
+        "sentences": 3,
+        "maxSentenceWords": 12,
+        "averageSentenceWords": 9.33,
+        "estimatedGrade": 4.06
+      },
+      {
+        "id": "topic-007",
+        "words": 43,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 14.33,
+        "estimatedGrade": 7.01
+      },
+      {
+        "id": "topic-008",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 4.47
+      },
+      {
+        "id": "topic-009",
+        "words": 34,
+        "sentences": 3,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 11.33,
+        "estimatedGrade": 7.92
+      },
+      {
+        "id": "topic-010",
+        "words": 41,
+        "sentences": 3,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 13.67,
+        "estimatedGrade": 7.87
+      },
+      {
+        "id": "topic-011",
+        "words": 34,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 11.33,
+        "estimatedGrade": 5.49
+      },
+      {
+        "id": "topic-092",
+        "words": 37,
+        "sentences": 3,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 12.33,
+        "estimatedGrade": 7.08
+      },
+      {
+        "id": "topic-012",
+        "words": 38,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 12.67,
+        "estimatedGrade": 5.5
+      },
+      {
+        "id": "topic-013",
+        "words": 41,
+        "sentences": 4,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 10.25,
+        "estimatedGrade": 8.27
+      },
+      {
+        "id": "topic-014",
+        "words": 40,
+        "sentences": 4,
+        "maxSentenceWords": 12,
+        "averageSentenceWords": 10,
+        "estimatedGrade": 7.78
+      },
+      {
+        "id": "topic-015",
+        "words": 39,
+        "sentences": 4,
+        "maxSentenceWords": 13,
+        "averageSentenceWords": 9.75,
+        "estimatedGrade": 6.06
+      },
+      {
+        "id": "topic-016",
+        "words": 40,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 13.33,
+        "estimatedGrade": 4.95
+      },
+      {
+        "id": "topic-017",
+        "words": 47,
+        "sentences": 4,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 11.75,
+        "estimatedGrade": 9.33
+      },
+      {
+        "id": "topic-018",
+        "words": 36,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 12,
+        "estimatedGrade": 7.77
+      },
+      {
+        "id": "topic-019",
+        "words": 37,
+        "sentences": 3,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 12.33,
+        "estimatedGrade": 8.99
+      },
+      {
+        "id": "topic-020",
+        "words": 38,
+        "sentences": 3,
+        "maxSentenceWords": 18,
+        "averageSentenceWords": 12.67,
+        "estimatedGrade": 7.05
+      },
+      {
+        "id": "topic-021",
+        "words": 39,
+        "sentences": 3,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 13,
+        "estimatedGrade": 9.75
+      },
+      {
+        "id": "topic-022",
+        "words": 42,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 14,
+        "estimatedGrade": 6.17
+      },
+      {
+        "id": "topic-023",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 7.5
+      },
+      {
+        "id": "topic-024",
+        "words": 37,
+        "sentences": 3,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 12.33,
+        "estimatedGrade": 5.48
+      },
+      {
+        "id": "topic-025",
+        "words": 40,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 13.33,
+        "estimatedGrade": 5.84
+      },
+      {
+        "id": "topic-026",
+        "words": 47,
+        "sentences": 4,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 11.75,
+        "estimatedGrade": 6.57
+      },
+      {
+        "id": "topic-027",
+        "words": 34,
+        "sentences": 3,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 11.33,
+        "estimatedGrade": 6.53
+      },
+      {
+        "id": "topic-028",
+        "words": 33,
+        "sentences": 3,
+        "maxSentenceWords": 13,
+        "averageSentenceWords": 11,
+        "estimatedGrade": 6.22
+      },
+      {
+        "id": "topic-029",
+        "words": 34,
+        "sentences": 3,
+        "maxSentenceWords": 18,
+        "averageSentenceWords": 11.33,
+        "estimatedGrade": 8.27
+      },
+      {
+        "id": "topic-030",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 13,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 7.17
+      },
+      {
+        "id": "topic-031",
+        "words": 41,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 13.67,
+        "estimatedGrade": 7.58
+      },
+      {
+        "id": "topic-032",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 13,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 9.19
+      },
+      {
+        "id": "topic-033",
+        "words": 33,
+        "sentences": 3,
+        "maxSentenceWords": 18,
+        "averageSentenceWords": 11,
+        "estimatedGrade": 8.72
+      },
+      {
+        "id": "topic-087",
+        "words": 34,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 11.33,
+        "estimatedGrade": 5.49
+      },
+      {
+        "id": "topic-088",
+        "words": 38,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 12.67,
+        "estimatedGrade": 6.12
+      },
+      {
+        "id": "topic-034",
+        "words": 36,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 12,
+        "estimatedGrade": 4.17
+      },
+      {
+        "id": "topic-035",
+        "words": 32,
+        "sentences": 3,
+        "maxSentenceWords": 13,
+        "averageSentenceWords": 10.67,
+        "estimatedGrade": 7.75
+      },
+      {
+        "id": "topic-036",
+        "words": 30,
+        "sentences": 3,
+        "maxSentenceWords": 11,
+        "averageSentenceWords": 10,
+        "estimatedGrade": 8.37
+      },
+      {
+        "id": "topic-037",
+        "words": 36,
+        "sentences": 3,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 12,
+        "estimatedGrade": 8.1
+      },
+      {
+        "id": "topic-038",
+        "words": 34,
+        "sentences": 3,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 11.33,
+        "estimatedGrade": 7.22
+      },
+      {
+        "id": "topic-039",
+        "words": 43,
+        "sentences": 5,
+        "maxSentenceWords": 12,
+        "averageSentenceWords": 8.6,
+        "estimatedGrade": 7.8
+      },
+      {
+        "id": "topic-040",
+        "words": 49,
+        "sentences": 6,
+        "maxSentenceWords": 12,
+        "averageSentenceWords": 8.17,
+        "estimatedGrade": 6.3
+      },
+      {
+        "id": "topic-041",
+        "words": 53,
+        "sentences": 6,
+        "maxSentenceWords": 13,
+        "averageSentenceWords": 8.83,
+        "estimatedGrade": 7.67
+      },
+      {
+        "id": "topic-042",
+        "words": 55,
+        "sentences": 5,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 11,
+        "estimatedGrade": 7.58
+      },
+      {
+        "id": "topic-043",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 7.17
+      },
+      {
+        "id": "topic-044",
+        "words": 30,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 10,
+        "estimatedGrade": 8.37
+      },
+      {
+        "id": "topic-045",
+        "words": 32,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 10.67,
+        "estimatedGrade": 9.22
+      },
+      {
+        "id": "topic-046",
+        "words": 29,
+        "sentences": 3,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 9.67,
+        "estimatedGrade": 6.9
+      },
+      {
+        "id": "topic-047",
+        "words": 42,
+        "sentences": 5,
+        "maxSentenceWords": 10,
+        "averageSentenceWords": 8.4,
+        "estimatedGrade": 8.76
+      },
+      {
+        "id": "topic-048",
+        "words": 34,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 11.33,
+        "estimatedGrade": 5.14
+      },
+      {
+        "id": "topic-049",
+        "words": 31,
+        "sentences": 3,
+        "maxSentenceWords": 13,
+        "averageSentenceWords": 10.33,
+        "estimatedGrade": 5.57
+      },
+      {
+        "id": "topic-050",
+        "words": 34,
+        "sentences": 4,
+        "maxSentenceWords": 10,
+        "averageSentenceWords": 8.5,
+        "estimatedGrade": 7.16
+      },
+      {
+        "id": "topic-051",
+        "words": 37,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 12.33,
+        "estimatedGrade": 7.72
+      },
+      {
+        "id": "topic-052",
+        "words": 38,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 12.67,
+        "estimatedGrade": 8.91
+      },
+      {
+        "id": "topic-053",
+        "words": 37,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 12.33,
+        "estimatedGrade": 6.76
+      },
+      {
+        "id": "topic-054",
+        "words": 37,
+        "sentences": 3,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 12.33,
+        "estimatedGrade": 8.36
+      },
+      {
+        "id": "topic-055",
+        "words": 37,
+        "sentences": 3,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 12.33,
+        "estimatedGrade": 7.08
+      },
+      {
+        "id": "topic-056",
+        "words": 32,
+        "sentences": 3,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 10.67,
+        "estimatedGrade": 6.27
+      },
+      {
+        "id": "topic-057",
+        "words": 37,
+        "sentences": 3,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 12.33,
+        "estimatedGrade": 7.4
+      },
+      {
+        "id": "topic-058",
+        "words": 43,
+        "sentences": 5,
+        "maxSentenceWords": 11,
+        "averageSentenceWords": 8.6,
+        "estimatedGrade": 8.35
+      },
+      {
+        "id": "topic-059",
+        "words": 34,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 11.33,
+        "estimatedGrade": 7.22
+      },
+      {
+        "id": "topic-060",
+        "words": 33,
+        "sentences": 3,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 11,
+        "estimatedGrade": 7.29
+      },
+      {
+        "id": "topic-061",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 8.51
+      },
+      {
+        "id": "topic-062",
+        "words": 38,
+        "sentences": 3,
+        "maxSentenceWords": 18,
+        "averageSentenceWords": 12.67,
+        "estimatedGrade": 8.91
+      },
+      {
+        "id": "topic-086",
+        "words": 31,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 10.33,
+        "estimatedGrade": 3.29
+      },
+      {
+        "id": "topic-063",
+        "words": 34,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 11.33,
+        "estimatedGrade": 6.53
+      },
+      {
+        "id": "topic-064",
+        "words": 38,
+        "sentences": 3,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 12.67,
+        "estimatedGrade": 5.19
+      },
+      {
+        "id": "topic-065",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 8.18
+      },
+      {
+        "id": "topic-066",
+        "words": 39,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 13,
+        "estimatedGrade": 4.61
+      },
+      {
+        "id": "topic-067",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 6.49
+      },
+      {
+        "id": "topic-068",
+        "words": 36,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 12,
+        "estimatedGrade": 6.46
+      },
+      {
+        "id": "topic-069",
+        "words": 37,
+        "sentences": 3,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 12.33,
+        "estimatedGrade": 7.08
+      },
+      {
+        "id": "topic-070",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 8.51
+      },
+      {
+        "id": "topic-071",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 8.18
+      },
+      {
+        "id": "topic-072",
+        "words": 44,
+        "sentences": 5,
+        "maxSentenceWords": 11,
+        "averageSentenceWords": 8.8,
+        "estimatedGrade": 7.69
+      },
+      {
+        "id": "topic-073",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 8.18
+      },
+      {
+        "id": "topic-074",
+        "words": 49,
+        "sentences": 4,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 12.25,
+        "estimatedGrade": 9.42
+      },
+      {
+        "id": "topic-075",
+        "words": 36,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 12,
+        "estimatedGrade": 6.79
+      },
+      {
+        "id": "topic-076",
+        "words": 34,
+        "sentences": 3,
+        "maxSentenceWords": 14,
+        "averageSentenceWords": 11.33,
+        "estimatedGrade": 8.61
+      },
+      {
+        "id": "topic-077",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 9.19
+      },
+      {
+        "id": "topic-078",
+        "words": 40,
+        "sentences": 5,
+        "maxSentenceWords": 13,
+        "averageSentenceWords": 8,
+        "estimatedGrade": 8.18
+      },
+      {
+        "id": "topic-079",
+        "words": 35,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 11.67,
+        "estimatedGrade": 7.5
+      },
+      {
+        "id": "topic-080",
+        "words": 44,
+        "sentences": 4,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 11,
+        "estimatedGrade": 9.08
+      },
+      {
+        "id": "topic-081",
+        "words": 46,
+        "sentences": 5,
+        "maxSentenceWords": 11,
+        "averageSentenceWords": 9.2,
+        "estimatedGrade": 7.24
+      },
+      {
+        "id": "topic-093",
+        "words": 34,
+        "sentences": 3,
+        "maxSentenceWords": 15,
+        "averageSentenceWords": 11.33,
+        "estimatedGrade": 5.84
+      },
+      {
+        "id": "topic-082",
+        "words": 40,
+        "sentences": 3,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 13.33,
+        "estimatedGrade": 8.49
+      },
+      {
+        "id": "topic-083",
+        "words": 62,
+        "sentences": 5,
+        "maxSentenceWords": 17,
+        "averageSentenceWords": 12.4,
+        "estimatedGrade": 9.99
+      },
+      {
+        "id": "topic-084",
+        "words": 51,
+        "sentences": 5,
+        "maxSentenceWords": 12,
+        "averageSentenceWords": 10.2,
+        "estimatedGrade": 9.21
+      },
+      {
+        "id": "topic-085",
+        "words": 52,
+        "sentences": 5,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 10.4,
+        "estimatedGrade": 7.98
+      },
+      {
+        "id": "topic-089",
+        "words": 39,
+        "sentences": 3,
+        "maxSentenceWords": 18,
+        "averageSentenceWords": 13,
+        "estimatedGrade": 7.94
+      },
+      {
+        "id": "topic-090",
+        "words": 34,
+        "sentences": 3,
+        "maxSentenceWords": 16,
+        "averageSentenceWords": 11.33,
+        "estimatedGrade": 6.53
+      },
+      {
+        "id": "topic-091",
+        "words": 41,
+        "sentences": 3,
+        "maxSentenceWords": 18,
+        "averageSentenceWords": 13.67,
+        "estimatedGrade": 5.57
+      }
+    ]
+  },
+  "baseline": {
+    "sourceCommit": "2de82f6dcb14db714549a64492fc362d97a0fa17",
+    "summary": {
+      "topics": 93,
+      "meanEstimatedGrade": 12.45,
+      "aboveGrade9": 90,
+      "words": 3785,
+      "sentences": 186,
+      "averageSentenceWords": 20.35,
+      "maxSentenceWords": 35,
+      "semicolons": 29
+    },
+    "topics": [
+      {
+        "id": "topic-001",
+        "words": 38,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 19,
+        "estimatedGrade": 7.04
+      },
+      {
+        "id": "topic-002",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 11.68
+      },
+      {
+        "id": "topic-003",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 12.89
+      },
+      {
+        "id": "topic-004",
+        "words": 41,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 20.5,
+        "estimatedGrade": 10.54
+      },
+      {
+        "id": "topic-005",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 25,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 11.38
+      },
+      {
+        "id": "topic-006",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 11.38
+      },
+      {
+        "id": "topic-007",
+        "words": 34,
+        "sentences": 2,
+        "maxSentenceWords": 19,
+        "averageSentenceWords": 17,
+        "estimatedGrade": 14.64
+      },
+      {
+        "id": "topic-008",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 11.73
+      },
+      {
+        "id": "topic-009",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 24,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 11.39
+      },
+      {
+        "id": "topic-010",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 11.98
+      },
+      {
+        "id": "topic-011",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 15.31
+      },
+      {
+        "id": "topic-012",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 25,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 16.12
+      },
+      {
+        "id": "topic-013",
+        "words": 42,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 21,
+        "estimatedGrade": 11.42
+      },
+      {
+        "id": "topic-014",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 14.04
+      },
+      {
+        "id": "topic-015",
+        "words": 36,
+        "sentences": 2,
+        "maxSentenceWords": 19,
+        "averageSentenceWords": 18,
+        "estimatedGrade": 15.36
+      },
+      {
+        "id": "topic-016",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 13.45
+      },
+      {
+        "id": "topic-017",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 17.22
+      },
+      {
+        "id": "topic-018",
+        "words": 38,
+        "sentences": 2,
+        "maxSentenceWords": 20,
+        "averageSentenceWords": 19,
+        "estimatedGrade": 13.56
+      },
+      {
+        "id": "topic-019",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 12.89
+      },
+      {
+        "id": "topic-020",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 12.89
+      },
+      {
+        "id": "topic-021",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 11.68
+      },
+      {
+        "id": "topic-022",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 13.16
+      },
+      {
+        "id": "topic-023",
+        "words": 37,
+        "sentences": 2,
+        "maxSentenceWords": 20,
+        "averageSentenceWords": 18.5,
+        "estimatedGrade": 9.48
+      },
+      {
+        "id": "topic-024",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 13.19
+      },
+      {
+        "id": "topic-025",
+        "words": 37,
+        "sentences": 2,
+        "maxSentenceWords": 20,
+        "averageSentenceWords": 18.5,
+        "estimatedGrade": 11.72
+      },
+      {
+        "id": "topic-026",
+        "words": 46,
+        "sentences": 2,
+        "maxSentenceWords": 28,
+        "averageSentenceWords": 23,
+        "estimatedGrade": 15.18
+      },
+      {
+        "id": "topic-027",
+        "words": 41,
+        "sentences": 2,
+        "maxSentenceWords": 25,
+        "averageSentenceWords": 20.5,
+        "estimatedGrade": 12.26
+      },
+      {
+        "id": "topic-028",
+        "words": 38,
+        "sentences": 2,
+        "maxSentenceWords": 19,
+        "averageSentenceWords": 19,
+        "estimatedGrade": 15.73
+      },
+      {
+        "id": "topic-029",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 13.16
+      },
+      {
+        "id": "topic-030",
+        "words": 41,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 20.5,
+        "estimatedGrade": 13.13
+      },
+      {
+        "id": "topic-031",
+        "words": 42,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 21,
+        "estimatedGrade": 15.92
+      },
+      {
+        "id": "topic-032",
+        "words": 42,
+        "sentences": 2,
+        "maxSentenceWords": 25,
+        "averageSentenceWords": 21,
+        "estimatedGrade": 10.02
+      },
+      {
+        "id": "topic-033",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 13.75
+      },
+      {
+        "id": "topic-034",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 13.16
+      },
+      {
+        "id": "topic-035",
+        "words": 41,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 20.5,
+        "estimatedGrade": 13.13
+      },
+      {
+        "id": "topic-036",
+        "words": 41,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 20.5,
+        "estimatedGrade": 12.55
+      },
+      {
+        "id": "topic-037",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 11.46
+      },
+      {
+        "id": "topic-038",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 14.04
+      },
+      {
+        "id": "topic-039",
+        "words": 37,
+        "sentences": 2,
+        "maxSentenceWords": 30,
+        "averageSentenceWords": 18.5,
+        "estimatedGrade": 13.63
+      },
+      {
+        "id": "topic-040",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 24,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 13.7
+      },
+      {
+        "id": "topic-041",
+        "words": 47,
+        "sentences": 2,
+        "maxSentenceWords": 35,
+        "averageSentenceWords": 23.5,
+        "estimatedGrade": 16.42
+      },
+      {
+        "id": "topic-042",
+        "words": 42,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 21,
+        "estimatedGrade": 16.48
+      },
+      {
+        "id": "topic-043",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 11.18
+      },
+      {
+        "id": "topic-044",
+        "words": 41,
+        "sentences": 2,
+        "maxSentenceWords": 24,
+        "averageSentenceWords": 20.5,
+        "estimatedGrade": 12.55
+      },
+      {
+        "id": "topic-045",
+        "words": 41,
+        "sentences": 2,
+        "maxSentenceWords": 24,
+        "averageSentenceWords": 20.5,
+        "estimatedGrade": 12.84
+      },
+      {
+        "id": "topic-046",
+        "words": 42,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 21,
+        "estimatedGrade": 11.42
+      },
+      {
+        "id": "topic-047",
+        "words": 42,
+        "sentences": 2,
+        "maxSentenceWords": 24,
+        "averageSentenceWords": 21,
+        "estimatedGrade": 10.58
+      },
+      {
+        "id": "topic-048",
+        "words": 44,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 22,
+        "estimatedGrade": 13.1
+      },
+      {
+        "id": "topic-049",
+        "words": 44,
+        "sentences": 2,
+        "maxSentenceWords": 26,
+        "averageSentenceWords": 22,
+        "estimatedGrade": 11.23
+      },
+      {
+        "id": "topic-050",
+        "words": 44,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 22,
+        "estimatedGrade": 13.1
+      },
+      {
+        "id": "topic-051",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 29,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 11.18
+      },
+      {
+        "id": "topic-052",
+        "words": 41,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 20.5,
+        "estimatedGrade": 10.54
+      },
+      {
+        "id": "topic-053",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 8.66
+      },
+      {
+        "id": "topic-054",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 25,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 11.18
+      },
+      {
+        "id": "topic-055",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 26,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 12.83
+      },
+      {
+        "id": "topic-056",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 20,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 10.8
+      },
+      {
+        "id": "topic-057",
+        "words": 44,
+        "sentences": 2,
+        "maxSentenceWords": 26,
+        "averageSentenceWords": 22,
+        "estimatedGrade": 12.84
+      },
+      {
+        "id": "topic-058",
+        "words": 44,
+        "sentences": 2,
+        "maxSentenceWords": 24,
+        "averageSentenceWords": 22,
+        "estimatedGrade": 13.64
+      },
+      {
+        "id": "topic-059",
+        "words": 44,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 22,
+        "estimatedGrade": 12.36
+      },
+      {
+        "id": "topic-060",
+        "words": 41,
+        "sentences": 2,
+        "maxSentenceWords": 25,
+        "averageSentenceWords": 20.5,
+        "estimatedGrade": 13.13
+      },
+      {
+        "id": "topic-061",
+        "words": 41,
+        "sentences": 2,
+        "maxSentenceWords": 25,
+        "averageSentenceWords": 20.5,
+        "estimatedGrade": 14.57
+      },
+      {
+        "id": "topic-062",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 14.47
+      },
+      {
+        "id": "topic-063",
+        "words": 32,
+        "sentences": 2,
+        "maxSentenceWords": 20,
+        "averageSentenceWords": 16,
+        "estimatedGrade": 7.61
+      },
+      {
+        "id": "topic-064",
+        "words": 41,
+        "sentences": 2,
+        "maxSentenceWords": 24,
+        "averageSentenceWords": 20.5,
+        "estimatedGrade": 14.28
+      },
+      {
+        "id": "topic-065",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 20,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 11.38
+      },
+      {
+        "id": "topic-066",
+        "words": 44,
+        "sentences": 2,
+        "maxSentenceWords": 26,
+        "averageSentenceWords": 22,
+        "estimatedGrade": 9.89
+      },
+      {
+        "id": "topic-067",
+        "words": 45,
+        "sentences": 2,
+        "maxSentenceWords": 25,
+        "averageSentenceWords": 22.5,
+        "estimatedGrade": 10.49
+      },
+      {
+        "id": "topic-068",
+        "words": 37,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 18.5,
+        "estimatedGrade": 14.91
+      },
+      {
+        "id": "topic-069",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 10.63
+      },
+      {
+        "id": "topic-070",
+        "words": 44,
+        "sentences": 2,
+        "maxSentenceWords": 24,
+        "averageSentenceWords": 22,
+        "estimatedGrade": 10.96
+      },
+      {
+        "id": "topic-071",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 14.34
+      },
+      {
+        "id": "topic-072",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 26,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 12.59
+      },
+      {
+        "id": "topic-073",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 10.5
+      },
+      {
+        "id": "topic-074",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 12.83
+      },
+      {
+        "id": "topic-075",
+        "words": 37,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 18.5,
+        "estimatedGrade": 9.8
+      },
+      {
+        "id": "topic-076",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 11.98
+      },
+      {
+        "id": "topic-077",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 25,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 13.65
+      },
+      {
+        "id": "topic-078",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 10.36
+      },
+      {
+        "id": "topic-079",
+        "words": 45,
+        "sentences": 2,
+        "maxSentenceWords": 23,
+        "averageSentenceWords": 22.5,
+        "estimatedGrade": 11.28
+      },
+      {
+        "id": "topic-080",
+        "words": 43,
+        "sentences": 2,
+        "maxSentenceWords": 31,
+        "averageSentenceWords": 21.5,
+        "estimatedGrade": 15.3
+      },
+      {
+        "id": "topic-081",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 25,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 11.09
+      },
+      {
+        "id": "topic-082",
+        "words": 42,
+        "sentences": 2,
+        "maxSentenceWords": 27,
+        "averageSentenceWords": 21,
+        "estimatedGrade": 13.39
+      },
+      {
+        "id": "topic-083",
+        "words": 47,
+        "sentences": 2,
+        "maxSentenceWords": 30,
+        "averageSentenceWords": 23.5,
+        "estimatedGrade": 12.66
+      },
+      {
+        "id": "topic-084",
+        "words": 47,
+        "sentences": 2,
+        "maxSentenceWords": 29,
+        "averageSentenceWords": 23.5,
+        "estimatedGrade": 14.41
+      },
+      {
+        "id": "topic-085",
+        "words": 41,
+        "sentences": 2,
+        "maxSentenceWords": 26,
+        "averageSentenceWords": 20.5,
+        "estimatedGrade": 13.41
+      },
+      {
+        "id": "topic-086",
+        "words": 34,
+        "sentences": 2,
+        "maxSentenceWords": 19,
+        "averageSentenceWords": 17,
+        "estimatedGrade": 10.13
+      },
+      {
+        "id": "topic-087",
+        "words": 38,
+        "sentences": 2,
+        "maxSentenceWords": 21,
+        "averageSentenceWords": 19,
+        "estimatedGrade": 11.69
+      },
+      {
+        "id": "topic-088",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 10.77
+      },
+      {
+        "id": "topic-089",
+        "words": 36,
+        "sentences": 2,
+        "maxSentenceWords": 22,
+        "averageSentenceWords": 18,
+        "estimatedGrade": 11.42
+      },
+      {
+        "id": "topic-090",
+        "words": 38,
+        "sentences": 2,
+        "maxSentenceWords": 19,
+        "averageSentenceWords": 19,
+        "estimatedGrade": 9.83
+      },
+      {
+        "id": "topic-091",
+        "words": 39,
+        "sentences": 2,
+        "maxSentenceWords": 24,
+        "averageSentenceWords": 19.5,
+        "estimatedGrade": 11.08
+      },
+      {
+        "id": "topic-092",
+        "words": 36,
+        "sentences": 2,
+        "maxSentenceWords": 19,
+        "averageSentenceWords": 18,
+        "estimatedGrade": 11.42
+      },
+      {
+        "id": "topic-093",
+        "words": 40,
+        "sentences": 2,
+        "maxSentenceWords": 24,
+        "averageSentenceWords": 20,
+        "estimatedGrade": 11.68
+      }
+    ]
+  }
+}

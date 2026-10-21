@@ -1,0 +1,210 @@
+<div id="ai-classification-tree">
+  <h2>AI techniques: a faceted classification tree</h2>
+  <div class="text-small text-muted">Research snapshot · 20 October 2026 · Branches are complementary, not mutually exclusive</div>
+  <div id="ai-tree" aria-label="Expandable classification of artificial intelligence techniques"></div>
+  <div class="card" id="ai-tree-detail" aria-live="polite">Selected: Artificial intelligence · A system can combine techniques from several branches.</div>
+  <style>
+    #ai-classification-tree #ai-tree {margin: 20px 0;}
+    #ai-classification-tree .tree-children {margin-left: 12px; padding-left: 16px; border-left: 1px solid var(--border);}
+    #ai-classification-tree details {margin: 8px 0;}
+    #ai-classification-tree summary {padding: 8px 0; font-weight: 500; overflow-wrap: anywhere;}
+    #ai-classification-tree .tree-leaf {margin: 5px 0;}
+    #ai-classification-tree .tree-label {display: inline;}
+    #ai-classification-tree #ai-tree-detail a {margin-left: 8px;}
+    @media (max-width: 480px) {
+      #ai-classification-tree .tree-children {margin-left: 5px; padding-left: 9px;}
+    }
+  </style>
+  <script>
+  (() => {
+    const root = document.getElementById('ai-classification-tree');
+    const sources = {
+      ai:'https://aima.cs.berkeley.edu/contents.html',
+      ml:'https://scikit-learn.org/stable/user_guide.html',
+      owl:'https://www.w3.org/TR/owl2-primer/',
+      rl:'https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html',
+      transformer:'https://arxiv.org/abs/1706.03762',
+      foundation:'https://arxiv.org/abs/2108.07258',
+      rag:'https://arxiv.org/abs/2005.11401',
+      react:'https://arxiv.org/abs/2210.03629',
+      reflexion:'https://arxiv.org/abs/2303.11366',
+      mamba:'https://arxiv.org/abs/2312.00752',
+      vae:'https://arxiv.org/abs/1312.6114',
+      gan:'https://arxiv.org/abs/1406.2661',
+      diffusion:'https://arxiv.org/abs/2006.11239',
+      flow:'https://arxiv.org/abs/2210.02747',
+      llada:'https://arxiv.org/abs/2502.09992',
+      r1:'https://arxiv.org/abs/2501.12948',
+      dpo:'https://arxiv.org/abs/2305.18290',
+      instruct:'https://arxiv.org/abs/2203.02155',
+      vla:'https://arxiv.org/abs/2307.15818',
+      geometry:'https://deepmind.google/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/',
+      world:'https://arxiv.org/abs/2506.09985',
+      titans:'https://arxiv.org/abs/2501.00663',
+      nested:'https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/',
+      reflection:'https://arxiv.org/abs/2602.21198',
+      evolve:'https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/'
+    };
+    const leaf = (name, detail, source=null) => ({name,detail,source});
+    const group = (name, children, open=false) => ({name,children,open});
+    const tree = [
+      group('1 · Computational methods — what performs the computation?', [
+        group('Symbolic knowledge and reasoning', [
+          leaf('Rules and expert systems','Explicit rules plus a knowledge base and an inference procedure; forward or backward chaining.'),
+          leaf('Logic, theorem proving and program synthesis','Deduction, proof search and construction of programs satisfying a specification.'),
+          leaf('Ontologies and knowledge graphs','Structured entities, relations and axioms; reasoning requires suitable semantics and inference machinery.','owl'),
+          leaf('Fuzzy logic','Degrees of membership or truth for vague concepts; these are not the same as probabilities.'),
+          leaf('Case-based reasoning','Retrieve and adapt solutions from similar previous cases.')
+        ]),
+        group('Search, planning and optimization', [
+          leaf('State-space and heuristic search','Breadth/depth-first search, A*, beam search and related exploration strategies.'),
+          leaf('Game-tree and Monte Carlo tree search','Minimax, alpha–beta pruning and MCTS; often combined with learned policies or value estimates.'),
+          leaf('Constraint solving','Constraint satisfaction, SAT/SMT and mathematical optimization; also widely used outside AI.'),
+          leaf('Automated and decision-theoretic planning','Classical/temporal planning, hierarchical task networks and planning under uncertainty.'),
+          leaf('Evolutionary and population methods','Genetic algorithms/programming, evolution strategies and swarm methods; not inherently symbolic.'),
+          leaf('Bayesian optimization','A probabilistic surrogate and acquisition rule guide expensive evaluations; overlaps probabilistic ML.')
+        ]),
+        group('Machine learning — including neural methods', [
+          group('Classical statistical models',[
+            leaf('Regression and generalized linear models','Linear/logistic regression and related regularized predictive models.','ml'),
+            leaf('Trees and ensembles','Decision trees, random forests, gradient boosting, bagging and stacking.','ml'),
+            leaf('Kernel and instance-based methods','Support vector machines, kernel methods and nearest-neighbour models.','ml'),
+            leaf('Clustering and dimensionality reduction','k-means, density-based clustering, PCA, manifold methods and matrix factorization.','ml')
+          ]),
+          group('Probabilistic and causal models',[
+            leaf('Bayesian and graphical models','Bayesian networks, Markov models, hidden-state models and probabilistic inference.'),
+            leaf('Gaussian processes and probabilistic programming','Distributions over functions or programs for inference with explicit uncertainty.'),
+            leaf('Structural causal models','Represent interventions and causal assumptions; causal conclusions require identification conditions, not correlations alone.')
+          ]),
+          group('Neural architectures and deep learning',[
+            leaf('Feed-forward networks / MLPs','Learned compositions of nonlinear transformations; a basic neural architecture.'),
+            leaf('Convolutional networks / CNNs','Use shared local filters and spatial structure; also apply to time series and other grids.'),
+            leaf('Recurrent networks / LSTM / GRU','Maintain sequential hidden state for time series, text and other ordered signals.'),
+            leaf('Transformers and attention','Attention-based sequence/representation architectures; training can parallelize token processing.','transformer'),
+            leaf('State-space and recurrent–attention hybrids','Selective state-space models such as Mamba and mixtures of recurrence with attention.','mamba'),
+            leaf('Graph neural networks / GNNs','Learn from graph structure, often by propagating and aggregating node or edge information.'),
+            leaf('Mixture of experts / MoE','A router selects expert subnetworks; this is distinct from a team of software agents.'),
+            leaf('Spiking and reservoir networks','Event-based neurons or fixed recurrent dynamics with trained readouts; specialised and research uses.')
+          ]),
+          group('Generative formulations — can share architectures',[
+            leaf('Autoregressive models','Generate by conditioning each element on earlier elements; not limited to text or transformers.'),
+            leaf('Variational autoencoders / VAEs','Latent-variable generation trained with variational inference.','vae'),
+            leaf('Generative adversarial networks / GANs','Train a generator against a discriminator.','gan'),
+            leaf('Diffusion and score-based models','Generate through learned reversal of a corruption/noising process.','diffusion'),
+            leaf('Normalizing flows and flow matching','Learn transformations or vector fields transporting a base distribution towards data.','flow'),
+            leaf('Energy-based models','Assign an energy to configurations, with inference or sampling favouring lower-energy states.'),
+            leaf('Diffusion language models','Iterative token denoising is an alternative to strictly left-to-right language generation.','llada')
+          ])
+        ], true)
+      ], true),
+      group('2 · Learning and adaptation — how does behaviour improve?', [
+        group('Learning signals',[
+          leaf('Supervised learning','Learn from externally supplied target labels or values.','ml'),
+          leaf('Unsupervised learning','Discover structure or model distributions without externally supplied task labels.','ml'),
+          leaf('Semi-supervised learning','Combine labelled and unlabelled examples; pseudo-labelling is one possible method.','ml'),
+          leaf('Self-supervised learning','Derive prediction targets from the data itself, such as masked content, next tokens or paired views.','foundation'),
+          leaf('Imitation learning','Learn behaviour from demonstrations; includes behavioural cloning and interactive variants.','rl')
+        ]),
+        group('Reinforcement learning — several independent axes',[
+          leaf('Model-free ↔ model-based','Whether learning/planning uses an explicit environment dynamics model.','rl'),
+          leaf('Value-based ↔ policy-based ↔ actor–critic','How action values and/or the action-selection policy are represented and optimized.','rl'),
+          leaf('Online ↔ offline; on-policy ↔ off-policy','Data collection and policy relationships are separate choices, not one exclusive hierarchy.','rl'),
+          leaf('Deep RL, hierarchical RL and multi-agent RL','Neural function approximation, temporal abstraction and multiple interacting learners.','rl')
+        ]),
+        group('Post-training and preferences',[
+          leaf('Instruction / supervised fine-tuning','Adapt a pretrained model using task demonstrations and instruction–response examples.','foundation'),
+          leaf('RLHF / RLAIF','Reinforcement learning from human or AI feedback, often through a learned reward model.','instruct'),
+          leaf('Preference optimization / DPO','Optimize directly from preferences; DPO does not require a separate online RL loop.','dpo'),
+          leaf('RL with verifiable rewards / RLVR','Reward outputs using programmatic checks, such as test results or mathematical answers.','r1')
+        ]),
+        group('Adaptation and data selection',[
+          leaf('Transfer learning / domain adaptation / multitask learning','Reuse or jointly learn representations across tasks or distributions.','foundation'),
+          leaf('Active learning','Select the examples whose labels are expected to be most useful.','ml'),
+          leaf('Meta-learning','Learn an initialization, update rule or representation that supports rapid adaptation.'),
+          leaf('Online and continual learning','Update as data/tasks arrive while managing drift and interference with earlier learning.','nested'),
+          leaf('Test-time learning / learned memory','Update parameters or learned memory at inference time; distinct from simply spending more compute.','titans'),
+          leaf('In-context learning','Adapt outputs using examples/context without necessarily updating model weights.','foundation')
+        ])
+      ]),
+      group('3 · Model roles — what does the model represent or produce?', [
+        group('Scope and reuse',[
+          leaf('Foundation models','Broad pretraining with reuse across tasks; can be generative or representation models.','foundation'),
+          leaf('Task-specific and domain-specialised models','Scope/specialisation choices that can overlap foundation-model adaptation.','foundation'),
+          leaf('Small / edge / compact models','Size and deployment properties; not a separate learning paradigm.')
+        ]),
+        group('Modalities and interfaces',[
+          leaf('Language models / LLMs','Models of language or token sequences; modern examples need not all be autoregressive.','llada'),
+          leaf('Vision, audio, video and multimodal models','Single-modal or cross-modal inputs/outputs; capabilities need not be symmetric.','foundation'),
+          leaf('Embedding, ranking and predictive models','Produce representations, relevance scores or forecasts rather than generated content.','ml'),
+          leaf('Vision–language–action / VLA models','Map visual and linguistic context into robot actions; embodied deployment remains task dependent.','vla')
+        ]),
+        group('Dynamics and scientific structure',[
+          leaf('World models','Predict environment evolution, often conditioned on actions; can operate in latent, symbolic or observable space.','world'),
+          leaf('Physics-informed and scientific ML','Combine learned models with equations, symmetries, physical constraints or numerical solvers.'),
+          leaf('Neural operators','Learn mappings between functions, for example solution operators for families of physical systems.')
+        ])
+      ]),
+      group('4 · System patterns — how are components combined?', [
+        group('Retrieval and external knowledge',[
+          leaf('Retrieval-augmented generation / RAG','Retrieve external evidence and condition generation on it; retrieval need not use a vector database.','rag'),
+          leaf('Graph-augmented and structured retrieval','Retrieve over graphs, relations or structured queries; a graph alone does not establish logical reasoning.'),
+          leaf('Hybrid retrieval and reranking','Combine lexical, vector or structured retrieval and relevance scoring.')
+        ]),
+        group('Agents and orchestration',[
+          leaf('Tool-using agents','Select actions, call tools, observe results and continue towards a goal.','react'),
+          leaf('Planning and workflow controllers','Use plans, state machines, decomposition, checkpoints and replanning to coordinate work.','react'),
+          leaf('Multi-agent systems','Several agents coordinate, negotiate or compete; more agents do not inherently imply better results.'),
+          leaf('External memory and episodic retrieval','Store/retrieve past events or lessons; no weight update is required.','reflexion')
+        ]),
+        group('Reasoning and computation at inference time',[
+          leaf('Deliberation and test-time compute','Allocate more generation, sampling, search or verification to a problem.','r1'),
+          leaf('Self-consistency and candidate search','Generate alternatives and use aggregation, search or ranking to select an answer.'),
+          leaf('Verifier-guided reasoning','Use tests, solvers, proof checkers or other external feedback to evaluate candidates.','geometry'),
+          leaf('Metacognitive monitoring and control','Estimate uncertainty/failure, choose another strategy, gather evidence or abstain; self-critique alone is not verification.','reflection')
+        ]),
+        group('Hybrid and neuro-symbolic integration',[
+          leaf('Neural proposals + symbolic reasoning','Neural models propose representations or steps; symbolic engines derive or check consequences.','geometry'),
+          leaf('Differentiable logic and constrained learning','Bring logical or domain constraints into learning objectives or differentiable inference.'),
+          leaf('Learning + planning + simulation','Combine policies/value models with search and predictive environment models.','world'),
+          leaf('LLMs + evolutionary search + evaluators','Generate candidate algorithms, evaluate them and iteratively improve the candidate population.','evolve')
+        ])
+      ]),
+      group('5 · Cross-cutting engineering — how is it efficient and dependable?', [
+        group('Efficiency and deployment',[
+          leaf('Distillation / pruning / quantization','Transfer behaviour to smaller models, remove parameters or reduce numerical precision.'),
+          leaf('Parameter-efficient tuning / LoRA / adapters','Adapt a subset or low-rank parameterization instead of updating every weight.'),
+          leaf('Federated and privacy-preserving learning','Distribute training or protect data/updates; federated learning alone does not guarantee privacy.'),
+          leaf('Speculative decoding / caching / routing','Improve serving efficiency; these do not constitute new model intelligence by themselves.')
+        ]),
+        group('Uncertainty, checking and oversight',[
+          leaf('Calibration and uncertainty estimation','Assess how predictive uncertainty corresponds to observed errors; requires evaluation data.'),
+          leaf('Conformal prediction and selective prediction','Construct prediction sets under stated assumptions, or abstain on uncertain cases.'),
+          leaf('Constraints, validation and formal verification','Check specified properties; a proof or validation result is limited by its specification and assumptions.','geometry'),
+          leaf('Interpretability, provenance and human review','Make evidence, behaviour and decision responsibilities inspectable; not proof of correctness.')
+        ])
+      ])
+    ];
+    const container = root.querySelector('#ai-tree');
+    const detail = root.querySelector('#ai-tree-detail');
+    function addNode(node, parent) {
+      if (node.children) {
+        const d=document.createElement('details'); d.open=!!node.open;
+        const s=document.createElement('summary'); s.className='cursor-interaction'; s.textContent=node.name;
+        const c=document.createElement('div'); c.className='tree-children';
+        d.append(s,c); parent.append(d); node.children.forEach(n=>addNode(n,c));
+      } else {
+        const row=document.createElement('div'); row.className='tree-leaf';
+        const b=document.createElement('button'); b.type='button'; b.className='btn viz-tile'; b.textContent=node.name; b.setAttribute('aria-pressed','false');
+        b.addEventListener('click',()=>{
+          container.querySelectorAll('button[aria-pressed="true"]').forEach(el=>el.setAttribute('aria-pressed','false'));
+          b.setAttribute('aria-pressed','true'); detail.replaceChildren(); row.append(detail);
+          const label=document.createElement('span'); label.textContent=node.name+' · '+node.detail; detail.append(label);
+          if(sources[node.source]) { const a=document.createElement('a'); a.href=sources[node.source]; a.target='_blank'; a.rel='noopener noreferrer'; a.textContent='Reference ↗'; detail.append(a); }
+        });
+        row.append(b); parent.append(row);
+      }
+    }
+    tree.forEach(n=>addNode(n,container));
+  })();
+  </script>
+</div>

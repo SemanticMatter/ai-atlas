@@ -1,0 +1,17 @@
+{
+  "name": "ai-atlas",
+  "version": "1.3.0",
+  "private": true,
+  "description": "An interactive field guide to AI techniques and their history",
+  "type": "module",
+  "scripts": {
+    "prepare:data": "node scripts/prepare-data.mjs",
+    "validate": "node scripts/validate.mjs",
+    "serve": "python3 -m http.server 8080 --directory dist",
+    "check:links": "python3 scripts/check-links.py",
+    "test": "python3 -m unittest discover -s tests && node --test tests/*.test.mjs",
+    "audit:readability": "node scripts/readability-report.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
