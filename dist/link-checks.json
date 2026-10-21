@@ -1,0 +1,3436 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-10-21T12:55:11+00:00",
+  "finished_at": "2026-10-21T13:01:02+00:00",
+  "checker_version": "1.1.0",
+  "scope": "Automated HTTP reachability. Status 2xx does not verify title, authorship, content, relevance, accessibility or scientific correctness. Access restrictions and network failures are unresolved, not broken-link findings.",
+  "reference_set_sha256": "f95de5efb4d3c668910461e7ed6261284483a715d3be7cf86553dcff19be3d15",
+  "request_policy": {
+    "head_then_get": true,
+    "bounded_html_bytes": 65536,
+    "timeout_seconds": 3.0,
+    "workers": 6,
+    "per_host_serial": true
+  },
+  "counts": {
+    "network_error": 152,
+    "reachable": 5
+  },
+  "results": [
+    {
+      "url": "https://aclanthology.org/N19-1423/",
+      "checked_at": "2026-10-21T12:55:11+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://aclanthology.org/N19-1423/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:11+00:00",
+          "http_status": null,
+          "final_url": "https://aclanthology.org/N19-1423/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3016
+        }
+      ]
+    },
+    {
+      "url": "https://aima.cs.berkeley.edu/4th-ed/slides-pdf/chapter01.pdf",
+      "checked_at": "2026-10-21T12:55:15+00:00",
+      "state": "reachable",
+      "http_status": 200,
+      "final_url": "https://aima.cs.berkeley.edu/4th-ed/slides-pdf/chapter01.pdf",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:11+00:00",
+          "http_status": 200,
+          "final_url": "https://aima.cs.berkeley.edu/4th-ed/slides-pdf/chapter01.pdf",
+          "content_type": "application/pdf",
+          "state": "reachable",
+          "elapsed_ms": 3350
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:15+00:00",
+          "http_status": 200,
+          "final_url": "https://aima.cs.berkeley.edu/4th-ed/slides-pdf/chapter01.pdf",
+          "content_type": "application/pdf",
+          "state": "reachable",
+          "elapsed_ms": 3205
+        }
+      ]
+    },
+    {
+      "url": "https://artint.info/3e/html/ArtInt3e.Ch11.html",
+      "checked_at": "2026-10-21T12:55:11+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://artint.info/3e/html/ArtInt3e.Ch11.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:11+00:00",
+          "http_status": null,
+          "final_url": "https://artint.info/3e/html/ArtInt3e.Ch11.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3014
+        }
+      ]
+    },
+    {
+      "url": "https://artint.info/3e/html/ArtInt3e.Ch3.html",
+      "checked_at": "2026-10-21T12:55:18+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://artint.info/3e/html/ArtInt3e.Ch3.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:14+00:00",
+          "http_status": 200,
+          "final_url": "https://artint.info/3e/html/ArtInt3e.Ch3.html",
+          "content_type": "text/html",
+          "state": "reachable",
+          "elapsed_ms": 3305
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:18+00:00",
+          "http_status": null,
+          "final_url": "https://artint.info/3e/html/ArtInt3e.Ch3.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://artint.info/3e/html/ArtInt3e.Ch5.S3.html",
+      "checked_at": "2026-10-21T12:55:21+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://artint.info/3e/html/ArtInt3e.Ch5.S3.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:21+00:00",
+          "http_status": null,
+          "final_url": "https://artint.info/3e/html/ArtInt3e.Ch5.S3.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://artint.info/3e/html/ArtInt3e.Ch5.html",
+      "checked_at": "2026-10-21T12:55:26+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://artint.info/3e/html/ArtInt3e.Ch5.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:25+00:00",
+          "http_status": 200,
+          "final_url": "https://artint.info/3e/html/ArtInt3e.Ch5.html",
+          "content_type": "text/html",
+          "state": "reachable",
+          "elapsed_ms": 1274
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:26+00:00",
+          "http_status": null,
+          "final_url": "https://artint.info/3e/html/ArtInt3e.Ch5.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://artint.info/3e/html/ArtInt3e.Ch6.html",
+      "checked_at": "2026-10-21T12:55:31+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://artint.info/3e/html/ArtInt3e.Ch6.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:30+00:00",
+          "http_status": 200,
+          "final_url": "https://artint.info/3e/html/ArtInt3e.Ch6.html",
+          "content_type": "text/html",
+          "state": "reachable",
+          "elapsed_ms": 831
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:31+00:00",
+          "http_status": null,
+          "final_url": "https://artint.info/3e/html/ArtInt3e.Ch6.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://artint.info/3e/html/ArtInt3e.Ch9.html",
+      "checked_at": "2026-10-21T12:55:34+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://artint.info/3e/html/ArtInt3e.Ch9.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:34+00:00",
+          "http_status": null,
+          "final_url": "https://artint.info/3e/html/ArtInt3e.Ch9.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1011.0686",
+      "checked_at": "2026-10-21T12:55:11+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1011.0686",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:11+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1011.0686",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3014
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1112.5745",
+      "checked_at": "2026-10-21T12:55:16+00:00",
+      "state": "reachable",
+      "http_status": 200,
+      "final_url": "https://arxiv.org/abs/1112.5745",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:14+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1112.5745",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 1133
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:16+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1112.5745",
+          "content_type": "text/html; charset=utf-8",
+          "page_title": "[1112.5745] Bayesian Active Learning for Classification and Preference Learning",
+          "state": "reachable",
+          "elapsed_ms": 2968
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1206.6389",
+      "checked_at": "2026-10-21T12:55:19+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1206.6389",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:19+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1206.6389",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1312.5602",
+      "checked_at": "2026-10-21T12:55:22+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1312.5602",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:22+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1312.5602",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1312.6114",
+      "checked_at": "2026-10-21T12:55:26+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1312.6114",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:26+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1312.6114",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3004
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1406.1078",
+      "checked_at": "2026-10-21T12:55:29+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1406.1078",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:29+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1406.1078",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3004
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1406.2661",
+      "checked_at": "2026-10-21T12:55:32+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1406.2661",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:32+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1406.2661",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1412.6572",
+      "checked_at": "2026-10-21T12:55:39+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1412.6572",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:36+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1412.6572",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 2732
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:39+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1412.6572",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1503.02531",
+      "checked_at": "2026-10-21T12:55:43+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1503.02531",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:42+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1503.02531",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 379
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:43+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1503.02531",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1505.07818",
+      "checked_at": "2026-10-21T12:55:47+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1505.07818",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:46+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1505.07818",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 911
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:47+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1505.07818",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1506.02626",
+      "checked_at": "2026-10-21T12:55:52+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1506.02626",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:51+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1506.02626",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 1293
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:52+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1506.02626",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1509.03580",
+      "checked_at": "2026-10-21T12:55:56+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1509.03580",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:55+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1509.03580",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 628
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:56+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1509.03580",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3004
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1601.06759",
+      "checked_at": "2026-10-21T12:56:00+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1601.06759",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:00+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1601.06759",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1602.04938",
+      "checked_at": "2026-10-21T12:56:04+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1602.04938",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:03+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1602.04938",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 502
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:56:04+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1602.04938",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1602.05629",
+      "checked_at": "2026-10-21T12:56:07+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1602.05629",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:07+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1602.05629",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1604.00772",
+      "checked_at": "2026-10-21T12:56:11+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1604.00772",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:10+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1604.00772",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 647
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:56:11+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1604.00772",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1607.00133",
+      "checked_at": "2026-10-21T12:56:15+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1607.00133",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:15+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1607.00133",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1609.02907",
+      "checked_at": "2026-10-21T12:56:19+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1609.02907",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:18+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1609.02907",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 643
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:56:19+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1609.02907",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1610.02413",
+      "checked_at": "2026-10-21T12:56:22+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1610.02413",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:22+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1610.02413",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1610.07524",
+      "checked_at": "2026-10-21T12:56:26+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1610.07524",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:25+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1610.07524",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 555
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:56:26+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1610.07524",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1612.00796",
+      "checked_at": "2026-10-21T12:56:33+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1612.00796",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:30+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1612.00796",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 3070
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:56:33+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1612.00796",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1702.01135",
+      "checked_at": "2026-10-21T12:56:36+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1702.01135",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:36+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1702.01135",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1703.03400",
+      "checked_at": "2026-10-21T12:56:40+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1703.03400",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:40+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1703.03400",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1705.07874",
+      "checked_at": "2026-10-21T12:56:44+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1705.07874",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:43+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1705.07874",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 616
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:56:44+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1705.07874",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3011
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1705.08500",
+      "checked_at": "2026-10-21T12:56:47+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1705.08500",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:47+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1705.08500",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1706.02275",
+      "checked_at": "2026-10-21T12:56:52+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1706.02275",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:50+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1706.02275",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 793
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:56:52+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1706.02275",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1706.03762",
+      "checked_at": "2026-10-21T12:56:55+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1706.03762",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:55+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1706.03762",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1706.04599",
+      "checked_at": "2026-10-21T12:56:59+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1706.04599",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:58+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1706.04599",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 494
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:56:59+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1706.04599",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1706.05098",
+      "checked_at": "2026-10-21T12:57:02+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1706.05098",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:02+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1706.05098",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3004
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1711.10561",
+      "checked_at": "2026-10-21T12:57:07+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1711.10561",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:06+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1711.10561",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 742
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:57:07+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1711.10561",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1712.01815",
+      "checked_at": "2026-10-21T12:57:10+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1712.01815",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:10+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1712.01815",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1712.05877",
+      "checked_at": "2026-10-21T12:57:14+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1712.05877",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:13+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1712.05877",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 627
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:57:14+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1712.05877",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1803.09010",
+      "checked_at": "2026-10-21T12:57:17+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1803.09010",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:17+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1803.09010",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1803.10122",
+      "checked_at": "2026-10-21T12:57:22+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1803.10122",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:21+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1803.10122",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 699
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:57:22+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1803.10122",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1807.02811",
+      "checked_at": "2026-10-21T12:57:25+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1807.02811",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:25+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1807.02811",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1901.04085",
+      "checked_at": "2026-10-21T12:57:29+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1901.04085",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:28+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1901.04085",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 556
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:57:29+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1901.04085",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1901.08746",
+      "checked_at": "2026-10-21T12:57:33+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1901.08746",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:33+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1901.08746",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3004
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1907.05600",
+      "checked_at": "2026-10-21T12:57:37+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1907.05600",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:36+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1907.05600",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 584
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:57:37+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1907.05600",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1908.10084",
+      "checked_at": "2026-10-21T12:57:40+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1908.10084",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:40+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1908.10084",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1911.08265",
+      "checked_at": "2026-10-21T12:57:44+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1911.08265",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:43+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/1911.08265",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 618
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:57:44+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1911.08265",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1912.01603",
+      "checked_at": "2026-10-21T12:57:48+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/1912.01603",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:48+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/1912.01603",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2001.08361",
+      "checked_at": "2026-10-21T12:57:52+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2001.08361",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:51+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2001.08361",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 636
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:57:52+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2001.08361",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2002.05709",
+      "checked_at": "2026-10-21T12:57:55+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2002.05709",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:55+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2002.05709",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2005.01643",
+      "checked_at": "2026-10-21T12:57:59+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2005.01643",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:57:58+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2005.01643",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 662
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:57:59+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2005.01643",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2005.11401",
+      "checked_at": "2026-10-21T12:58:03+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2005.11401",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:03+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2005.11401",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2005.14165",
+      "checked_at": "2026-10-21T12:58:07+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2005.14165",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:06+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2005.14165",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 594
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:58:07+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2005.14165",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2006.11239",
+      "checked_at": "2026-10-21T12:58:10+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2006.11239",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:10+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2006.11239",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2010.08895",
+      "checked_at": "2026-10-21T12:58:14+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2010.08895",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:13+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2010.08895",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 567
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:58:14+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2010.08895",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3011
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2011.13456",
+      "checked_at": "2026-10-21T12:58:18+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2011.13456",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:18+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2011.13456",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2012.13635",
+      "checked_at": "2026-10-21T12:58:21+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2012.13635",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:21+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2012.13635",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2101.03961",
+      "checked_at": "2026-10-21T12:58:26+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2101.03961",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:24+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2101.03961",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 1395
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:58:26+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2101.03961",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2103.00020",
+      "checked_at": "2026-10-21T12:58:29+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2103.00020",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:29+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2103.00020",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3002
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2106.09685",
+      "checked_at": "2026-10-21T12:58:34+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2106.09685",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:33+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2106.09685",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 678
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:58:34+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2106.09685",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2107.07511",
+      "checked_at": "2026-10-21T12:58:37+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2107.07511",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:37+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2107.07511",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2108.07258",
+      "checked_at": "2026-10-21T12:58:41+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2108.07258",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:40+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2108.07258",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 574
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:58:41+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2108.07258",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2111.00396",
+      "checked_at": "2026-10-21T12:58:44+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2111.00396",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:44+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2111.00396",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2201.11903",
+      "checked_at": "2026-10-21T12:58:49+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2201.11903",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:48+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2201.11903",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 600
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:58:49+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2201.11903",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2203.02155",
+      "checked_at": "2026-10-21T12:58:52+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2203.02155",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:52+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2203.02155",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2203.11171",
+      "checked_at": "2026-10-21T12:58:56+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2203.11171",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:55+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2203.11171",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 571
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:58:56+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2203.11171",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2203.15556",
+      "checked_at": "2026-10-21T12:58:59+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2203.15556",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:58:59+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2203.15556",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2207.05221",
+      "checked_at": "2026-10-21T12:59:04+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2207.05221",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:03+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2207.05221",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 630
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:59:04+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2207.05221",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2207.07048",
+      "checked_at": "2026-10-21T12:59:07+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2207.07048",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:07+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2207.07048",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2210.02747",
+      "checked_at": "2026-10-21T12:59:11+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2210.02747",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:10+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2210.02747",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 570
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:59:11+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2210.02747",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2210.03629",
+      "checked_at": "2026-10-21T12:59:14+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2210.03629",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:14+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2210.03629",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2211.09110",
+      "checked_at": "2026-10-21T12:59:19+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2211.09110",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:18+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2211.09110",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 552
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:59:19+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2211.09110",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2211.17192",
+      "checked_at": "2026-10-21T12:59:22+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2211.17192",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:22+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2211.17192",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2212.04356",
+      "checked_at": "2026-10-21T12:59:26+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2212.04356",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:25+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2212.04356",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 565
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:59:26+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2212.04356",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2212.08073",
+      "checked_at": "2026-10-21T12:59:29+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2212.08073",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:29+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2212.08073",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3004
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2302.12173",
+      "checked_at": "2026-10-21T12:59:33+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2302.12173",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:33+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2302.12173",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 558
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:59:33+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2302.12173",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2303.11366",
+      "checked_at": "2026-10-21T12:59:37+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2303.11366",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:37+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2303.11366",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.01582",
+      "checked_at": "2026-10-21T12:59:41+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2305.01582",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:40+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2305.01582",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 610
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:59:41+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2305.01582",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.10601",
+      "checked_at": "2026-10-21T12:59:44+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2305.10601",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:44+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2305.10601",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.18290",
+      "checked_at": "2026-10-21T12:59:48+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2305.18290",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:48+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2305.18290",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 558
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:59:48+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2305.18290",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.18323",
+      "checked_at": "2026-10-21T12:59:52+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2305.18323",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:52+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2305.18323",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.20050",
+      "checked_at": "2026-10-21T12:59:56+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2305.20050",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:55+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2305.20050",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 560
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:59:56+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2305.20050",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2307.15818",
+      "checked_at": "2026-10-21T12:59:59+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2307.15818",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:59:59+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2307.15818",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2308.08155",
+      "checked_at": "2026-10-21T13:00:03+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2308.08155",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:03+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2308.08155",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 654
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T13:00:03+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2308.08155",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2309.06180",
+      "checked_at": "2026-10-21T13:00:07+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2309.06180",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:07+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2309.06180",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2312.00752",
+      "checked_at": "2026-10-21T13:00:11+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2312.00752",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:10+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2312.00752",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 596
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T13:00:11+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2312.00752",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.14219",
+      "checked_at": "2026-10-21T13:00:14+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2404.14219",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:14+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2404.14219",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.16130",
+      "checked_at": "2026-10-21T13:00:19+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2404.16130",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:18+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2404.16130",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 662
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T13:00:19+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2404.16130",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.04093",
+      "checked_at": "2026-10-21T13:00:22+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2406.04093",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:22+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2406.04093",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2407.04620",
+      "checked_at": "2026-10-21T13:00:26+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2407.04620",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:25+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2407.04620",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 474
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T13:00:26+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2407.04620",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2408.03314",
+      "checked_at": "2026-10-21T13:00:32+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2408.03314",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:29+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2408.03314",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 2919
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T13:00:32+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2408.03314",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.00663",
+      "checked_at": "2026-10-21T13:00:36+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2501.00663",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:36+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2501.00663",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3004
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.12948",
+      "checked_at": "2026-10-21T13:00:40+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2501.12948",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:39+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2501.12948",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 560
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T13:00:40+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2501.12948",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.09992",
+      "checked_at": "2026-10-21T13:00:43+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2502.09992",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:43+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2502.09992",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.09985",
+      "checked_at": "2026-10-21T13:00:48+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2506.09985",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:47+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2506.09985",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 657
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T13:00:48+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2506.09985",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.13131",
+      "checked_at": "2026-10-21T13:00:51+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2506.13131",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:51+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2506.13131",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.21198",
+      "checked_at": "2026-10-21T13:00:55+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2602.21198",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:54+00:00",
+          "http_status": 200,
+          "final_url": "https://arxiv.org/abs/2602.21198",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 665
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T13:00:55+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2602.21198",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.19475",
+      "checked_at": "2026-10-21T13:00:58+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://arxiv.org/abs/2606.19475",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T13:00:58+00:00",
+          "http_status": null,
+          "final_url": "https://arxiv.org/abs/2606.19475",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://botorch.org/docs/overview",
+      "checked_at": "2026-10-21T12:55:11+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://botorch.org/docs/overview",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:11+00:00",
+          "http_status": null,
+          "final_url": "https://botorch.org/docs/overview",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3014
+        }
+      ]
+    },
+    {
+      "url": "https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf",
+      "checked_at": "2026-10-21T12:55:11+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:11+00:00",
+          "http_status": null,
+          "final_url": "https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3009
+        }
+      ]
+    },
+    {
+      "url": "https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf",
+      "checked_at": "2026-10-21T12:55:14+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:14+00:00",
+          "http_status": null,
+          "final_url": "https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3009
+        }
+      ]
+    },
+    {
+      "url": "https://cs.nyu.edu/~yann/2010f-G22-2565-001/diglib/lecun-06.pdf",
+      "checked_at": "2026-10-21T12:55:14+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://cs.nyu.edu/~yann/2010f-G22-2565-001/diglib/lecun-06.pdf",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:14+00:00",
+          "http_status": null,
+          "final_url": "https://cs.nyu.edu/~yann/2010f-G22-2565-001/diglib/lecun-06.pdf",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3008
+        }
+      ]
+    },
+    {
+      "url": "https://d2l.ai/chapter_recurrent-neural-networks/rnn.html",
+      "checked_at": "2026-10-21T12:55:14+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://d2l.ai/chapter_recurrent-neural-networks/rnn.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:14+00:00",
+          "http_status": null,
+          "final_url": "https://d2l.ai/chapter_recurrent-neural-networks/rnn.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3007
+        }
+      ]
+    },
+    {
+      "url": "https://deap.readthedocs.io/en/master/overview.html",
+      "checked_at": "2026-10-21T12:55:18+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://deap.readthedocs.io/en/master/overview.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:18+00:00",
+          "http_status": null,
+          "final_url": "https://deap.readthedocs.io/en/master/overview.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3007
+        }
+      ]
+    },
+    {
+      "url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+      "checked_at": "2026-10-21T12:55:18+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:18+00:00",
+          "http_status": null,
+          "final_url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3007
+        }
+      ]
+    },
+    {
+      "url": "https://deepmind.google/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/",
+      "checked_at": "2026-10-21T12:55:21+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://deepmind.google/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:21+00:00",
+          "http_status": null,
+          "final_url": "https://deepmind.google/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3007
+        }
+      ]
+    },
+    {
+      "url": "https://deepmind.google/models/genie/",
+      "checked_at": "2026-10-21T12:55:24+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://deepmind.google/models/genie/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:24+00:00",
+          "http_status": null,
+          "final_url": "https://deepmind.google/models/genie/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1038/nature16961",
+      "checked_at": "2026-10-21T12:55:18+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://doi.org/10.1038/nature16961",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:18+00:00",
+          "http_status": null,
+          "final_url": "https://doi.org/10.1038/nature16961",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://doi.org/10.3233/AIC-1994-7104",
+      "checked_at": "2026-10-21T12:55:21+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://doi.org/10.3233/AIC-1994-7104",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:21+00:00",
+          "http_status": null,
+          "final_url": "https://doi.org/10.3233/AIC-1994-7104",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3611
+        }
+      ]
+    },
+    {
+      "url": "https://gaussianprocess.org/gpml/",
+      "checked_at": "2026-10-21T12:55:18+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://gaussianprocess.org/gpml/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:18+00:00",
+          "http_status": null,
+          "final_url": "https://gaussianprocess.org/gpml/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3009
+        }
+      ]
+    },
+    {
+      "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+      "checked_at": "2026-10-21T12:55:21+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:21+00:00",
+          "http_status": null,
+          "final_url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3008
+        }
+      ]
+    },
+    {
+      "url": "https://igi-web.tugraz.at/PDF/85a.pdf",
+      "checked_at": "2026-10-21T12:55:22+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://igi-web.tugraz.at/PDF/85a.pdf",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:22+00:00",
+          "http_status": null,
+          "final_url": "https://igi-web.tugraz.at/PDF/85a.pdf",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/BF00994018",
+      "checked_at": "2026-10-21T12:55:24+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://link.springer.com/article/10.1007/BF00994018",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:24+00:00",
+          "http_status": null,
+          "final_url": "https://link.springer.com/article/10.1007/BF00994018",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3013
+        }
+      ]
+    },
+    {
+      "url": "https://link.springer.com/article/10.1023/A:1010933404324",
+      "checked_at": "2026-10-21T12:55:28+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://link.springer.com/article/10.1023/A:1010933404324",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:28+00:00",
+          "http_status": null,
+          "final_url": "https://link.springer.com/article/10.1023/A:1010933404324",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 4926
+        }
+      ]
+    },
+    {
+      "url": "https://liphy-annuaire.univ-grenoble-alpes.fr/pages_personnelles/bahram_houchmandzadeh/biblio/Zadeh_FuzzySetTheory_1965.pdf",
+      "checked_at": "2026-10-21T12:55:25+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://liphy-annuaire.univ-grenoble-alpes.fr/pages_personnelles/bahram_houchmandzadeh/biblio/Zadeh_FuzzySetTheory_1965.pdf",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:25+00:00",
+          "http_status": null,
+          "final_url": "https://liphy-annuaire.univ-grenoble-alpes.fr/pages_personnelles/bahram_houchmandzadeh/biblio/Zadeh_FuzzySetTheory_1965.pdf",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://microsoft.github.io/z3guide/docs/logic/intro/",
+      "checked_at": "2026-10-21T12:55:25+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://microsoft.github.io/z3guide/docs/logic/intro/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:25+00:00",
+          "http_status": null,
+          "final_url": "https://microsoft.github.io/z3guide/docs/logic/intro/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://mitpress.mit.edu/9780262581110/adaptation-in-natural-and-artificial-systems/",
+      "checked_at": "2026-10-21T12:55:28+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://mitpress.mit.edu/9780262581110/adaptation-in-natural-and-artificial-systems/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:28+00:00",
+          "http_status": null,
+          "final_url": "https://mitpress.mit.edu/9780262581110/adaptation-in-natural-and-artificial-systems/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3004
+        }
+      ]
+    },
+    {
+      "url": "https://ml.jku.at/publications/older/2604.pdf",
+      "checked_at": "2026-10-21T12:55:28+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://ml.jku.at/publications/older/2604.pdf",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:28+00:00",
+          "http_status": null,
+          "final_url": "https://ml.jku.at/publications/older/2604.pdf",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/10.1207/s15516709cog1402_1",
+      "checked_at": "2026-10-21T12:55:32+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://onlinelibrary.wiley.com/doi/10.1207/s15516709cog1402_1",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:28+00:00",
+          "http_status": 403,
+          "final_url": "https://onlinelibrary.wiley.com/doi/10.1207/s15516709cog1402_1",
+          "content_type": "text/html; charset=UTF-8",
+          "state": "access_restricted",
+          "elapsed_ms": 3102
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:32+00:00",
+          "http_status": null,
+          "final_url": "https://onlinelibrary.wiley.com/doi/10.1207/s15516709cog1402_1",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://papers.neurips.cc/paper_files/paper/1990/hash/d9fc5b73a8d78fad3d6dffe419384e70-Abstract.html",
+      "checked_at": "2026-10-21T12:55:35+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://papers.neurips.cc/paper_files/paper/1990/hash/d9fc5b73a8d78fad3d6dffe419384e70-Abstract.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:31+00:00",
+          "http_status": 200,
+          "final_url": "https://papers.neurips.cc/paper_files/paper/1990/hash/d9fc5b73a8d78fad3d6dffe419384e70-Abstract.html",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 3364
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:35+00:00",
+          "http_status": null,
+          "final_url": "https://papers.neurips.cc/paper_files/paper/1990/hash/d9fc5b73a8d78fad3d6dffe419384e70-Abstract.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3003
+        }
+      ]
+    },
+    {
+      "url": "https://people.cs.umass.edu/~barto/courses/cs687/Sutton-Precup-Singh-AIJ99.pdf",
+      "checked_at": "2026-10-21T12:55:32+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://people.cs.umass.edu/~barto/courses/cs687/Sutton-Precup-Singh-AIJ99.pdf",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:32+00:00",
+          "http_status": null,
+          "final_url": "https://people.cs.umass.edu/~barto/courses/cs687/Sutton-Precup-Singh-AIJ99.pdf",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://people.duke.edu/~hpgavin/SystemID/References/Kalman-JBE-1960.pdf",
+      "checked_at": "2026-10-21T12:55:33+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://people.duke.edu/~hpgavin/SystemID/References/Kalman-JBE-1960.pdf",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:33+00:00",
+          "http_status": null,
+          "final_url": "https://people.duke.edu/~hpgavin/SystemID/References/Kalman-JBE-1960.pdf",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://proceedings.mlr.press/v37/sohl-dickstein15.html",
+      "checked_at": "2026-10-21T12:55:35+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://proceedings.mlr.press/v37/sohl-dickstein15.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:35+00:00",
+          "http_status": null,
+          "final_url": "https://proceedings.mlr.press/v37/sohl-dickstein15.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
+      "checked_at": "2026-10-21T12:55:35+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:35+00:00",
+          "http_status": null,
+          "final_url": "https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/4309616aaed8e848009bc4a7ef73b493-Abstract-Conference.html",
+      "checked_at": "2026-10-21T12:55:40+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/4309616aaed8e848009bc4a7ef73b493-Abstract-Conference.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:38+00:00",
+          "http_status": 200,
+          "final_url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/4309616aaed8e848009bc4a7ef73b493-Abstract-Conference.html",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 1504
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:40+00:00",
+          "http_status": null,
+          "final_url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/4309616aaed8e848009bc4a7ef73b493-Abstract-Conference.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://pyro.ai/examples/intro_long.html",
+      "checked_at": "2026-10-21T12:55:39+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://pyro.ai/examples/intro_long.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:36+00:00",
+          "http_status": 200,
+          "final_url": "https://pyro.ai/examples/intro_long.html",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 2944
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:39+00:00",
+          "http_status": null,
+          "final_url": "https://pyro.ai/examples/intro_long.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/",
+      "checked_at": "2026-10-21T12:55:37+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:37+00:00",
+          "http_status": null,
+          "final_url": "https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://research.google/pubs/solving-olympiad-geometry-without-human-demonstrations/",
+      "checked_at": "2026-10-21T12:55:43+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://research.google/pubs/solving-olympiad-geometry-without-human-demonstrations/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:41+00:00",
+          "http_status": 200,
+          "final_url": "https://research.google/pubs/solving-olympiad-geometry-without-human-demonstrations/",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 1651
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:43+00:00",
+          "http_status": null,
+          "final_url": "https://research.google/pubs/solving-olympiad-geometry-without-human-demonstrations/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://reservoirpy.readthedocs.io/en/latest/user_guide/quickstart.html",
+      "checked_at": "2026-10-21T12:55:38+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://reservoirpy.readthedocs.io/en/latest/user_guide/quickstart.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:38+00:00",
+          "http_status": null,
+          "final_url": "https://reservoirpy.readthedocs.io/en/latest/user_guide/quickstart.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "checked_at": "2026-10-21T12:55:42+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:38+00:00",
+          "http_status": 200,
+          "final_url": "https://scikit-learn.org/stable/common_pitfalls.html",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 3309
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:42+00:00",
+          "http_status": null,
+          "final_url": "https://scikit-learn.org/stable/common_pitfalls.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/clustering.html",
+      "checked_at": "2026-10-21T12:55:45+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://scikit-learn.org/stable/modules/clustering.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:45+00:00",
+          "http_status": null,
+          "final_url": "https://scikit-learn.org/stable/modules/clustering.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/decomposition.html",
+      "checked_at": "2026-10-21T12:55:49+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://scikit-learn.org/stable/modules/decomposition.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:48+00:00",
+          "http_status": 200,
+          "final_url": "https://scikit-learn.org/stable/modules/decomposition.html",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 661
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:49+00:00",
+          "http_status": null,
+          "final_url": "https://scikit-learn.org/stable/modules/decomposition.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "checked_at": "2026-10-21T12:55:53+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:53+00:00",
+          "http_status": null,
+          "final_url": "https://scikit-learn.org/stable/modules/ensemble.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/gaussian_process.html",
+      "checked_at": "2026-10-21T12:55:57+00:00",
+      "state": "reachable",
+      "http_status": 200,
+      "final_url": "https://scikit-learn.org/stable/modules/gaussian_process.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:56+00:00",
+          "http_status": 200,
+          "final_url": "https://scikit-learn.org/stable/modules/gaussian_process.html",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 318
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:57+00:00",
+          "http_status": 200,
+          "final_url": "https://scikit-learn.org/stable/modules/gaussian_process.html",
+          "content_type": "text/html; charset=utf-8",
+          "page_title": "1.7. Gaussian Processes &#8212; scikit-learn 1.9.1 documentation",
+          "state": "reachable",
+          "elapsed_ms": 2895
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "checked_at": "2026-10-21T12:56:00+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:00+00:00",
+          "http_status": null,
+          "final_url": "https://scikit-learn.org/stable/modules/linear_model.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/neighbors.html",
+      "checked_at": "2026-10-21T12:56:05+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://scikit-learn.org/stable/modules/neighbors.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:03+00:00",
+          "http_status": 200,
+          "final_url": "https://scikit-learn.org/stable/modules/neighbors.html",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 1636
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:56:05+00:00",
+          "http_status": null,
+          "final_url": "https://scikit-learn.org/stable/modules/neighbors.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/neural_networks_supervised.html",
+      "checked_at": "2026-10-21T12:56:08+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://scikit-learn.org/stable/modules/neural_networks_supervised.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:08+00:00",
+          "http_status": null,
+          "final_url": "https://scikit-learn.org/stable/modules/neural_networks_supervised.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3004
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/outlier_detection.html",
+      "checked_at": "2026-10-21T12:56:12+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://scikit-learn.org/stable/modules/outlier_detection.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:12+00:00",
+          "http_status": null,
+          "final_url": "https://scikit-learn.org/stable/modules/outlier_detection.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/semi_supervised.html",
+      "checked_at": "2026-10-21T12:56:15+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://scikit-learn.org/stable/modules/semi_supervised.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:15+00:00",
+          "http_status": null,
+          "final_url": "https://scikit-learn.org/stable/modules/semi_supervised.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/svm.html",
+      "checked_at": "2026-10-21T12:56:19+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://scikit-learn.org/stable/modules/svm.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:18+00:00",
+          "http_status": 200,
+          "final_url": "https://scikit-learn.org/stable/modules/svm.html",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 561
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:56:19+00:00",
+          "http_status": null,
+          "final_url": "https://scikit-learn.org/stable/modules/svm.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/supervised_learning.html",
+      "checked_at": "2026-10-21T12:56:23+00:00",
+      "state": "reachable",
+      "http_status": 200,
+      "final_url": "https://scikit-learn.org/stable/supervised_learning.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:22+00:00",
+          "http_status": 200,
+          "final_url": "https://scikit-learn.org/stable/supervised_learning.html",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 301
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:56:23+00:00",
+          "http_status": 200,
+          "final_url": "https://scikit-learn.org/stable/supervised_learning.html",
+          "content_type": "text/html; charset=utf-8",
+          "page_title": "1. Supervised learning &#8212; scikit-learn 1.9.1 documentation",
+          "state": "reachable",
+          "elapsed_ms": 2985
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/unsupervised_learning.html",
+      "checked_at": "2026-10-21T12:56:26+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://scikit-learn.org/stable/unsupervised_learning.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:26+00:00",
+          "http_status": null,
+          "final_url": "https://scikit-learn.org/stable/unsupervised_learning.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "checked_at": "2026-10-21T12:56:30+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://scikit-learn.org/stable/user_guide.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:30+00:00",
+          "http_status": null,
+          "final_url": "https://scikit-learn.org/stable/user_guide.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://sites.engineering.ucsb.edu/~jbraw/mpc/",
+      "checked_at": "2026-10-21T12:55:41+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://sites.engineering.ucsb.edu/~jbraw/mpc/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:41+00:00",
+          "http_status": null,
+          "final_url": "https://sites.engineering.ucsb.edu/~jbraw/mpc/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://snntorch.readthedocs.io/en/latest/tutorials/index.html",
+      "checked_at": "2026-10-21T12:55:43+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://snntorch.readthedocs.io/en/latest/tutorials/index.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:43+00:00",
+          "http_status": null,
+          "final_url": "https://snntorch.readthedocs.io/en/latest/tutorials/index.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html",
+      "checked_at": "2026-10-21T12:55:47+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:43+00:00",
+          "http_status": 200,
+          "final_url": "https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html",
+          "content_type": "text/html",
+          "state": "reachable",
+          "elapsed_ms": 3164
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:47+00:00",
+          "http_status": null,
+          "final_url": "https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://www.columbia.edu/cu/biology/courses/w4070/Reading_List_Yuste/haas_04.pdf",
+      "checked_at": "2026-10-21T12:55:45+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://www.columbia.edu/cu/biology/courses/w4070/Reading_List_Yuste/haas_04.pdf",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:45+00:00",
+          "http_status": null,
+          "final_url": "https://www.columbia.edu/cu/biology/courses/w4070/Reading_List_Yuste/haas_04.pdf",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://www.cse.iitb.ac.in/~soumen/readings/papers/Friedman1999GreedyFuncApprox.pdf",
+      "checked_at": "2026-10-21T12:55:46+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://www.cse.iitb.ac.in/~soumen/readings/papers/Friedman1999GreedyFuncApprox.pdf",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:46+00:00",
+          "http_status": null,
+          "final_url": "https://www.cse.iitb.ac.in/~soumen/readings/papers/Friedman1999GreedyFuncApprox.pdf",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3006
+        }
+      ]
+    },
+    {
+      "url": "https://www.elastic.co/docs/solutions/search/hybrid-search",
+      "checked_at": "2026-10-21T12:55:50+00:00",
+      "state": "reachable",
+      "http_status": 200,
+      "final_url": "https://www.elastic.co/docs/solutions/search/hybrid-search",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:46+00:00",
+          "http_status": 200,
+          "final_url": "https://www.elastic.co/docs/solutions/search/hybrid-search",
+          "content_type": "text/html",
+          "state": "reachable",
+          "elapsed_ms": 3281
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:50+00:00",
+          "http_status": 200,
+          "final_url": "https://www.elastic.co/docs/solutions/search/hybrid-search",
+          "content_type": "text/html",
+          "page_title": "Hybrid search | Elastic Docs",
+          "state": "reachable",
+          "elapsed_ms": 2792
+        }
+      ]
+    },
+    {
+      "url": "https://www.mathworks.com/help/fuzzy/foundations-of-fuzzy-logic.html",
+      "checked_at": "2026-10-21T12:55:51+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://www.mathworks.com/help/fuzzy/foundations-of-fuzzy-logic.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:48+00:00",
+          "http_status": 405,
+          "final_url": "https://www.mathworks.com/help/fuzzy/foundations-of-fuzzy-logic.html",
+          "content_type": "",
+          "state": "http_error",
+          "elapsed_ms": 3088
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:51+00:00",
+          "http_status": null,
+          "final_url": "https://www.mathworks.com/help/fuzzy/foundations-of-fuzzy-logic.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3004
+        }
+      ]
+    },
+    {
+      "url": "https://www.sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html",
+      "checked_at": "2026-10-21T12:55:49+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://www.sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:49+00:00",
+          "http_status": null,
+          "final_url": "https://www.sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://www.stats.ox.ac.uk/~doucet/doucet_johansen_tutorialPF2011.pdf",
+      "checked_at": "2026-10-21T12:55:50+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://www.stats.ox.ac.uk/~doucet/doucet_johansen_tutorialPF2011.pdf",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:50+00:00",
+          "http_status": null,
+          "final_url": "https://www.stats.ox.ac.uk/~doucet/doucet_johansen_tutorialPF2011.pdf",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/owl2-primer/",
+      "checked_at": "2026-10-21T12:55:52+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://www.w3.org/TR/owl2-primer/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:52+00:00",
+          "http_status": null,
+          "final_url": "https://www.w3.org/TR/owl2-primer/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/prov-overview/",
+      "checked_at": "2026-10-21T12:55:57+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://www.w3.org/TR/prov-overview/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:55:56+00:00",
+          "http_status": 200,
+          "final_url": "https://www.w3.org/TR/prov-overview/",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 1173
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:55:57+00:00",
+          "http_status": null,
+          "final_url": "https://www.w3.org/TR/prov-overview/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/shacl/",
+      "checked_at": "2026-10-21T12:56:01+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://www.w3.org/TR/shacl/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:01+00:00",
+          "http_status": null,
+          "final_url": "https://www.w3.org/TR/shacl/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/sparql11-query/",
+      "checked_at": "2026-10-21T12:56:07+00:00",
+      "state": "network_error",
+      "http_status": null,
+      "final_url": "https://www.w3.org/TR/sparql11-query/",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "checked_at": "2026-10-21T12:56:04+00:00",
+          "http_status": 200,
+          "final_url": "https://www.w3.org/TR/sparql11-query/",
+          "content_type": "text/html; charset=utf-8",
+          "state": "reachable",
+          "elapsed_ms": 2970
+        },
+        {
+          "method": "GET",
+          "checked_at": "2026-10-21T12:56:07+00:00",
+          "http_status": null,
+          "final_url": "https://www.w3.org/TR/sparql11-query/",
+          "state": "network_error",
+          "error": "URLError: <urlopen error timed out>",
+          "elapsed_ms": 3005
+        }
+      ]
+    }
+  ]
+}

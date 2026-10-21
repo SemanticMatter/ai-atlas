@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>AI evolution: parallel traditions and combinations</title>
+<style>
+:root{color-scheme:light;--border:#e4e6e8;--muted-foreground:#71767b;--viz-series-1:#2a91d2;font:14px/1.45 Arial,sans-serif;color:#303437;background:#fff}*{box-sizing:border-box}body{margin:0;padding:16px}h2{font-size:22px;font-weight:500;line-height:1.2;margin:0 0 5px}a{color:#286e9b}button,summary,a{touch-action:manipulation}button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid #2a91d2;outline-offset:3px}.btn{font:inherit;color:inherit;background:#fff;border:1px solid var(--border);border-radius:10px;padding:4px 10px;cursor:pointer;line-height:1.3}.viz-tile{width:100%;text-align:inherit}.btn:hover{background:#f7f9fa}.btn[aria-pressed=true]{border-color:#2a91d2;box-shadow:0 0 0 1px #2a91d2;background:#f6f9fb}.text-small{font-size:12px}.text-muted{color:var(--muted-foreground)}.card{padding:14px;border:1px solid var(--border);border-radius:12px;margin-top:12px}.viz-row{display:flex;gap:14px;flex-wrap:wrap}.cursor-interaction{cursor:pointer}p{overflow-wrap:anywhere}main{display:flow-root}@media(max-width:480px){body{padding:10px}h2{font-size:20px}}
+</style></head><body><main data-figure-root><div id="ai-evolution-timeline">
+  <h2>AI evolution: parallel traditions, growing combinations</h2>
+  <div class="text-small text-muted">Selected milestones · Period bands, not a linear time scale · Arrows show selected influences or combinations</div>
+  <div id="ai-evolution-plot" role="group" aria-label="Chronological influence graph from early AI to current research and possible future directions">
+    <svg class="evolution-connectors" aria-hidden="true"></svg>
+    <div id="ai-evolution-grid"></div>
+  </div>
+  <div class="text-small text-muted">Core + selected connections · Solid: historical · Dashed: possible future · Earlier methods remain in use</div>
+  <div class="card" id="ai-evolution-detail" aria-live="polite"></div>
+  <style>
+    #ai-evolution-timeline #ai-evolution-plot {position:relative; margin:20px 0 12px;}
+    #ai-evolution-timeline .evolution-connectors {position:absolute; inset:0; width:100%; height:100%; pointer-events:none; overflow:visible;}
+    #ai-evolution-timeline #ai-evolution-grid {position:relative; display:grid; grid-template-columns:72px repeat(3,minmax(0,1fr)); gap:36px 14px; align-items:center;}
+    #ai-evolution-timeline .era {color:var(--muted-foreground); align-self:center;}
+    #ai-evolution-timeline .milestone {position:relative; min-width:0; text-align:center; overflow-wrap:anywhere;}
+    #ai-evolution-timeline .milestone-date {margin-top:5px; color:var(--muted-foreground);}
+    #ai-evolution-timeline #ai-evolution-detail {margin-top:14px;}
+    #ai-evolution-timeline .detail-row {margin:5px 0;}
+    #ai-evolution-timeline .horizon-label {font-weight:500;}
+  </style>
+  <script>
+  (() => {
+    const root=document.getElementById('ai-evolution-timeline');
+    const plot=root.querySelector('#ai-evolution-plot');
+    const grid=root.querySelector('#ai-evolution-grid');
+    const svg=root.querySelector('.evolution-connectors');
+    const detail=root.querySelector('#ai-evolution-detail');
+    const {sources:S,eras,nodes,edges}={"sources":{"history":"https://aima.cs.berkeley.edu/4th-ed/slides-pdf/chapter01.pdf","owl":"https://www.w3.org/TR/owl2-primer/","ml":"https://scikit-learn.org/stable/user_guide.html","alex":"https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html","vae":"https://arxiv.org/abs/1312.6114","gan":"https://arxiv.org/abs/1406.2661","transformer":"https://arxiv.org/abs/1706.03762","go":"https://doi.org/10.1038/nature16961","rag":"https://arxiv.org/abs/2005.11401","foundation":"https://arxiv.org/abs/2108.07258","diffusion":"https://arxiv.org/abs/2006.11239","flow":"https://arxiv.org/abs/2210.02747","react":"https://arxiv.org/abs/2210.03629","reflexion":"https://arxiv.org/abs/2303.11366","mamba":"https://arxiv.org/abs/2312.00752","geometry":"https://research.google/pubs/solving-olympiad-geometry-without-human-demonstrations/","evolve":"https://arxiv.org/abs/2506.13131","r1":"https://arxiv.org/abs/2501.12948","world":"https://arxiv.org/abs/2506.09985","genie":"https://deepmind.google/models/genie/","reflect":"https://arxiv.org/abs/2602.21198","titans":"https://arxiv.org/abs/2501.00663","nested":"https://proceedings.neurips.cc/paper_files/paper/2025/hash/4309616aaed8e848009bc4a7ef73b493-Abstract-Conference.html","llada":"https://arxiv.org/abs/2502.09992","dlexp":"https://arxiv.org/abs/2606.19475","s4":"https://arxiv.org/abs/2111.00396","diffusion2015":"https://proceedings.mlr.press/v37/sohl-dickstein15.html"},"eras":["1940s–1960s","1970s–1980s","1990s–2012","2013–2017","2018–2021","2022–2023","2024–2025","2026","Undated horizon"],"nodes":[{"id":"logic","label":"Symbolic logic","date":"1950s–60s","row":0,"col":0,"note":"Early symbolic problem-solving and knowledge representation. Formal logic predates AI.","refs":["history"],"future":false},{"id":"neural","label":"Early neural models","date":"1943–58","row":0,"col":1,"note":"Artificial neuron models and perceptrons establish a parallel connectionist tradition.","refs":["history"],"future":false},{"id":"search","label":"Heuristic search","date":"1950s–60s","row":0,"col":2,"note":"Search and planning become core problem-solving methods; later systems combine them with learned guidance.","refs":["history"],"future":false},{"id":"expert","label":"Expert systems","date":"1970s–80s","row":1,"col":0,"note":"Knowledge bases and inference engines encode specialised expertise.","refs":["history"],"future":false},{"id":"backprop","label":"Neural resurgence","date":"1986 milestone","row":1,"col":1,"note":"Backpropagation becomes influential for training multilayer networks; this is a milestone, not the first invention of differentiation.","refs":["history"],"future":false},{"id":"prob","label":"Probabilistic AI","date":"1980s milestones","row":1,"col":2,"note":"Probabilistic reasoning and statistical learning expand the treatment of uncertain evidence. This tradition continued expanding through the 1990s and beyond.","refs":["history"],"future":false},{"id":"kg","label":"Ontologies & graphs","date":"1990s–2000s","row":2,"col":0,"note":"Formal knowledge representation develops alongside web standards; OWL becomes a W3C Recommendation in 2004.","refs":["owl"],"future":false},{"id":"deep","label":"Deep CNN milestone","date":"AlexNet · 2012","row":2,"col":1,"note":"Large datasets, accelerators and improved training make deep visual recognition prominent.","refs":["alex"],"future":false},{"id":"classical","label":"Statistical ML","date":"1990s–2000s","row":2,"col":2,"note":"Kernel methods, tree ensembles and probabilistic models remain important alongside neural models.","refs":["ml"],"future":false},{"id":"gen","label":"Neural generation","date":"VAE 2013 · GAN 2014","row":3,"col":0,"note":"Latent-variable and adversarial approaches establish influential generative model families; diffusion is not a descendant of GANs.","refs":["vae","gan"],"future":false},{"id":"transformer","label":"Transformer","date":"2017","row":3,"col":1,"note":"Attention-based sequence modelling enables parallel training and a scalable backbone for many later models.","refs":["transformer"],"future":false},{"id":"go","label":"Learning + search","date":"AlphaGo · 2016","row":3,"col":2,"note":"Policy/value networks, reinforcement learning and tree search demonstrate the strength of a hybrid system.","refs":["go"],"future":false},{"id":"rag","label":"RAG","date":"2020","row":4,"col":0,"note":"Retrieval-augmented generation combines a pretrained language model with retrieved external information.","refs":["rag"],"future":false},{"id":"foundation","label":"Broad pretraining","date":"2018–21 milestones","row":4,"col":1,"note":"Transferable pretrained models span tasks and modalities. The foundation-model term was introduced in 2021; pretraining and transfer learning are older.","refs":["foundation"],"future":false},{"id":"df","label":"Denoising diffusion","date":"DDPM · 2020","row":4,"col":2,"note":"DDPM is a prominent denoising-generation milestone; diffusion generative modelling predates it, including Sohl-Dickstein and colleagues in 2015.","refs":["diffusion","diffusion2015"],"future":false},{"id":"s4","label":"Structured state spaces","date":"S4 · 2021 preprint","row":4,"col":3,"note":"S4 turns linear state-space dynamics into an efficient long-sequence neural backbone. The preprint appeared in 2021 and the conference paper at ICLR 2022. This is a specific precursor to Mamba.","refs":["s4"],"future":false},{"id":"agents","label":"LLM agent loops","date":"ReAct 2022 · Reflexion 2023","row":5,"col":0,"note":"Language models combine reasoning, tools, observations and episodic feedback. Agent research itself is much older.","refs":["react","reflexion"],"future":false},{"id":"ssm","label":"Selective state spaces","date":"Mamba · 2023","row":5,"col":1,"note":"Mamba builds on structured state-space sequence models, including S4, adding input-dependent selective dynamics to handle long sequences efficiently.","refs":["mamba"],"future":false},{"id":"flows","label":"Flow matching","date":"2022 preprint","row":5,"col":2,"note":"Flow matching trains continuous normalizing flows using a regression objective over vector fields. It shares useful connections with diffusion but is not simply a descendant of GANs.","refs":["flow"],"future":false},{"id":"ns","label":"Neuro-symbolic proofs","date":"AlphaGeometry · 2024","row":6,"col":0,"note":"A neural proposer and symbolic deduction engine cooperate on geometry. Neuro-symbolic AI predates this system.","refs":["geometry"],"future":false},{"id":"evolve","label":"LLM-guided evolution","date":"AlphaEvolve · 2025","row":6,"col":1,"note":"LLMs, automated evaluators and evolutionary search improve candidate programs.","refs":["evolve"],"future":false},{"id":"reason","label":"RL for reasoning","date":"DeepSeek-R1 · 2025","row":6,"col":2,"note":"Reinforcement learning strengthens reasoning on verifiable tasks; evaluation scope still matters.","refs":["r1"],"future":false},{"id":"world","label":"World models","date":"V-JEPA 2 / Genie 3 · 2025","row":6,"col":3,"note":"Latent prediction and interactive generative simulation develop along different paths; both can support planning research.","refs":["world","genie"],"future":false},{"id":"memory","label":"Learned memory","date":"Titans / Nested · 2024–25","row":6,"col":4,"note":"Research on learned persistent state and updates at different time scales; Titans was first submitted in December 2024 and Nested Learning appeared in 2025. Distinct from an external memory database.","refs":["titans","nested"],"future":false},{"id":"dlm","label":"Diffusion language","date":"LLaDA · 2025","row":6,"col":5,"note":"Token denoising offers an alternative to autoregressive language generation. The LLaDA study demonstrates this route; compute and quality comparisons remain workload dependent.","refs":["llada"],"future":false},{"id":"reflect","label":"Reflective planning","date":"Research · 2026","row":7,"col":0,"note":"An embodied-planning study combines candidate evaluation with adaptation from feedback; it does not establish general dependable self-correction.","refs":["reflect"],"future":false},{"id":"dlm-study","label":"Diffusion-LM evaluation","date":"Experimental analysis · 2026","row":7,"col":1,"note":"A comparative study evaluates eight diffusion language models across eight benchmarks, examining quality and efficiency. Its findings are bounded by the tested models, workloads and implementation choices.","refs":["dlexp"],"future":false},{"id":"futureagent","label":"More verifiable agents","date":"Possible direction","row":8,"col":0,"note":"Projection: wider use of external tests, formal checks, calibrated abstention and traceable decisions. No adoption date is implied.","refs":["geometry","reflect"],"future":true},{"id":"futurememory","label":"Continually adapting models","date":"Possible direction","row":8,"col":1,"note":"Projection: more persistent learned memory and controlled updates, conditional on solving interference, stability and governance problems.","refs":["titans","nested"],"future":true},{"id":"futureworld","label":"Broader embodied planning","date":"Possible direction","row":8,"col":2,"note":"Projection: tighter integration of world models, action policies and real-world feedback; simulation fidelity and transfer remain constraints.","refs":["world","genie"],"future":true}],"edges":[["logic","expert"],["expert","kg"],["neural","backprop"],["backprop","deep"],["prob","classical"],["deep","gen"],["deep","transformer"],["search","go"],["deep","go"],["transformer","foundation"],["foundation","rag"],["prob","df"],["deep","df"],["rag","agents"],["foundation","agents"],["foundation","ns"],["kg","ns"],["agents","evolve"],["search","evolve"],["foundation","reason"],["foundation","world"],["df","world"],["agents","reflect"],["reason","reflect"],["ssm","memory"],["foundation","memory"],["df","dlm"],["foundation","dlm"],["reflect","futureagent"],["ns","futureagent"],["memory","futurememory"],["world","futureworld"],["s4","ssm"],["dlm","dlm-study"],["df","flows"],["flows","world"]]};
+    const map=new Map(nodes.map(n=>[n.id,n]));
+    let selected='agents';
+    const buttons=new Map();
+    const eraElements=[];
+    eras.forEach((era,i)=>{
+      const el=document.createElement('div'); el.className='era text-small'+(i===eras.length-1?' horizon-label':''); el.textContent=era; grid.append(el); eraElements.push(el);
+      nodes.filter(n=>n.row===i).forEach(n=>{
+        const el=document.createElement('div'); el.className='milestone'; el.dataset.node=n.id;
+        const b=document.createElement('button'); b.type='button'; b.className='btn viz-tile'; b.textContent=n.label; b.setAttribute('aria-pressed',n.id===selected?'true':'false');
+        b.addEventListener('click',()=>{selected=n.id;showDetail();draw();});
+        const date=document.createElement('div'); date.className='milestone-date text-small'; date.textContent=n.date;
+        el.append(b,date); grid.append(el); buttons.set(n.id,b);
+      });
+    });
+    function showDetail(){
+      detail.replaceChildren();
+      const n=map.get(selected);
+      const line=document.createElement('div'); line.className='detail-row'; line.textContent=n.label+' · '+n.note; detail.append(line);
+      const inputs=edges.filter(e=>e[1]===selected).map(e=>map.get(e[0]).label);
+      const outputs=edges.filter(e=>e[0]===selected).map(e=>map.get(e[1]).label);
+      if(inputs.length){const x=document.createElement('div'); x.className='detail-row text-small';x.textContent='Connections in: '+inputs.join(' · ');detail.append(x);}
+      if(outputs.length){const x=document.createElement('div'); x.className='detail-row text-small';x.textContent='Connections out: '+outputs.join(' · ');detail.append(x);}
+      const links=document.createElement('div');links.className='viz-row detail-row';
+      n.refs.forEach((ref,i)=>{const a=document.createElement('a');a.href=S[ref];a.target='_blank';a.rel='noopener noreferrer';a.textContent='Source '+(i+1)+' ↗';links.append(a);});detail.append(links);
+      buttons.forEach((b,id)=>b.setAttribute('aria-pressed',id===selected?'true':'false'));
+    }
+    const ns='http://www.w3.org/2000/svg';
+    function make(tag,attrs){const e=document.createElementNS(ns,tag);for(const [k,v]of Object.entries(attrs))e.setAttribute(k,v);return e;}
+    function draw(){
+      const narrow=plot.clientWidth<560;
+      grid.style.gridTemplateColumns=narrow?'64px minmax(0,1fr)':'72px repeat(3,minmax(0,1fr))';
+      grid.style.gap=narrow?'22px 24px':'36px 14px';
+      let firstRow=1;
+      eras.forEach((era,i)=>{
+        const group=nodes.filter(n=>n.row===i).sort((a,b)=>a.col-b.col);
+        const rows=narrow?group.length:Math.ceil(group.length/3);
+        const label=eraElements[i];label.style.gridColumn='1';label.style.gridRow=firstRow+' / span '+rows;
+        group.forEach((n,j)=>{const el=buttons.get(n.id).parentElement;el.style.gridColumn=narrow?'2':String(j%3+2);el.style.gridRow=String(firstRow+(narrow?j:Math.floor(j/3)));el.style.textAlign=narrow?'left':'center';});
+        firstRow+=rows;
+      });
+      const r=plot.getBoundingClientRect();
+      svg.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);svg.replaceChildren();
+      const defs=make('defs',{});
+      ['neutral','active'].forEach(kind=>{
+        const marker=make('marker',{id:'ai-arrow-'+kind,viewBox:'0 0 8 8',refX:'7',refY:'4',markerWidth:'6',markerHeight:'6',orient:'auto-start-reverse'});
+        marker.append(make('path',{d:'M 0 1 L 7 4 L 0 7 Z',fill:kind==='active'?'var(--viz-series-1)':'var(--border)'}));defs.append(marker);
+      });svg.append(defs);
+      edges.sort((a,b)=>Number(a.includes(selected))-Number(b.includes(selected))).forEach(([from,to])=>{
+        const a=map.get(from),b=map.get(to); const active=from===selected||to===selected;
+        const core=b.row-a.row===1;
+        if(!active&&!core)return;
+        const ar=buttons.get(from).getBoundingClientRect(),br=buttons.get(to).getBoundingClientRect();
+        let d;
+        if(narrow){
+          const ax=ar.left-r.left,ay=ar.top-r.top+ar.height/2,bx=br.left-r.left,by=br.top-r.top+br.height/2;
+          const channel=ax-12-(a.col%2)*5;d=`M ${ax} ${ay} C ${channel} ${ay}, ${channel} ${by}, ${bx-3} ${by}`;
+        }else if(Math.abs(ar.top-br.top)<20){
+          const ax=ar.left-r.left,ay=ar.top-r.top+ar.height/2,bx=br.right-r.left,by=br.top-r.top+br.height/2;
+          d=`M ${ax} ${ay} C ${ax-7} ${ay-20}, ${bx+7} ${by-20}, ${bx+3} ${by}`;
+        }else{
+          const ax=ar.left-r.left+ar.width/2,ay=ar.bottom-r.top+20,bx=br.left-r.left+br.width/2,by=br.top-r.top-5;
+          const gap=(by-ay)/2;
+          d=`M ${ax} ${ay} C ${ax} ${ay+gap}, ${bx} ${by-gap}, ${bx} ${by}`;
+        }
+        svg.append(make('path',{d,fill:'none',stroke:active?'var(--viz-series-1)':'var(--border)','stroke-width':active?'1.6':'1','stroke-dasharray':b.future?'5 4':'none','marker-end':active?'url(#ai-arrow-active)':'url(#ai-arrow-neutral)'}));
+      });
+    }
+    showDetail();new ResizeObserver(draw).observe(plot);requestAnimationFrame(draw);
+  })();
+  </script>
+</div>
+</main></body></html>

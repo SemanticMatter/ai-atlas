@@ -38,6 +38,10 @@ npm test
 
 The validator checks consistency, complete guides, IDs and links between topics, graph structure, scripts, font files, generated figures and HTTP-audit coverage. It does **not** fetch references or judge research claims.
 
+## Continuous integration and deployment
+
+`.github/workflows/ci-pages.yml` runs on every push and pull request. It regenerates the site, fails if the committed `dist/` or `content/enriched-tree.html` is out of date, then runs `npm run validate` and `npm test`. Pushes to `main` publish `dist/` to GitHub Pages. In the repository settings, set **Pages → Source** to **GitHub Actions**. The network link audit is not run in CI.
+
 ## Plain-language authoring
 
 Every topic has one required `plain` string in its existing enrichment record. Lead with **what it does**, using a concrete instance or a faithful everyday analogy. Explain **when it helps**, then give **one short, specific caveat**. Usually three short sentences work well. An analogy is encouraged when it explains the mechanism; do not add one that misleads merely to satisfy a quota.

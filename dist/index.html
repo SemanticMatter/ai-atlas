@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f8f4">
+  <meta name="description" content="An interactive field guide to AI techniques, their history, practical uses, limitations, research and documentation.">
+  <title>AI Atlas — Intelligence, unfolded</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230e5147'/%3E%3Cpath d='M10 28L20 9l10 19M14 21h12' fill='none' stroke='%23e5f0aa' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="mobile-bar"><a class="brand" href="#explore"><span class="brand-symbol" aria-hidden="true">a</span>AI Atlas<span class="brand-dot">.</span></a><button class="icon-button" id="mobile-menu" aria-label="Open navigation" aria-expanded="false"></button></div>
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+    <a class="brand" href="#explore"><span class="brand-symbol" aria-hidden="true">a</span>AI Atlas<span class="brand-dot">.</span></a>
+    <p class="brand-caption">A field guide to intelligence</p>
+    <div class="side-label">THE COLLECTION</div>
+    <nav id="navigation"></nav>
+    <div class="sidebar-rule"></div>
+    <div class="side-label">YOUR SPACE</div>
+    <a class="nav-item" href="#saved" data-nav="saved"><span data-icon="bookmark"></span>Reading list<span id="saved-count" class="nav-count">0</span></a>
+    <div class="journey-nudge"><span class="eyebrow">START WITH A QUESTION</span><p>How do all these<br>ideas fit together?</p><a href="#journeys">Find your learning path <span aria-hidden="true">↗</span></a></div>
+    <div class="sidebar-bottom"><div class="edition-mark"><span></span> RESEARCH EDITION</div><p>October 2026<br><span>Curated ideas. Connected thinking.</span></p><button class="text-button" data-action="about">About this atlas <span aria-hidden="true">↗</span></button></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="breadcrumb">THE ATLAS <span>/</span> <span id="current-section">EXPLORE</span></div><button id="search-open" class="global-search"><span data-icon="search"></span><span>Find a technique</span><kbd>⌘ K</kbd></button><div class="topbar-end"><span class="edition-dot"></span> A connected view of AI</div></header>
+    <main id="main" tabindex="-1"></main>
+    <footer class="site-footer"><span id="atlas-maintainer">AI ATLAS</span><span id="atlas-version">Research edition</span></footer>
+  </div>
+  <dialog id="search-dialog" class="search-dialog"><div class="search-dialog-head"><span data-icon="search"></span><input id="global-query" type="search" autocomplete="off" placeholder="Search techniques, concepts, or examples…" aria-label="Search all techniques"><button class="icon-button" data-action="close-search" aria-label="Close search"><span data-icon="close"></span></button></div><div id="search-results"></div><div class="search-hint">Search across all five facets · Select a topic to start exploring</div></dialog>
+  <dialog id="about-dialog" class="about-dialog"><div class="dialog-title"><span class="eyebrow">ABOUT THE ATLAS</span><button class="icon-button" data-action="close-about" aria-label="Close about"><span data-icon="close"></span></button></div><h2>A map, not a single family tree.</h2><p>AI techniques overlap. A single system can combine a neural architecture, several learning signals, external knowledge and a planning controller. This atlas separates those complementary facets so you can see how the pieces fit.</p><p>The classification and evolution figures are original to AI Atlas. They show complementary facets and selected influences, not exclusive ancestry. Figure views and topic guides are generated from shared source data.</p><p id="atlas-credits"></p><p>The beginner introductions lead with concrete examples and uses. A shared six-term glossary is available beside each introduction. Read the <a href="plain-language-review.md" target="_blank" rel="noopener">plain-language review response</a> and <a href="readability-report.json" target="_blank" rel="noopener">estimated readability comparison</a>. Readability scores do not establish comprehension.</p><p>No institutional affiliation or endorsement is claimed. This is a versioned research snapshot, not an automatically updated feed or a comprehensive expert review. <a href="changelog.md" target="_blank" rel="noopener">Read the changelog</a> and <a href="review-response.md" target="_blank" rel="noopener">review response</a>.</p><h3>References, with evidence</h3><p>Each reference shows the latest recorded HTTP availability result. A successful response does not establish that a paper supports a claim. Restricted, rate-limited and failed network requests remain inconclusive.</p><p id="atlas-link-audit"></p><p><a href="link-checks.json" target="_blank" rel="noopener">Download the complete HTTP audit</a>. The project includes the checker so these results can be reproduced with a new timestamp.</p><h3>Use and attribution</h3><p id="atlas-licensing"></p><p><a href="license.md" target="_blank" rel="noopener">Licensing and third-party notices</a>. Referenced papers remain with their authors and publishers.</p><p>Your bookmarks and reading progress stay in this browser. Fonts are served with the application; this app makes no Google Fonts requests and includes no analytics. Opening a reference visits the external source.</p></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
